@@ -1,7 +1,28 @@
-# blue-yield-loan-lounge-companion
+# BlueYield Loan Lunge Companion
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+Loan Lunge Companion Page
+
+## Checklist
+
+1. Clone this repo
+
+	`$ git clone git@github.com:propelics/BlueYieldLoanLounge.git && cd BlueYieldLoanLounge`
+
+1. Install npm dependencies
+
+	`$ npm install`
+
+1. Install bower repositories
+
+	`$ bower install`
+
+1. Run preview
+	
+	`$ grunt serve`
+
+1. For dist builds
+
+	`$ grunt`
 
 ## Build & development
 
