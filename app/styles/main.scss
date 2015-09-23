@@ -3,6 +3,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import 'header';
+@import 'home';
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -15,15 +18,15 @@ body {
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
+.header1,
+.marketing1,
+.footer1 {
   padding-left: 15px;
   padding-right: 15px;
 }
 
 /* Custom page header */
-.header {
+.header1 {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
 
@@ -37,7 +40,7 @@ body {
 }
 
 /* Custom page footer */
-.footer {
+.footer1 {
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
@@ -59,7 +62,7 @@ body {
 }
 
 /* Supporting marketing content */
-.marketing {
+.marketing1 {
   margin: 40px 0;
 
   p + h4 {
@@ -74,18 +77,18 @@ body {
   }
 
   /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
+  .header1,
+  .marketing1,
+  .footer1 {
     padding-left: 0;
     padding-right: 0;
   }
   /* Space out the masthead */
-  .header {
+  .header1 {
     margin-bottom: 30px;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
+  .jumbotron1 {
     border-bottom: 0;
   }
 }

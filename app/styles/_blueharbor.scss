@@ -1,0 +1,266 @@
+@import 'variables';
+
+
+@mixin bh-col($width) {
+  display: block;
+  float: left;
+  width: $width;
+  padding-left: 0.3125em;
+  padding-right: 0.3125em;
+
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+body {
+  font-family: nanami_pronormal, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: $default-font-size;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  padding: 0;
+  color: $color-default;
+
+  &.margin-xs {
+    margin-top: 0.375em;
+    margin-bottom: 0.375em;
+  }
+
+  &.margin-sm {
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+  }
+
+  &.margin-md {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
+
+  &.margin-lg {
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+}
+
+h1 {
+  font-family: nanami_pronormal, sans-serif;
+  font-size: 3.75em;
+}
+
+h2 {
+  font-family: nanami_pronormal, sans-serif;
+  font-size: 2.8125em;
+}
+
+h3 {
+  font-family: nanami_prolight, sans-serif;
+  font-size: 2.25em;
+}
+
+h4 {
+  font-family: nanami_proextra_light, sans-serif;
+  font-size: 1.63em;
+}
+
+h5 {
+  font-family: nanami_pronormal, sans-serif;
+  font-size: 1.125em;
+}
+
+hr {
+  border-color: $color-muted;
+}
+
+
+
+.bg-success {
+  background-color: $color-success;
+  color: $color-default;
+
+  a {
+    color: $color-default;
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-muted;
+    }
+  }
+}
+
+.bg-danger {
+  background-color: $color-danger;
+  color: $color-default;
+}
+
+.bg-muted {
+  background-color: $color-muted;
+}
+
+.bg-grey-light {
+  background-color: $color-grey-dark;
+  color: $color-default;
+}
+
+.bh-glyphicon {
+  position: relative;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.color-primary {
+  color: $color-primary;
+}
+
+.color-default {
+  color: $color-default;
+}
+
+.color-success {
+  color: $color-success;
+}
+
+.color-muted {
+  color: $color-muted;
+}
+
+.color-grey-dark {
+  color: $color-grey-dark;
+}
+
+.color-grey-darkest {
+  color: $color-grey-darkest;
+}
+
+.color-black {
+  color: black;
+}
+
+.currency-symbol {
+  font-family: nanami_prolight, sans-serif;
+  font-size: 0.65em;
+  vertical-align: top;
+}
+
+.btn {
+  font-family: nanami_probold, sans-serif;
+  font-size: 1em;
+  min-height: 38px;
+  border-radius: 0.5em;
+
+  &.btn-slim {
+    min-height: initial;
+    font-family: nanami_proextra_light, sans-serif;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    font-size: 0.875em;
+  }
+
+  &.btn-success {
+    background-color: $color-success;
+  }
+
+  &.btn-default {
+    color: $color-primary;
+  }
+}
+.bh-col {
+  @include bh-col(auto);
+}
+
+.bh-col-1 {
+  @include bh-col($bh-col-base-width);
+}
+
+.bh-col-2 {
+  @include bh-col($bh-col-base-width * 2);
+}
+
+.bh-col-3 {
+  @include bh-col($bh-col-base-width * 3);
+}
+
+.bh-col-4 {
+  @include bh-col($bh-col-base-width * 4);
+}
+
+.bh-col-5 {
+  @include bh-col($bh-col-base-width * 5);
+}
+
+.bh-col-6 {
+  @include bh-col($bh-col-base-width * 6);
+}
+
+.bh-col-7 {
+  @include bh-col($bh-col-base-width * 7);
+}
+
+.bh-col-8 {
+  @include bh-col($bh-col-base-width * 8);
+}
+
+.bh-input-group-addon {
+  position: absolute;
+  z-index: 999;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.table {
+  thead {
+    tr {
+      th {
+        font-family: nanami_promedium, sans-serif;
+      }
+    }
+  }
+
+  &.table-borderless {
+    tr {
+      > td {
+        border: 0;
+      }
+    }
+  }
+}
+
+.table-responsive .custom-table{
+border: none;
+}
+
+/* CSS Styles for Phones */
+@media (min-width: 0px) and (max-width: 768px) {
+  h1 {
+    font-size: 2.50em;
+  }
+
+  h2 {
+    font-size: 1.90em;
+  }
+
+  h3 {
+    font-size: 1.40em;
+  }
+
+  h4 {
+    font-size: 1.30em;
+  }
+
+  h5 {
+    font-size: 1.10em;
+  }
+}

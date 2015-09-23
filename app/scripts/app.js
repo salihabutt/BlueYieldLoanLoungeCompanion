@@ -16,22 +16,29 @@ angular
 		'ngRoute',
 		'ngSanitize',
 		'ngTouch',
-		'ui.router'
+		'ui.router',
+		'angularMoment'
 	])
 	.config(function ($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise('main');
 
-		$stateProvider
-			.state('main', {
-				url: '/',
-				templateUrl: 'views/main.html',
-				controller : 'MainCtrl',
-				controllerAs : 'main'
-			})
-			.state('about', {
-				url : '/about',
-				templateUrl: 'views/about.html',
-				controller: 'AboutCtrl',
-				controllerAs: 'about'
-			})
+		
+    $stateProvider
+      .state('main', {
+        url: '',
+        templateUrl: 'views/main.html',     
+		abstract: 'true'		
+		})
+		.state('home', {
+          parent: 'main',
+          url:'',
+          views: {
+            'header' : {
+              templateUrl: 'views/header.html'
+            },
+            'content' : {
+              templateUrl: 'views/home.html'
+            }
+          }
+        });
 	});

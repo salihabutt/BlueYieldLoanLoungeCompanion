@@ -1,0 +1,20 @@
+/* BRAND COLOR VARIABLES */
+$color-primary: #3D6FB1;
+/*
+$color-secondary: #000;
+*/
+$color-danger: #B86565;
+$color-success: #86A956;
+$color-default: #FFFFFF;
+$color-muted: #DEDEDE;
+$color-grey-dark: darken($color-muted, 25);
+$color-grey-darkest: darken($color-muted, 50);
+
+/* DEFAULT STYLES */
+$default-border-radius: 0;
+$default-font-size: 16px;
+
+/* BASE VALUES */
+$spacer-base-height: 3.125em;
+$bh-col-base-width: 12.5%;
+

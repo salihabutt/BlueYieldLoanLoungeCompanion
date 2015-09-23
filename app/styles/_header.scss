@@ -1,0 +1,25 @@
+.header {
+	background-color:#16154A;
+	height:25px;
+	color:white;
+	font-size:8px;
+	text-transform: uppercase;
+}
+
+.user {
+    border-radius: 2px;
+    background: #93B0CA;
+    width: 18px;
+    height: 18px; 
+    margin-left: 15px; 
+    margin-top: 3px; 
+}
+.logo-style { 
+	margin-top: 2px;
+	/*float:right;*/
+}
+.user-info {
+	display: inline-block;
+	margin-left: -60px;
+	margin-top: 2px;
+}
