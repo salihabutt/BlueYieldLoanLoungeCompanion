@@ -1,16 +1,86 @@
-.component {
-	margin-left:15px;
-}
+.left-panel {
+	width: 420px;
+	border-right: 1px solid #D8DDE3;
+	background-color: #edf2f8;
+	height: auto;
+	position: absolute;
+	top: 105px;
+	left: 0px;
 
-.home-bg {
-	background: #3473A9;
-	display:flex;
-}
+	.icon-bar {
+		background-color: #fff;
+		padding:20px 20px;
+		font-size: 18px; 
+		color: #262D40 ;
+		border-bottom: 1px solid #D8DDE3;
 
-.contact-box {
- width: 151px;
- height: 28px;
- border: 1px black solid;
- margin-left:8px;
- font-size:9px;
+		.icon {
+			float: right;
+			padding-left:30px;
+			cursor:pointer;
+		}
+	}
+
+	.widget-section {
+		padding:20px;
+		.loan-pakage-widget {
+			border : 1px solid #D8DDE3;
+
+			.widget-heading {
+			    font-size: 18px;
+			    background-color: #99A5B3;
+			    height: 50px;
+			    padding: 12px;
+			    color: #fff;
+			}
+			.widget-sub-heading {
+			    font-size: 18px;
+			    height: 50px;
+			    padding: 12px;
+			    color: #000;
+			    text-align: center;
+			    border-bottom: 1px solid #D8DDE3;
+			    border-top : 1px solid #D8DDE3;
+			}
+			.input-box-section {
+				background-color: #ffffff;
+				padding: 10px 20px 20px 20px;
+			}
+
+			.widget-textbox {
+			    width: 76%;
+			    height: 40px;
+			    padding: 0px 12px;
+			    border: 1px solid #D8DDE3;
+			}
+
+			.widget-button {
+			    width: 80px;
+			    margin-left: -5px;
+			    font-size: 14px;
+			    height: 40px;
+			    background-color: #5ACE73;
+			    border: 2px solid #5ACE73;
+			    border-bottom: 2px solid #48A95D;
+			    color: #fff;
+			}
+
+			.checkbox-box-section {
+
+				.checkbox {
+						font-size: 16px;
+						color:#000;
+						margin: 22px 0px 26px 0px;
+					}
+
+				textarea {
+				    height: 65px;
+					width: 228px;
+					vertical-align: top;
+					margin-right: 10px;
+					margin-bottom:30px;
+				}
+			}
+		}
+	}
 }

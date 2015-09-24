@@ -1,25 +1,78 @@
-<div class="row home-bg">
-<div class="col-md-7">
-<span class="component">Account Number: 209005</span>
-</div>
-<div class="col-md-5">
-<span class="component">Applied: 209005</span>
-<span class="component">Time since applied: 209005</span>
-<span class="component">product: refinance</span>
-</div>
-<div>
-</div>
-</div>
-<div class="row home-bg">
-<div class="col-md-6">
-</div>
-<div class="col-md-6" style="display:flex"> 
-<div class="contact-box">Cellphone</div>
-
-<div class="contact-box">home<br/>(123)456-789</div>
-
-<div class="contact-box">Cellphone</div>
-
-<div class="contact-box">home<br/>(123)456-789</div>
-
+<div ng-include="'views/applicantinfo.html'" class="applicant-info"></div>
+<div class="left-panel">
+	<div class="col-lg-12 icon-bar">
+		<div class="clearfix">
+			3 files selected
+			<span class="icon">
+				<img src="../images/bt_print@2x.png" alt="delete-btn" /> 
+			</span>
+			<span class="icon">
+				<img src="../images/bt_donwload@2x.png" alt="delete-btn" /> 
+			</span> 
+			<span class="icon">
+				<img src="../images/bt_Merge@2x.png" alt="delete-btn" /> 
+			</span> 
+			<span class="icon">
+				<img src="../images/bt_delete@2x.png" alt="delete-btn" /> 
+			</span>  
+		</div>
+	</div>
+	<div class="col-lg-12 widget-section">
+		<!-- loan package portion  -->
+		<div class="col-lg-12 no-padding loan-pakage-widget">
+			<div class="col-lg-12 widget-heading">
+				Loan Package
+			</div>
+			<div class="col-lg-12 widget-sub-heading">
+				Sent to Customer
+			</div>
+			<div class="col-lg-12 input-box-section">
+				<input type="text" class="widget-textbox" placeholder="Select or drag&drop file to upload" />
+				<input type="button" class="widget-button" value="SELECT" />
+			</div>
+			<div class="col-lg-12 widget-sub-heading">
+				Received to Customer
+			</div>
+			<div class="col-lg-12 input-box-section">
+				<input type="text" class="widget-textbox" placeholder="Select or drag&drop file to upload" />
+				<input type="button" class="widget-button" value="SELECT" />
+			</div>
+			<div class="col-lg-12 widget-sub-heading">
+				Loan Package Verification Checklist
+			</div>
+			<div class="col-lg-12 checkbox-box-section">
+				<div class="col-lg-12">
+					<div class="checkbox">
+				    	<label>
+				      		<input type="checkbox"> Loneliner Application
+				    	</label>
+				  	</div>
+				  	<div class="checkbox">
+				    	<label>
+				      		<input type="checkbox"> Tier Addendum
+				    	</label>
+				  	</div>
+				  	<div class="checkbox">
+				    	<label>
+				      		<input type="checkbox"> Agreement to Provide Insurance
+				    	</label>
+				  	</div>
+				  	<div class="checkbox">
+				    	<label>
+				      		<input type="checkbox"> Tier Addendum
+				    	</label>
+				  	</div>
+				  	<div class="checkbox">
+				    	<label>
+				      		<input type="checkbox"> Agreement to Provide Insurance
+				    	</label>
+				  	</div>
+				</div>
+				<div class="col-lg-12 checkbox-box-section">
+					<textarea></textarea>
+					<input type="button" class="widget-button no-margin" value="SEND" />
+				</div>
+			</div>
+		</div>
+	</div>	
 </div>

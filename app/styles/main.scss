@@ -4,6 +4,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // endbower
 
 @import 'header';
+@import 'applicantinfo';
 @import 'home';
 
 .browsehappy {
@@ -91,4 +92,15 @@ body {
   .jumbotron1 {
     border-bottom: 0;
   }
+}
+
+/* helper classes */
+
+
+.no-padding {
+  padding:0px !important;
+}
+
+.no-margin {
+  padding:0px !important;
 }

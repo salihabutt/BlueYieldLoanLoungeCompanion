@@ -1,0 +1,27 @@
+<div ng-controller="AppInfoCtrl as appCtrl">
+<div class="row  account-info">
+<div class="col-md-7">
+<span>Account Number: {{appCtrl.account}}</span>
+</div>
+<div class="col-md-5">
+<span>APPLIED: {{appCtrl.appliedBy}}</span>
+<span>TIME SINCE APPLIED: {{appCtrl.timeSinceApplied}}</span>
+<span>PRODUCT: {{appCtrl.product}}</span>
+</div>
+<div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3">
+<div style="margin-left:15px">{{appCtrl.applicantInfo.name}}<br/> {{appCtrl.applicantInfo.address}}</div>
+</div>
+<div class="col-md-3">
+<div>{{appCtrl.applicantInfo.name2}}<br/> {{appCtrl.applicantInfo.address2}}</div>
+</div>
+<div class="col-md-6 personal-info"> 
+<div class="contact-box"><div style="width:40px; height:45px;border-right: 1px #455363 solid;"><img src="images/im_phone.png"></img></div><div style="vertical-align: -webkit-baseline-middle;padding: 5px"><span>Cellphone</span><br/>{{appCtrl.applicantInfo.cellphone}}</div></div>
+<div class="contact-box"><div style="width:40px; height:45px;border-right: 1px #455363 solid;"><img src="images/im_phone.png"></img></div><div style="vertical-align: -webkit-baseline-middle;padding: 5px"><span>Home</span><br/>{{appCtrl.applicantInfo.home}}</div></div>
+<div class="contact-box"><div style="width:40px; height:45px;border-right: 1px #455363 solid;"><img src="images/im_phone.png"></img></div><div style="vertical-align: -webkit-baseline-middle;padding: 5px"><span>Work</span><br/>{{appCtrl.applicantInfo.work}}</div></div>
+<div class="contact-box"><div style="width:40px; height:45px;border-right: 1px #455363 solid;"><img src="images/_im_mail.png"></img></div><div style="vertical-align: -webkit-baseline-middle;padding: 5px"><span>Email</span><br/>{{appCtrl.applicantInfo.email}}</div></div>
+</div>
+</div>

@@ -1,0 +1,41 @@
+.applicant-info {
+	background: #3473A9;
+	height: 80px;
+	font-family: open sans;
+	font-size: 12px;
+	color: #FFFFFF;
+	
+}
+.account-info {
+	height: 25px;
+}
+.account-info span{
+	margin-left: 15px;
+}
+
+	.component {
+	margin-left: 15px;
+}
+
+.personal-info {
+	display: flex;
+	font-size: 16px;
+}
+
+.contact-box {
+ width: 151px;
+ height: 45px;
+ border: 1px #455363 solid;
+ margin-left: 8px;
+ border-radius: 2px;
+ font-size:10px;
+ display: -webkit-box;
+}
+.contact-box span {
+	font-weight: bold;
+	font-size: 10px;
+}
+.contact-box img {
+    margin-top: 15px;
+    margin-left: 15px;
+}
