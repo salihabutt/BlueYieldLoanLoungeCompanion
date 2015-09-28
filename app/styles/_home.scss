@@ -23,7 +23,9 @@
 
 	.widget-section {
 		padding:20px;
-		.loan-pakage-widget {
+
+
+		.universal-widget-style {
 			border : 1px solid #D8DDE3;
 
 			.widget-heading {
@@ -47,6 +49,13 @@
 				padding: 10px 20px 20px 20px;
 			}
 
+			.document-box-section {
+				background-color: #ffffff;
+				padding: 10px 10px 10px 10px;
+				 border-bottom: 1px solid #D8DDE3;
+			    border-top : 1px solid #D8DDE3;
+			}
+
 			.widget-textbox {
 			    width: 76%;
 			    height: 40px;
@@ -63,6 +72,34 @@
 			    border: 2px solid #5ACE73;
 			    border-bottom: 2px solid #48A95D;
 			    color: #fff;
+			}
+
+			.widget-button-verify {
+			    width: 80px;
+			    font-size: 14px;
+			    height: 40px;
+			    background-color: #B1B8C8;
+			    border: 2px solid #B1B8C8;
+			    border-bottom: 2px solid #9C9E9C;
+			    color: #fff;
+			}
+			.document-to-verify {
+			    font-size: 18px;
+			    padding: 12px;
+			    color: #000;
+			    text-align: center;
+			    border-bottom: 1px solid #D8DDE3;
+			    border-top : 1px solid #D8DDE3;
+			}
+
+			.location-status{
+				font-size: 12px;
+				color: grey;
+			}
+
+			.image-status{
+				font-size: 14px;
+				color: grey;	
 			}
 
 			.checkbox-box-section {
