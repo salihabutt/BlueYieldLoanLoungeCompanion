@@ -17,7 +17,10 @@ angular
 		'ngSanitize',
 		'ngTouch',
 		'ui.router',
-		'angularMoment'
+		'angularMoment',
+		'ui.sortable',
+		'jkuri.slimscroll',
+		'ui.mask'
 	])
 	.config(function ($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise('main');
@@ -38,7 +41,8 @@ angular
             },
             'content' : {
               templateUrl: 'views/home.html'
-            }
+            },
+            controller:'HomeCtrl'
           }
         });
 	});

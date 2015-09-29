@@ -1,25 +1,31 @@
 .header {
 	background-color:#16154A;
-	height:25px;
-	color:white;
-	font-size:8px;
+	height:43px;
+	color:#FFFFFF;
+	font-size:13px;
 	text-transform: uppercase;
+	padding-top: 3px;
+	width:100%;
 }
 
-.user {
-    border-radius: 2px;
-    background: #93B0CA;
-    width: 18px;
-    height: 18px; 
-    margin-left: 15px; 
-    margin-top: 3px; 
+.user-wrapper {
+	display: -webkit-box;
+		
+	.user-icon {
+    	border-radius: 2px;
+    	background: #93B0CA;
+    	width: 36px;
+    	height: 36px; 
+   	 	margin-left: 15px; 
+	}
+	
+	.user-info {
+		margin-left:5px;
+		span {
+			font-weight: bold;
+		}
+	}
 }
-.logo-style { 
-	margin-top: 2px;
-	/*float:right;*/
-}
-.user-info {
-	display: inline-block;
-	margin-left: -60px;
-	margin-top: 2px;
-}
+
+
+

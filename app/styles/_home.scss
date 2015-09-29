@@ -4,7 +4,7 @@
 	background-color: #edf2f8;
 	height: auto;
 	position: absolute;
-	top: 105px;
+	/*top: 150px;*/
 	left: 0px;
 
 	.icon-bar {
@@ -74,6 +74,16 @@
 			    color: #fff;
 			}
 
+			.widget-button-long {
+			    width: 100%;
+			    font-size: 14px;
+			    height: 40px;
+			    background-color: #5ACE73;
+			    color: #fff;
+			    border: none;
+    			text-align: center;
+			}
+
 			.widget-button-verify {
 			    width: 80px;
 			    font-size: 14px;
@@ -117,6 +127,10 @@
 					margin-right: 10px;
 					margin-bottom:30px;
 				}
+			}
+			.list-no-style {
+				list-style-type:none;
+				padding-left:0px
 			}
 		}
 	}
