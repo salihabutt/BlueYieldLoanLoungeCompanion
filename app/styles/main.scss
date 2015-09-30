@@ -6,6 +6,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import 'header';
 @import 'applicantinfo';
 @import 'home';
+@import 'preview';
+@import 'jquery-ui';
+@import 'datepicker';
 
 .browsehappy {
   margin: 0.2em 0;
@@ -112,3 +115,35 @@ body {
 .margin-top20{
   margin-top: 20px;
 }
+
+.padding-top20{
+  padding-top: 20px;
+}
+
+.border-bottom{
+  border-bottom: 1px solid #D8DDE3;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align glyph */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
