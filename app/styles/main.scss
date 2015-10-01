@@ -7,8 +7,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import 'applicantinfo';
 @import 'home';
 @import 'preview';
-@import 'jquery-ui';
+@import 'popup';
 @import 'datepicker';
+@import 'jquery-ui';
 
 .browsehappy {
   margin: 0.2em 0;
@@ -147,3 +148,7 @@ body {
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
 
+.test {
+	
+	background-color: inherit;
+}

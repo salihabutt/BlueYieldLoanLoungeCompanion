@@ -20,7 +20,9 @@ angular
 		'angularMoment',
 		'ui.sortable',
 		'jkuri.slimscroll',
-		'ui.mask'
+		'ui.mask',
+		'ui.bootstrap',
+		'ngDropzone'
 	])
 	.config(function ($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise('main');

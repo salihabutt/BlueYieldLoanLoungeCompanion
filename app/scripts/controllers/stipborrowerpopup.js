@@ -8,10 +8,13 @@
  * Controller of the blueYieldLoanLoungeCompanionApp
  */
 angular.module('blueYieldLoanLoungeCompanionApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma',
-    ];
-  });
+  .controller('stipborrowerPopupCtrl', function ($scope, $modal, $modalInstance) {
+
+    $scope.ok = function () {
+      console.log(this);
+  	};
+
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
+});

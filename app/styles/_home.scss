@@ -122,7 +122,7 @@
 
 				textarea {
 				    height: 65px;
-					width: 228px;
+					width: 223px;
 					vertical-align: top;
 					margin-right: 10px;
 					margin-bottom:30px;
@@ -133,5 +133,16 @@
 				padding-left:0px
 			}
 		}
+	.fileupload {
+		min-height: inherit;
+		background-color: inherit;
+		padding: initial;
+	}
+	.dropzone .dz-default.dz-message{
+		background-image: none !important;
+	}
+	.dz-preview {
+ 	 	display: none;
+	}
 	}
 }
