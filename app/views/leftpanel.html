@@ -23,25 +23,41 @@
 		<!-- loan package portion  -->
 		<div class="col-lg-12 no-padding universal-widget-style">
 			<div class="col-lg-12 widget-heading">Loan Package</div>
+			<div ng-controller="FileCtrl as file">
 			<div class="col-lg-12 widget-sub-heading">Sent to Customer</div>
-			<div class="col-lg-12 input-box-section">
-				<input type="text" class="widget-textbox"
+	
+				<div class="col-lg-12 input-box-section">
+				<div class="col-lg-12 checkbox-box-section">
+				<div class="col-lg-12">
+					<ul ui-sortable ng-model="file.sendCustfiles" class="list-no-style">
+					<li ng-repeat="item in file.sendCustfiles">
+						<div class="checkbox col-lg-9">
+							<label> <input type="checkbox"> {{item.name}}
+							</label>
+							
+						</div>
+						<div class="col-lg-3">
+						<input type="button" class="widget-button-send" value="Send" />
+						</div>
+					</li>
+				</ul>
+				</div>
+			</div>
+			 <input type="text" class="widget-textbox"
 					placeholder="Select or drag&drop file to upload" /> <input
 					type="button" class="widget-button" value="SELECT" />
+				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="file.sendCustConfig">
+             
+              </form>
 			</div>
+			
 			<div class="col-lg-12 widget-sub-heading">Received to Customer
 			</div>
-			<div class="col-lg-12 input-box-section">
-				<input type="text" class="widget-textbox"
-					placeholder="Select or drag&drop file to upload" /> <input
-					type="button" class="widget-button" value="SELECT" />
-			</div>
-			<div class="col-lg-12 widget-sub-heading">Loan Package
-				Verification Checklist</div>
-			<div class="col-lg-12 checkbox-box-section">
+				<div class="col-lg-12 input-box-section">
+					<div class="col-lg-12 checkbox-box-section">
 				<div class="col-lg-12">
-					<ul ui-sortable ng-model="home.loanPkgChecklist" class="list-no-style">
-					<li ng-repeat="item in home.loanPkgChecklist">
+					<ul ui-sortable ng-model="file.recCustfiles" class="list-no-style">
+					<li ng-repeat="item in file.recCustfiles">
 						<div class="checkbox">
 							<label> <input type="checkbox"> {{item.name}}
 							</label>
@@ -49,165 +65,37 @@
 					</li>
 				</ul>
 				</div>
-				<div class="col-lg-12 checkbox-box-section">
-					<textarea></textarea>
+			</div>
+			<input type="text" class="widget-textbox"
+					placeholder="Select or drag&drop file to upload" /> <input
+					type="button" class="widget-button" value="SELECT" />
+				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone  dropzone-config="file.recCustConfig">
+              
+              </form>
+			</div>
+			</div>
+			<div class="col-lg-12 widget-sub-heading">Loan Package
+				Verification Checklist</div>
+			<div class="col-lg-12 checkbox-box-section">
+				<div class="col-lg-12">
+					<ul ng-model="home.loanPkgChecklist" class="list-no-style">
+					<li ng-repeat="item in home.loanPkgChecklist">
+						<div class="checkbox">
+							<label> <input type="checkbox" ng-model="item.check" ng-click="home.loanPkgCheck()"> {{item.name}}
+							</label>
+						</div>
+					</li>
+				</ul>
+				</div>
+				<div class="col-lg-12 checkbox-box-section no-padding">
+					<textarea ng-model="LoanPackText"></textarea>
 					<input type="button" class="widget-button no-margin" value="SEND" />
 				</div>
 			</div>
 		</div>
 
 		<!-- Borrower Stips portion  -->
-		<div class="col-lg-12 no-padding universal-widget-style margin-top20">
-			<div class="col-lg-10 widget-heading">Borrower Stips</div>
-			<div class="col-lg-2 no-padding widget-heading">
-				<!-- <img src="../images/bt_print@2x.png" alt="plus sign" /> -->
-			</div>
-			<div class="col-lg-12 document-to-verify">
-				<table class="col-lg-12 no-padding">
-					<tr>
-						<td>
-							<div class="checkbox">
-								<label> <input type="checkbox">
-								</label>
-							</div>
-						</td>
-						<td class="text-left">
-							<p class="no-margin">Driver License Front</p>
-							<p class="no-margin image-status">09/12/15: Blurred Image</p>
-							<p class="no-margin location-status">Location Coborrower -
-								Driver's License(Front)</p>
-						</td>
-						<td><input type="button" class="widget-button-verify"
-							value="VERIFY" /></td>
-					</tr>
-				</table>
-			</div>
-			<div class="col-lg-12 document-box-section">
-				<table class="col-lg-12 no-padding">
-					<tr>
-						<td>
-							<div class="checkbox">
-								<label> <input type="checkbox">
-								</label>
-							</div>
-						</td>
-						<td class="text-left">
-							<p class="no-margin">dl_front.pdf</p>
-						</td>
-						<td class="text-right">uploaded: 09/12/15</td>
-					</tr>
-				</table>
-			</div>
-			<div class="col-lg-12 input-box-section">
-				<input type="text" class="widget-textbox"
-					placeholder="Select or drag&drop file to upload" /> <input
-					type="button" class="widget-button" value="SELECT" />
-			</div>
-
-			<div class="col-lg-12 document-to-verify">
-				<table class="col-lg-12 no-padding">
-					<tr>
-						<td>
-							<div class="checkbox">
-								<label> <input type="checkbox">
-								</label>
-							</div>
-						</td>
-						<td class="text-left">
-							<p class="no-margin">Driver License Front</p>
-							<p class="no-margin image-status">09/12/15: Blurred Image</p>
-							<p class="no-margin location-status">Location Coborrower -
-								Driver's License(Front)</p>
-						</td>
-						<td><input type="button" class="widget-button-verify"
-							value="VERIFY" /></td>
-					</tr>
-				</table>
-			</div>
-			<div class="col-lg-12 document-box-section">
-				<table class="col-lg-12 no-padding">
-					<tr>
-						<td>
-							<div class="checkbox">
-								<label> <input type="checkbox">
-								</label>
-							</div>
-						</td>
-						<td class="text-left">
-							<p class="no-margin">dl_front.pdf</p>
-						</td>
-						<td class="text-right">uploaded: 09/12/15</td>
-					</tr>
-				</table>
-			</div>
-			<div class="col-lg-12 input-box-section">
-				<input type="text" class="widget-textbox"
-					placeholder="Select or drag&drop file to upload" /> <input
-					type="button" class="widget-button" value="SELECT" />
-			</div>
-
-			<div class="col-lg-12 document-to-verify">
-				<table class="col-lg-12 no-padding">
-					<tr>
-						<td>
-							<div class="checkbox">
-								<label> <input type="checkbox">
-								</label>
-							</div>
-						</td>
-						<td class="text-left">
-							<p class="no-margin">Insurance Card</p>
-						</td>
-						<td><input type="button" class="widget-button-verify"
-							value="VERIFY" /></td>
-					</tr>
-				</table>
-			</div>
-			<div class="col-lg-12 document-box-section">
-				<table class="col-lg-12 no-padding">
-					<tr>
-						<td>
-							<div class="checkbox">
-								<label> <input type="checkbox">
-								</label>
-							</div>
-						</td>
-						<td class="text-left">
-							<p class="no-margin">dl_front.pdf</p>
-						</td>
-						<td class="text-right">uploaded: 09/12/15</td>
-					</tr>
-				</table>
-			</div>
-			<div class="col-lg-12 input-box-section">
-				<input type="text" class="widget-textbox"
-					placeholder="Select or drag&drop file to upload" /> <input
-					type="button" class="widget-button" value="SELECT" />
-			</div>
-
-			<div class="col-lg-12 document-to-verify">
-				<table class="col-lg-12 no-padding">
-					<tr>
-						<td>
-							<div class="checkbox">
-								<label> <input type="checkbox">
-								</label>
-							</div>
-						</td>
-						<td class="text-left">
-							<p class="no-margin">Registration</p>
-						</td>
-						<td><input type="button" class="widget-button-verify"
-							value="VERIFY" /></td>
-					</tr>
-				</table>
-			</div>
-			<div class="col-lg-12 input-box-section">
-				<input type="text" class="widget-textbox"
-					placeholder="Select or drag&drop file to upload" /> <input
-					type="button" class="widget-button" value="SELECT" />
-			</div>
-		</div>
+		<div ng-include="'views/stipborrower.html'"></div>
 
 		<!-- Co-Borrower Stips portion  -->
 		<div class="col-lg-12 no-padding universal-widget-style margin-top20">
@@ -350,3 +238,5 @@
 	</div>
 	</div>
 </div>
+
+

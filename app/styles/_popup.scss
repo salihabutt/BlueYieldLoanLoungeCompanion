@@ -1,0 +1,75 @@
+.modal-dialog{
+	
+	width: 600px;
+	margin: 40px auto;
+
+	.modal-header{
+		height: 50px;
+	    background-color: #E7E7E7;
+	    border-bottom: 1px solid #B5B4B4;
+	    text-align: center;
+
+	    .modal-title{
+			line-height: 1;
+			font-size: 16px;
+			/*font-family: Open Sans;*/
+			font-weight: bold;
+		}
+		.model-sendCustomer{
+		width: 505px;
+		height: 286px;
+	}
+	}
+
+	.modal-body{
+		background-color: #f7f7f7;
+	
+		.stip-category{
+			list-style: none;
+			padding:0px 0px 0px 29px;
+
+			.checkbox{
+				font-size: 16px;
+			}
+		}
+	}
+	.modal-footer{
+		border:0px;
+		background-color: #f7f7f7;
+
+		.popup-btn-done{
+			width: 120px;
+		    margin-left: -5px;
+		    font-size: 14px;
+		    height: 40px;
+		    background-color: #5ACE73;
+		    border: 2px solid #5ACE73;
+		    border-bottom: 2px solid #48A95D;
+		    color: #fff;
+		}
+
+		.popup-btn-close{
+			width: 120px;
+		    font-size: 14px;
+		    height: 40px;
+		    background-color: #B1B8C8;
+		    border: 2px solid #B1B8C8;
+		    border-bottom: 2px solid #9C9E9C;
+		    color: #fff;
+		    margin-right: 20px;
+		}
+	}
+	.model-sendCust-body {
+		background-color: #f7f7f7;
+		font-size: 14px;
+		font-family: "Helvetica";
+		padding-top: 10px;
+		p {
+			margin: 0 0 0;
+		}
+		.modal-im-doc {
+			padding-top: 10px;
+		}
+	}
+
+}

@@ -6,57 +6,77 @@
  * @description # HomeCtrl Controller of the blueYieldLoanLoungeCompanionApp
  */
 angular.module('blueYieldLoanLoungeCompanionApp').controller('HomeCtrl',
-		function() {
+		function($scope) {
+			var self = this,
+			init = function (){
+				self.loanPackNote();
+			}; 
 			this.loanPkgChecklist = [ {
 				name : 'Loneliner Application',
-				type : 'pdf'
+				check : false
 			}, {
 				name : 'Tier Addendum',
-				type : 'pdf'
+				check : false
 			}, {
 				name : 'Agreement to Provide Insurance',
-				type : 'pdf'
+				check : false
 			}, {
 				name : 'Lone Summary Statement',
-				type : 'pdf'
+				check : false
 			}, {
 				name : 'Title Application',
-				type : 'pdf'
+				check : false
 			}, {
 				name : 'Authorization for Payoff',
-				type : 'pdf'
+				check : false
 			}, {
 				name : 'Gaurantee of Title(Dealer)',
-				type : 'pdf'
+				check : false
 			}, {
 				name : 'Warranty Contract',
-				type : 'pdf'
+				check : false
 			}, {
 				name : 'Vehicle Bill of Sale',
-				type : 'pdf'
+				check : false
 			}, {
 				name : 'Power of Attorney(Seller)',
-				type : 'pdf'
+				check : false
 			}, {
 				name : 'Credit/Security Agreement',
-				type : 'pdf'
+				check : false
 			}, {
 				name : 'Fixed Rate Promotion Addendum',
-				type : 'pdf'
+				check : false
 			} ];
-			this.employee= {
-					date: "",
-					phone: "",
-					time: "",
-					position: "",
-					name:""
+			self.employee = {
+					date : "",
+					phone : "",
+					time : "",
+					position : "",
+					name : ""
 			}
 			
-			this.customer= {
-					date: "",
-					time: "",
-					name:""
+			self.customer = {
+					date : "",
+					time : "",
+					name :""
 			}
-			this.myOptions = ["AM", "PM"];
-			this.myModel = "AM";
+			self.myOptions = ["AM", "PM"];
+			self.myModel = "AM";
+			$scope.LoanPackText = "";
+			self.loanPackNote = function () {
+				var note="the following items are missing from your Loan Package:"
+				for (var i=0;i<self.loanPkgChecklist.length;i++){
+					if(!self.loanPkgChecklist[i].check){
+						note = note + "\n" + self.loanPkgChecklist[i].name;
+					}
+				}
+				$scope.LoanPackText = note;
+			};
+			self.loanPkgCheck = function () {
+				self.loanPackNote();	
+			};
+			
+			init();
+			
 		});

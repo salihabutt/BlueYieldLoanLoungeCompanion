@@ -122,7 +122,7 @@
 
 				textarea {
 				    height: 65px;
-					width: 228px;
+					width: 223px;
 					vertical-align: top;
 					margin-right: 10px;
 					margin-bottom:30px;
@@ -133,5 +133,27 @@
 				padding-left:0px
 			}
 		}
+	.widget-button-send {
+		width: 80px;
+		font-size: 14px;
+		height: 40px;
+		margin-top: 14px;
+		background-color: #B1B8C8;
+		border: 2px solid #B1B8C8;
+		border-bottom: 2px solid #9C9E9C;
+		color: #fff;
+	}
+	
+	.fileupload {
+		min-height: inherit;
+		background-color: inherit;
+		padding: initial;
+	}
+	.dropzone .dz-default.dz-message{
+		background-image: none !important;
+	}
+	.dz-preview {
+ 	 	display: none;
+	}
 	}
 }
