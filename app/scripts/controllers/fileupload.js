@@ -43,7 +43,6 @@
     	    self.recCustConfig = {
     	    	      init: function() {
     	    	        this.on("addedfile", function(file) {
-    	    	        	debugger;
     	    	        	var obj= new Object();
     	    	        	obj.name=file.name;
     	    	        	obj.type=file.type

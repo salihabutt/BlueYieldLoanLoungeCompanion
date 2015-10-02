@@ -74,7 +74,6 @@ angular.module('blueYieldLoanLoungeCompanionApp').controller('HomeCtrl',
 				$scope.LoanPackText = note;
 			};
 			self.loanPkgCheck = function () {
-				debugger;
 				self.loanPackNote();	
 			};
 			
