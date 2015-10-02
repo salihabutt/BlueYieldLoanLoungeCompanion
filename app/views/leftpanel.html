@@ -31,10 +31,13 @@
 				<div class="col-lg-12">
 					<ul ui-sortable ng-model="file.sendCustfiles" class="list-no-style">
 					<li ng-repeat="item in file.sendCustfiles">
-						<div class="checkbox">
+						<div class="checkbox col-lg-9">
 							<label> <input type="checkbox"> {{item.name}}
 							</label>
-							<input type="button" class="widget-button-verify" value="Send" />
+							
+						</div>
+						<div class="col-lg-3">
+						<input type="button" class="widget-button-send" value="Send" />
 						</div>
 					</li>
 				</ul>

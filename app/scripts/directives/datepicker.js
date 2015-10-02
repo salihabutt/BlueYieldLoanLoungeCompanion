@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('blueYieldLoanLoungeCompanionApp')
 .directive('jqdatepicker', function () {
     return {

@@ -1,108 +1,24 @@
 <div class="modal-header">
-    <h3 class="modal-title">Add Stip - Co-borrower</h3>
+    <h3 class="modal-title">Add Stip - {{subject}}</h3>
 </div>
  <div class="modal-body clearfix">
     <div class="col-lg-6 clearfix">
-        <ul class="stip-category">
-            <li>
+        <ul class="stip-category" ng-model="data">
+            <li ng-repeat="item in items" ng-if="$index <= 8">
                 <div class="checkbox">
                     <label> 
-                        <input type="checkbox"> Driver License Front
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox">
-                    <label> 
-                        <input type="checkbox"> Driver License Back
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox">
-                    <label> 
-                        <input type="checkbox"> Registration
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox">
-                    <label> 
-                        <input type="checkbox"> Insurance Card
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox">
-                    <label> 
-                        <input type="checkbox"> Social Security Card
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox">
-                    <label> 
-                        <input type="checkbox"> Residence Card
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox">
-                    <label> 
-                        <input type="checkbox"> Title Front
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox">
-                    <label> 
-                        <input type="checkbox"> Title Back 
+                        <input value="1" name="stipCheckbox" type="checkbox" ng-model="item.check" ng-disabled="item.check"> {{item.name}}
                     </label>
                 </div>
             </li>
         </ul>
     </div>
-    <div class="col-lg-6 clearfix">
-        <ul class="stip-category">
-            <li>
+        <div class="col-lg-6 clearfix">
+        <ul class="stip-category" ng-model="data">
+            <li ng-repeat="item in items" ng-if="$index > 8">
                 <div class="checkbox">
                     <label> 
-                        <input type="checkbox"> Paystub
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox">
-                    <label> 
-                        <input type="checkbox"> Marriage Certificate
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox">
-                    <label> 
-                        <input type="checkbox"> Death Certificate
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox">
-                    <label> 
-                        <input type="checkbox"> Passport 
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox">
-                    <label> 
-                        <input type="checkbox"> Income Tax
-                    </label>
-                </div>
-            </li>
-             <li>
-                <div class="checkbox">
-                    <label> 
-                        <input type="checkbox"> Bank Statement
+                        <input value="1" name="stipCheckbox" type="checkbox" ng-model="item.check" ng-disabled="item.check"> {{item.name}}
                     </label>
                 </div>
             </li>

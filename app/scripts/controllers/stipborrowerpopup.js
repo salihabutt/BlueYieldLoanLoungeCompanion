@@ -7,11 +7,15 @@
  * # MainCtrl
  * Controller of the blueYieldLoanLoungeCompanionApp
  */
-angular.module('blueYieldLoanLoungeCompanionApp')
-  .controller('stipborrowerPopupCtrl', function ($scope, $modal, $modalInstance) {
 
+angular.module('blueYieldLoanLoungeCompanionApp')
+  .controller('stipborrowerPopupCtrl', function ($scope, $modal, $modalInstance, items, subject) {
+
+	$scope.items = items;
+	$scope.subject = subject;
     $scope.ok = function () {
-      console.log(this);
+      var checkedBoxes = getCheckedBoxes("stipCheckbox");
+      console.log(checkedBoxes);
   	};
 
     $scope.cancel = function () {

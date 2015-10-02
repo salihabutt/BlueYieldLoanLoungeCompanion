@@ -15,6 +15,10 @@
 			/*font-family: Open Sans;*/
 			font-weight: bold;
 		}
+		.model-sendCustomer{
+		width: 505px;
+		height: 286px;
+	}
 	}
 
 	.modal-body{
@@ -53,6 +57,18 @@
 		    border-bottom: 2px solid #9C9E9C;
 		    color: #fff;
 		    margin-right: 20px;
+		}
+	}
+	.model-sendCust-body {
+		background-color: #f7f7f7;
+		font-size: 14px;
+		font-family: "Helvetica";
+		padding-top: 10px;
+		p {
+			margin: 0 0 0;
+		}
+		.modal-im-doc {
+			padding-top: 10px;
 		}
 	}
 
