@@ -66,7 +66,15 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			check: false
 		}];
 
-		this.getData = function () {
+		this.getBorData() = function () {
+			return this.data;
+		};
+		
+		this.getgeCobtData() = function () {
+			return this.data;
+		};
+		
+		this.getSellerData() = function () {
 			return this.data;
 		};
 		// Pass the checkbox name to the function
