@@ -3,7 +3,7 @@
 </div>
  <div class="modal-body clearfix">
     <div class="col-lg-6 clearfix">
-        <ul class="stip-category" ng-model="data">
+        <ul class="stip-category" ng-model="borrowerStip">
             <li ng-repeat="item in borrowerStip" ng-if="$index <= 8">
                 <div class="checkbox">
                     <label> 
@@ -14,8 +14,8 @@
         </ul>
     </div>
         <div class="col-lg-6 clearfix">
-        <ul class="stip-category" ng-model="data">
-            <li ng-repeat="item in items" ng-if="$index > 8">
+        <ul class="stip-category" ng-model="borrowerStip">
+            <li ng-repeat="item in borrowerStip" ng-if="$index > 8">
                 <div class="checkbox">
                     <label> 
                         <input name="stipCheckbox" type="checkbox" ng-model="item.check" > {{item.name}}
