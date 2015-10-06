@@ -54,18 +54,19 @@ angular.module('blueYieldLoanLoungeCompanionApp').controller('HomeCtrl',
 					time : "",
 					position : "",
 					name : ""
-			}
+			};
 			
 			self.customer = {
 					date : "",
 					time : "",
 					name :""
-			}
+			};
 			self.myOptions = ["AM", "PM"];
 			self.myModel = "AM";
 			$scope.LoanPackText = "";
+			
 			self.loanPackNote = function () {
-				var note="the following items are missing from your Loan Package:"
+				var note = "the following items are missing from your Loan Package:";
 				for (var i=0;i<self.loanPkgChecklist.length;i++){
 					if(!self.loanPkgChecklist[i].check){
 						note = note + "\n" + self.loanPkgChecklist[i].name;
@@ -73,6 +74,7 @@ angular.module('blueYieldLoanLoungeCompanionApp').controller('HomeCtrl',
 				}
 				$scope.LoanPackText = note;
 			};
+			
 			self.loanPkgCheck = function () {
 				self.loanPackNote();	
 			};

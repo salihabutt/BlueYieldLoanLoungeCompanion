@@ -9,11 +9,13 @@
  */
 angular.module('blueYieldLoanLoungeCompanionApp')
   .controller('AppInfoCtrl', function () {
-    this.account = "209005";
-    this.appliedBy = "09/12/2015";
-    this.timeSinceApplied = "2days, 3hrs.";
-    this.product = "ReFinance";
-    this.applicantInfo = {
+	
+	var self = this;
+    self.account = "209005";
+    self.appliedBy = "09/12/2015";
+    self.timeSinceApplied = "2days, 3hrs.";
+    self.product = "ReFinance";
+    self.applicantInfo = {
     		name: "Karley Test",
     		address: "1234 Vita St, Paramount, CA 90723",
     		name2: "Steven Test",
@@ -24,4 +26,5 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     		email: "test@gmail.com"
     	
     };
-  }) ;
+    
+  });

@@ -1,3 +1,4 @@
+'use strict';
 angular.module('blueYieldLoanLoungeCompanionApp')
 .directive('buttonsRadio', function() {
     return {

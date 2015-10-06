@@ -9,13 +9,13 @@
  */
 
 angular.module('blueYieldLoanLoungeCompanionApp')
-  .controller('stipborrowerPopupCtrl', function ($scope, $modal, $modalInstance, items, subject) {
-
-	$scope.items = items;
+  .controller('stipborrowerPopupCtrl', function ($scope, $modal, $modalInstance, stipDataService, subject) {
+	$scope.borrowerStip = stipDataService.getBorData();
+	$scope.coborrowerStip = stipDataService.getCobData();
+	$scope.sellerStip = stipDataService.getSellerData();
 	$scope.subject = subject;
     $scope.ok = function () {
-      var checkedBoxes = getCheckedBoxes("stipCheckbox");
-      console.log(checkedBoxes);
+    	$modalInstance.dismiss('cancel');
   	};
 
     $scope.cancel = function () {

@@ -36,15 +36,14 @@ angular
 		})
 		.state('home', {
           parent: 'main',
-          url:'',
+          url:'/main',
           views: {
             'header' : {
               templateUrl: 'views/header.html'
             },
             'content' : {
               templateUrl: 'views/home.html'
-            },
-            controller:'HomeCtrl'
+            }
           }
         });
 	});
