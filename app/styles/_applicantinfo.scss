@@ -4,19 +4,19 @@
 	font-size: 14px;
 	height: 106px;
 	color: #FFFFFF;
-	width:100%;
+	width: 100%;
 	padding: 10px 0px 10px 0px;
 	
 }
 .account-info {
-	width:100%;
+	width: 100%;
 	height: 25px;
 	
-	.right-style{
-		float:right
+	.right-style {
+		float: right
 	}
 	span {
-		margin-left:15px;
+		margin-left: 15px;
 	}
 }
 
@@ -24,36 +24,36 @@
 	font-size: 16px;
 	width: 100%;
 }
-.left-style{
+.left-style {
 	margin-left: 15px;
 }
 .contact-box-wrapper {
-	display :flex;
+	display: flex;
 }
 
 .contact-box {
- width: 240px;
- height: 58px;
- border: 1px #455363 solid;
- margin-left: 8px;
- border-radius: 2px;
- font-size:16px;
- display: -webkit-box;
+ 	width: 240px;
+ 	height: 58px;
+	border: 1px #455363 solid;
+ 	margin-left: 8px;
+ 	border-radius: 2px;
+ 	font-size: 16px;
+ 	display: -webkit-box;
  
- .sub-box {
- 	width: 60px;
- 	border-right: 1px #455363 solid;
- }
- .sub-box img {
-    margin-top: 15px;
-    margin-left: 15px;
-}
-.sub-box-2 {
-	margin-top:8px;
-	margin-left: 10px;
-	span {
-		font-weight: bold;
+ 	.sub-box {
+ 		width: 60px;
+ 		border-right: 1px #455363 solid;
+ 	}
+ 	.sub-box img {
+    	margin-top: 15px;
+    	margin-left: 15px;
 	}
-}
+	.sub-box-2 {
+		margin-top:8px;
+		margin-left: 10px;
+		span {
+			font-weight: bold;
+		}
+	}
 }
 

@@ -17,11 +17,10 @@
     	      init: function() {
     	        this.on("addedfile", function(file) {
     	        	// show popup
-    	        	debugger;
     	        	self.openCustModal();
-    	        	var obj = new Object();
+    	        	var obj = {};
     	        	obj.name = file.name;
-    	        	obj.type = file.type
+    	        	obj.type = file.type;
     	        	self.sendCustfiles.push(obj);
     	        	$scope.$apply();
     	        //	file = null; // to be replaced 
@@ -35,18 +34,18 @@
 
     	    
     	   self.openCustModal = function () {
-    	    	var modalInstance = $modal.open({
+    	    	$modal.open({
     	    		animation: true,
      	    		templateUrl: 'views/sendcustomerpopup.html',
      	    		controller: 'sendCustPopupCtrl'
     	    	});
-    	   }
+    	   };
     	   self.recCustConfig = {
     	    	 init: function() {
     	    	      this.on("addedfile", function(file) {
-    	    	        var obj = new Object();
+    	    	        var obj = {};
     	    	        obj.name = file.name;
-    	    	        obj.type = file.type
+    	    	        obj.type = file.type;
     	    	        self.recCustfiles.push(obj);
     	    	        $scope.$apply();
     	    	        file = null; // to be replaced 
