@@ -17,7 +17,7 @@
 		</div>
 	</div>
 
-	<div ng-slimscroll class="slim-scroll-div" style="height:450px">
+	<div ng-slimscroll class="slim-scroll-div" >
 	<div class="col-lg-12 widget-section" ng-controller="HomeCtrl as home">
 		
 		<!-- loan package portion  -->
@@ -27,19 +27,39 @@
 			<div class="col-lg-12 widget-sub-heading">Sent to Customer</div>
 	
 				<div class="col-lg-12 input-box-section">
-				<div class="col-lg-12 checkbox-box-section checkbox-no-padding">
-				<div class="col-lg-12">
-					<ul ui-sortable ng-model="file.sendCustfiles" class="list-no-style">
-					<li ng-repeat="item in file.sendCustfiles">
-						<div class="checkbox col-lg-9">
-						<div class="col-lg-5">
-							<label class="checkbox-no-padding"> 
-							<input type="checkbox"> <span class="img-thumbnail"><img src=""></span></div><div class="col-lg-7">{{item.name}}</div>
+				<div class="col-lg-12 checkbox-box-section">
+				<div class="col-lg-12 no-padding">
+				<div class="checkbox col-lg-9 no-padding">
+						<div class="col-lg-4 no-padding">
+							<label> 
+							<input type="checkbox" style="margin-top:15px;" ng-click="loadNewFile('images/material-design.pdf')"> <span class="img-thumbnail"><img src=""></span></div><div class="col-lg-7 no-padding" style="margin-top:15px;">Material Design</div>
 							</label>
 							
 						</div>
-						<div class="col-lg-3">
-						<input type="button" class="widget-button-send" value="Send" />
+						<div class="col-lg-3" style="margin-top:15px;">
+						<input type="button" class="widget-button-send" value="Send"  />
+						</div>
+						<div class="checkbox col-lg-9 no-padding">
+						<div class="col-lg-4 no-padding">
+							<label> 
+							<input type="checkbox" style="margin-top:15px;" ng-click="loadNewFile('images/relativity.pdf')"> <span class="img-thumbnail"><img src=""></span></div><div class="col-lg-7 no-padding" style="margin-top:15px;">Relativity</div>
+							</label>
+							
+						</div>
+						<div class="col-lg-3" style="margin-top:15px;">
+						<input type="button" class="widget-button-send" value="Send"  />
+						</div>
+					<ul ui-sortable ng-model="file.sendCustfiles" class="list-no-style">
+					<li ng-repeat="item in file.sendCustfiles">
+						<div class="checkbox col-lg-9 no-padding">
+						<div class="col-lg-4 no-padding">
+							<label> 
+							<input type="checkbox" style="margin-top:15px;"> <span class="img-thumbnail"><img src=""></span></div><div class="col-lg-7 no-padding" style="margin-top:15px;">{{item.name}}</div>
+							</label>
+							
+						</div>
+						<div class="col-lg-3" style="margin-top:15px;">
+						<input type="button" class="widget-button-send" value="Send"  />
 						</div>
 					</li>
 				</ul>
@@ -171,8 +191,9 @@
 				    </div>
 				  </div>
 				 <div class="form-group col-lg-6">
-				    <label for="exampleInputEmail1">Time</label>
-				    <input type="text" class="widget-textbox " style="width:100%" ng-model="employee.time">
+				    <label for="exampleInputEmail1">Time</label><br/>
+				    <input type="text" class="widget-textbox " style="width:38%" ng-model="employee.time">
+				    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='home.myModel' options='home.myOptions'></buttons-radio>
 				  </div>
 			</div>
 
@@ -216,12 +237,9 @@
 				  </div>
 				  </div>
 				 <div class="form-group col-lg-6">
-				    <label for="exampleInputEmail1">Time</label>
-				    <input type="text" class="widget-textbox " style="width:100%" ng-model="customer.time">
-				     <buttons-radio class="btn-group" data-toggle="buttons-radio" 
-               model='home.myModel'    
-               options='home.myOptions'>
-</buttons-radio>
+				    <label for="exampleInputEmail1">Time</label><br/>
+				    <input type="text" class="widget-textbox " style="width:38%" ng-model="customer.time">
+				    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='home.myModel' options='home.myOptions'></buttons-radio>
 				  </div>
 				 
 			</div>
