@@ -27,12 +27,14 @@
 			<div class="col-lg-12 widget-sub-heading">Sent to Customer</div>
 	
 				<div class="col-lg-12 input-box-section">
-				<div class="col-lg-12 checkbox-box-section">
+				<div class="col-lg-12 checkbox-box-section checkbox-no-padding">
 				<div class="col-lg-12">
 					<ul ui-sortable ng-model="file.sendCustfiles" class="list-no-style">
 					<li ng-repeat="item in file.sendCustfiles">
 						<div class="checkbox col-lg-9">
-							<label> <input type="checkbox"> {{item.name}}
+						<div class="col-lg-5">
+							<label class="checkbox-no-padding"> 
+							<input type="checkbox"> <span class="img-thumbnail"><img src=""></span></div><div class="col-lg-7">{{item.name}}</div>
 							</label>
 							
 						</div>
@@ -46,7 +48,7 @@
 			 <input type="text" class="widget-textbox"
 					placeholder="Select or drag&drop file to upload" /> <input
 					type="button" class="widget-button" value="SELECT" />
-				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="file.sendCustConfig">
+				 <form action="/app/pdf" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="file.sendCustConfig">
              
               </form>
 			</div>

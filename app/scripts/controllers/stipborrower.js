@@ -10,10 +10,9 @@
 angular.module('blueYieldLoanLoungeCompanionApp')
   .controller('StipBorrowerCtrl', function ($scope, $modal, stipDataService) {
     $scope.borrowerStip = stipDataService.getBorData();
-    $scope.coborrowerStip = stipDataService.geCobtData();
+    $scope.coborrowerStip = stipDataService.getCobData();
     $scope.sellerStip = stipDataService.getSellerData();
     $scope.open = function (type) {
-    	debugger;
     	var modalInstance = $modal.open({
     		animation: true,
     		templateUrl: 'views/stipborrowerpopup.html',

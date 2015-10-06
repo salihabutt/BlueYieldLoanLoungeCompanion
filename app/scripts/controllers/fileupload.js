@@ -17,19 +17,22 @@
     	      init: function() {
     	        this.on("addedfile", function(file) {
     	        	// show popup
+    	        	debugger;
     	        	self.openCustModal();
     	        	var obj = new Object();
     	        	obj.name = file.name;
     	        	obj.type = file.type
     	        	self.sendCustfiles.push(obj);
     	        	$scope.$apply();
-    	        	file = null; // to be replaced 
-    	        	
+    	        //	file = null; // to be replaced 
+    	        	//var r = new FileReader(file);
+    	        //	var src=r.readAsDataURL();	
     	        });
     	      },
     	      uploadMultiple: false,
     	      maxFileSize: 30
     	    };
+
     	    
     	   self.openCustModal = function () {
     	    	var modalInstance = $modal.open({
