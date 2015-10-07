@@ -22,7 +22,8 @@ angular
 		'jkuri.slimscroll',
 		'ui.mask',
 		'ui.bootstrap',
-		'ngDropzone'
+		'ngDropzone',
+		'pdf'
 	])
 	.config(function ($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise('main');
@@ -44,6 +45,8 @@ angular
             'content' : {
               templateUrl: 'views/home.html'
             }
-          }
+          },
+          
+          controller: 'HomeCtrl'
         });
 	});

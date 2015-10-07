@@ -5,13 +5,18 @@
  * @name blueYieldLoanLoungeCompanionApp.controller:HomeCtrl
  * @description # HomeCtrl Controller of the blueYieldLoanLoungeCompanionApp
  */
-angular.module('blueYieldLoanLoungeCompanionApp').controller('HomeCtrl',
-		function($scope) {
+angular.module('blueYieldLoanLoungeCompanionApp').
+controller('HomeCtrl', ['$scope','pdfDelegate',function($scope, pdfDelegate) {
 			var self = this,
 			init = function (){
 				self.loanPackNote();
+			  var a =$(window).height();
+	          $(".left-panel").css("height",a-100 + "px");
+	          $(".slim-scroll-div").css("height",a-100 + "px");
+		          
 			}; 
-			this.loanPkgChecklist = [ {
+			$scope.pdfUrl = '';
+			self.loanPkgChecklist = [ {
 				name : 'Loneliner Application',
 				check : false
 			}, {
@@ -77,8 +82,14 @@ angular.module('blueYieldLoanLoungeCompanionApp').controller('HomeCtrl',
 			
 			self.loanPkgCheck = function () {
 				self.loanPackNote();	
-			};
+			};	 
+
+			$scope.loadNewFile = function(url) {
+			      pdfDelegate
+			        .$getByHandle('my-pdf-container')
+			        .load(url);
+			    };
 			
 			init();
 			
-		});
+		}]);

@@ -3,7 +3,7 @@
 	border-right: 1px solid #D8DDE3;
 	background-color: #edf2f8;
 	height: auto;
-	position: absolute;
+	/*position: absolute;*/
 	/*top: 150px;*/
 	left: 0px;
 
@@ -166,11 +166,10 @@
 		padding-left: 0px !important;
 		padding-right: 0px !important;
 	}
-	#picture {width:50px; height:50px; background-color:#ffffff;}
-#picture a.small, #picture a.small:visited { display:block; width:50px; height:50px; text-decoration:none; background:#ffffff; top:0; left:0; border:0;}
-#picture a img {border:0;}
-#picture a.small:hover {text-decoration:none; background-color:#000000; color:#000000;}
-#picture a .large {display:block; position:absolute; width:0; height:0; border:0; top:0; left:0;}
-#picture a.small:hover .large {display:block; position:absolute; top: 90px; left:150px; width:200px; height:200px; }
-	
+}
+
+.pdf-preview-wrapper {
+	margin: 70px 0px 0 130px;
+	height: 500px;
+    overflow: auto;
 }
