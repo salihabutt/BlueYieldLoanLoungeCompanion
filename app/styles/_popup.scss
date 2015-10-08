@@ -12,13 +12,10 @@
 	    .modal-title{
 			line-height: 1;
 			font-size: 16px;
-			/*font-family: Open Sans;*/
+			font-family: Open Sans;
 			font-weight: bold;
 		}
-		.model-sendCustomer{
-		width: 505px;
-		height: 286px;
-	}
+
 	}
 
 	.modal-body{
@@ -59,7 +56,14 @@
 		    margin-right: 20px;
 		}
 	}
-	.model-sendCust-body {
+
+
+}
+
+.modal-sendcustomer .modal-dialog{
+		width: 505px;
+		height: 286px;
+			.model-sendCust-body {
 		background-color: #f7f7f7;
 		font-size: 14px;
 		font-family: "Helvetica";
@@ -68,8 +72,71 @@
 			margin: 0 0 0;
 		}
 		.modal-im-doc {
-			padding-top: 10px;
+		    padding-left: 50px;
+		    margin-top: 22px;
+		}
+		span {
+			font-weight: bold;
+		}
+		col-lg-9{
+			padding-left: 23px;
 		}
 	}
+}
 
+.modal-mergefiles .modal-dialog{
+		width: 497px;
+		height: 300px;
+		
+	.modal-mergefiles-body {
+		background-color: #f7f7f7;
+		font-size: 14px;
+		font-family: "Helvetica";
+		padding-top: 10px;
+		text-align: center;
+		p {
+			margin: 0 0 0;
+		}
+		.modal-im-doc {
+		    padding-left: 50px;
+		    margin-top: 22px;
+		}
+		input[type="text"]{
+			width: 300px;
+		}
+		span {
+			font-weight: bold;
+		}
+	}
+	.modal-footer{
+			text-align: center;
+		}
+	.mergefile-error {
+		color: #FB0505;
+		font-family: open sans;
+		font-size: 15px;
+	}
+}
+
+
+.modal-deletefiles .modal-dialog{
+		width: 500px;
+		height: 233px;
+		
+	.modal-deletefiles-body {
+		background-color: #f7f7f7;
+		font-size: 14px;
+		font-family: "Helvetica";
+		padding-top: 10px;
+		text-align: center;
+		p {
+			margin: 0 0 0;
+		}
+		span {
+			font-weight: bold;
+		}
+	}
+	.modal-footer{
+			text-align: center;
+		}
 }

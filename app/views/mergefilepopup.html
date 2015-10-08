@@ -1,0 +1,17 @@
+<div>
+	<div class="modal-header">
+		<h3 class="modal-title">Merge Files</h3>
+	</div>
+	<form name="form" novalidate">
+	<div class="modal-mergefiles-body clearfix">
+	<p>Please name the Merged file:</p>
+    <p ng-show="form.mergeFileName.$error.filenamecheck" class="mergefile-error">Note: Name may not contain any of the following:</p>
+    <p ng-show="form.mergeFileName.$error.filenamecheck" class="mergefile-error">\/:*?"<>|</p>
+    <input type="text" ng-model="mergeFileName" name="mergeFileName" filenamecheck required/>
+	</div>
+</form>
+	<div class="modal-footer">
+		<button class="popup-btn-close" type="button" ng-click="cancel()">CLOSE</button>
+		<button class="popup-btn-done" type="button" ng-click="ok()">DONE</button>
+	</div>
+</div>

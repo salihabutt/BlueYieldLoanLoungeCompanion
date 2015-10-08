@@ -35,9 +35,10 @@
     	    
     	   self.openCustModal = function () {
     	    	$modal.open({
-    	    		animation: true,
+    	    		animation: false,
      	    		templateUrl: 'views/sendcustomerpopup.html',
-     	    		controller: 'sendCustPopupCtrl'
+     	    		controller: 'sendCustPopupCtrl',
+     	    		windowClass: 'modal-sendcustomer'
     	    	});
     	   };
     	   self.recCustConfig = {

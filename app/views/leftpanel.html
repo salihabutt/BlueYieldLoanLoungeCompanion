@@ -1,4 +1,4 @@
-<div class="left-panel">
+<div class="left-panel" dynamic-height>
 	<div class="col-lg-12 icon-bar">
 		<div class="clearfix">
 			3 files selected
@@ -9,16 +9,16 @@
 				<img src="../images/bt_donwload@2x.png" alt="delete-btn" /> 
 			</span> 
 			<span class="icon">
-				<img src="../images/bt_Merge@2x.png" alt="delete-btn" /> 
+				<img src="../images/bt_Merge@2x.png" alt="delete-btn" ng-click="openMergePopup()"/> 
 			</span> 
 			<span class="icon">
-				<img src="../images/bt_delete@2x.png" alt="delete-btn" /> 
+				<img src="../images/bt_delete@2x.png" alt="delete-btn" ng-click=" openDeletePopup()"/> 
 			</span>  
 		</div>
 	</div>
 
-	<div ng-slimscroll class="slim-scroll-div" >
-	<div class="col-lg-12 widget-section" ng-controller="HomeCtrl as home">
+	<div ng-slimscroll class="slim-scroll-div">
+	<div class="col-lg-12 widget-section" >
 		
 		<!-- loan package portion  -->
 		<div class="col-lg-12 no-padding universal-widget-style">
@@ -100,10 +100,10 @@
 				Verification Checklist</div>
 			<div class="col-lg-12 checkbox-box-section">
 				<div class="col-lg-12">
-					<ul ng-model="home.loanPkgChecklist" class="list-no-style">
-					<li ng-repeat="item in home.loanPkgChecklist">
+					<ul ng-model="loanPkgChecklist" class="list-no-style">
+					<li ng-repeat="item in loanPkgChecklist">
 						<div class="checkbox">
-							<label> <input type="checkbox" ng-model="item.check" ng-click="home.loanPkgCheck()"> {{item.name}}
+							<label> <input type="checkbox" ng-model="item.check" ng-click="loanPkgCheck()"> {{item.name}}
 							</label>
 						</div>
 					</li>
@@ -193,7 +193,7 @@
 				 <div class="form-group col-lg-6">
 				    <label for="exampleInputEmail1">Time</label><br/>
 				    <input type="text" class="widget-textbox " style="width:38%" ng-model="employee.time">
-				    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='home.myModel' options='home.myOptions'></buttons-radio>
+				    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='myModel' options='myOptions'></buttons-radio>
 				  </div>
 			</div>
 
@@ -239,7 +239,7 @@
 				 <div class="form-group col-lg-6">
 				    <label for="exampleInputEmail1">Time</label><br/>
 				    <input type="text" class="widget-textbox " style="width:38%" ng-model="customer.time">
-				    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='home.myModel' options='home.myOptions'></buttons-radio>
+				    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='myModel' options='myOptions'></buttons-radio>
 				  </div>
 				 
 			</div>
