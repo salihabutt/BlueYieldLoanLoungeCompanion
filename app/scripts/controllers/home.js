@@ -9,10 +9,10 @@ angular.module('blueYieldLoanLoungeCompanionApp').
 controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDelegate,$modal) {
 			var self = this,
 			init = function (){
-				self.loanPackNote();  
+				self.loanPackNote(); 
 			}; 
 			$scope.pdfUrl = '';
-			$scope.showFile = false;
+			$scope.showFile = true;
 			self.loanPkgChecklist = [ {
 				name : 'Loneliner Application',
 				check : false
@@ -55,13 +55,17 @@ controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDele
 					phone : "",
 					time : "",
 					position : "",
-					name : ""
+					name : "",
+					options: ["AM", "PM"],
+					selected: "AM"
 			};
 			
 			self.customer = {
 					date : "",
 					time : "",
-					name :""
+					name :"",
+					options: ["AM", "PM"],
+					selected: "AM"
 			};
 			self.myOptions = ["AM", "PM"];
 			self.myModel = "AM";
@@ -82,9 +86,11 @@ controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDele
 			};	 
 
 			$scope.loadNewFile = function(url) {
-			      pdfDelegate
+			//	debugger;
+			     var a= pdfDelegate
 			        .$getByHandle('my-pdf-container')
-			        .load(url);
+			        .load(url);	
+			     self.generateThumbnail(url);
 			    };
 			self.openMergePopup = function () {
 					var modalInstance = $modal.open({
@@ -102,8 +108,30 @@ controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDele
 			    	controller: 'delfilePopupCtrl',
 			    	windowClass: 'modal-deletefiles'
 		    	});
-				
 			}
+			self.generateThumbnail = function (url) {
+				var n = {};
+				n.url = url;
+				 PDFJS.getDocument(n).then(function(t){
+					 t.getPage(1).then(function(e){
+						
+						 var f = document.createElement("canvas");
+						
+							var p = f.getContext("2d");
+			                var t = e.getViewport(1);
+			                f.height = t.height, f.width = t.width;
+			                var n = {
+			                    canvasContext: p,
+			                    viewport: t
+			                };
+			                debugger;
+			             //  var imgsrc= f.toDataURL("image/png");
+			              // document.getElementById("material").src = imagesrc;
+					 });
+				 });
+			}
+				
+			
 			init();
 						
 		}])

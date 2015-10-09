@@ -14,4 +14,53 @@ margin-left:0px;
 			cursor:pointer;
 		}
 	}
+
+}
+.slimScrollDiv { 
+	border: 1px solid #FFFFFF; 
+	margin:30px; 
+}
+ .slimScrollBar{ 
+ 	opacity: 0.2 !important; 
+ } 
+ .slimScrollDiv:hover .slimScrollBar{
+ 	 opacity: 0.4 !important; 
+ } 
+div#preview-file {
+    width: 85%;
+    height: 140px;
+    margin-left:40px;
+}
+div.mousescroll {
+    overflow: hidden;
+}
+div.mousescroll:hover {
+    overflow-y: scroll;
+}
+
+.thumbnail-wrapper {
+	width: 164px;
+	height: 214px;
+	margin: 20px;
+	.thumbnail {
+		height: 190px;
+		padding: none;
+		margin-bottom: 0px;
+		img {
+			width: 164px;
+			height: 185px;
+		}
+	}
+	.page {
+		height: 24px;
+		width: 161px;
+		background-color: #000000;
+		color: #FFFFFF;
+		text-align: center;
+	}
+}
+
+div#preview-thumb {
+    height: 140px;
+    margin-left:40px;
 }

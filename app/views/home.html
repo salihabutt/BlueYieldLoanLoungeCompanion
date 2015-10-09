@@ -3,11 +3,13 @@
 	<div style="width:22%">
 		<div ng-include="'views/leftpanel.html'"></div>
 	</div>
-	<div style="width:78%;background:#E7EbF4;height:auto">
+	
+	<div style="width:78%;background:#E7EbF4;height:auto" ng-show="!showFile">
 	<div class="logo-bg">
 	<img src="images/logo_gray_BH.png">
-	</div>
-	<div class="top-bar" ng-show="showFile">
+	</div></div>
+	<div style="width:78%;" ng-show="showFile">
+	<div class="top-bar">
 		<div class="col-lg-1"></div>
 		<div class="col-lg-4 icon-bar">
 			<span> 
@@ -26,15 +28,22 @@
 			</span>
 		</div>
 	</div>
-	
-	<div class="pdf-preview-wrapper" ng-show="showFile">
-	<pdf-viewer
+<div style="display:-webkit-box">
+	<div ng-slimscroll id="preview-file" class="mousescroll slimScrollDiv">
+	 <pdf-viewer
         delegate-handle="my-pdf-container"
         url="pdfUrl"
         scale="1"
         show-toolbar="false"
-        headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer>
+        headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer>  
+	</div>
+	<div ng-slimscroll id="preview-thumb" class="mousescroll slimScrollDiv">
+	<div class="thumbnail-wrapper" id="thumbnail-wrapper">
+
+	</div>
 	</div>
 </div>
+</div>
+
 </div>
 
