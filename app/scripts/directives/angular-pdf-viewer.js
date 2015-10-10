@@ -43,7 +43,7 @@ angular.module("pdf").controller("PdfCtrl", ["$scope", "$element", "$attrs", "pd
         s = n.scale ? n.scale : 1,
 		totalPage = 0,
 		pdiv = document.getElementById("pc"),
-		//thumbnail = document.getElementById("thumbnail"),
+		thumbwrapper = document.getElementById("thumbnail-wrapper"),
        // f = t.find("canvas")[0],
         //p = f.getContext("2d"),
         h = function(e) {
@@ -66,17 +66,7 @@ angular.module("pdf").controller("PdfCtrl", ["$scope", "$element", "$attrs", "pd
 				
 				
 				e.render(n).then(function(){
-				var idiv = document.createElement("DIV");
-				idiv.id = "img-" + e.pageNumber;
-				var img = document.createElement("img");
-				img.src = f.toDataURL("image/png");
-				img.id = "img"+e.pageNumber;
-				img.style.width = "100px";
-				img.style.height = "130px";
-				idiv.style.width = "102px";
-				idiv.style.border= "1px grey solid";
-				idiv.style.marginTop = "5px";
-				//document.getElementById("thumb").appendChild(idiv).appendChild(img);
+					drawThumbnail(f);
 				});
 				
 				pdiv.appendChild(div);
@@ -86,6 +76,21 @@ angular.module("pdf").controller("PdfCtrl", ["$scope", "$element", "$attrs", "pd
 				if(l!= null && d<= l.numPages){
 				
 					h(d);
+				}
+				
+				function drawThumbnail(f){
+					var idiv = document.createElement("DIV");
+					idiv.id = "img-" + e.pageNumber;
+					idiv.className = "thumbnail";
+					var img = document.createElement("img");
+					img.src = f.toDataURL("image/png");
+					img.id = "img"+e.pageNumber;
+					var pagediv = document.createElement("DIV");
+					var span = document.createElement("span");
+					pagediv.innerHTML = "Page" + e.pageNumber;
+					pagediv.className = "page";
+					thumbwrapper.appendChild(idiv).appendChild(img);
+					thumbwrapper.appendChild(pagediv);
 				}
 		}
         },
@@ -112,7 +117,7 @@ angular.module("pdf").controller("PdfCtrl", ["$scope", "$element", "$attrs", "pd
         null !== l && (d = e, h(e))
     }, u.load = function(t) {
 		pdiv.innerHTML = "";
-		//document.getElementById("thumb").innerHTML = "";
+		thumbwrapper.innerHTML = "";
 		d=1;
         t && (i = t);
         var n = {};

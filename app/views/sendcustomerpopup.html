@@ -1,4 +1,4 @@
-<div class="model-sendCustomer">
+<div class="modal-sendcustomer">
 	<div class="modal-header">
 		<h3 class="modal-title">Sending Loan Package</h3>
 	</div>
@@ -6,13 +6,13 @@
 		<div class="col-lg-3 modal-im-doc">
 			<img src="images/im_sending.png" />
 		</div>
-		<div class="col-lg-9 no-padding">
+		<div class="col-lg-8">
 			You are about to send this loan package.
-			<p>Document Name:</p>
-			<p>To:</p>
-			<p>Document will be immediately uploaded to</p>
-			<p>Loan Lounge for customer download</p>
-			<p>Is this what you intend?</p>
+			<p>Document Name:<span>{{file.name}}</span></p>
+			<p>To:<span>{{applicantInfo.name}}</span></p><br/>
+			<p><span>Document will be immediately uploaded to</span></p>
+			<p><span>Loan Lounge for customer download</span></p>
+			<p><span>Is this what you intend?</span></p>
 		</div>
 	</div>
 

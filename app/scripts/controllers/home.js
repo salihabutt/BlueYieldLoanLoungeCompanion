@@ -5,17 +5,14 @@
  * @name blueYieldLoanLoungeCompanionApp.controller:HomeCtrl
  * @description # HomeCtrl Controller of the blueYieldLoanLoungeCompanionApp
  */
-angular.module('blueYieldLoanLoungeCompanionApp').
-controller('HomeCtrl', ['$scope','pdfDelegate',function($scope, pdfDelegate) {
+angular.module('blueYieldLoanLoungeCompanionApp')
+.controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDelegate,$modal) {
 			var self = this,
 			init = function (){
-				self.loanPackNote();
-			  var a =$(window).height();
-	          $(".left-panel").css("height",a-100 + "px");
-	          $(".slim-scroll-div").css("height",a-100 + "px");
-		          
+				self.loanPackNote(); 
 			}; 
 			$scope.pdfUrl = '';
+			$scope.showFile = true;
 			self.loanPkgChecklist = [ {
 				name : 'Loneliner Application',
 				check : false
@@ -58,13 +55,17 @@ controller('HomeCtrl', ['$scope','pdfDelegate',function($scope, pdfDelegate) {
 					phone : "",
 					time : "",
 					position : "",
-					name : ""
+					name : "",
+					options: ["AM", "PM"],
+					selected: "AM"
 			};
 			
 			self.customer = {
 					date : "",
 					time : "",
-					name :""
+					name :"",
+					options: ["AM", "PM"],
+					selected: "AM"
 			};
 			self.myOptions = ["AM", "PM"];
 			self.myModel = "AM";
@@ -85,11 +86,55 @@ controller('HomeCtrl', ['$scope','pdfDelegate',function($scope, pdfDelegate) {
 			};	 
 
 			$scope.loadNewFile = function(url) {
-			      pdfDelegate
+			//	debugger;
+			   /*  var a= pdfDelegate
 			        .$getByHandle('my-pdf-container')
-			        .load(url);
+			        .load(url);	
+			        
+			     self.generateThumbnail(url);*/
+		
+				
 			    };
-			
-			init();
-			
-		}]);
+			self.openMergePopup = function () {
+					var modalInstance = $modal.open({
+			    		animation: false,
+				    	templateUrl: 'views/mergefilepopup.html',
+				    	controller: 'mergefilePopupCtrl',
+				    	windowClass: 'modal-mergefiles'
+			    	});
+					
+				}
+			self.openDeletePopup = function () {
+				var modalInstance = $modal.open({
+		    		animation: false,
+			    	templateUrl: 'views/deletepopup.html',
+			    	controller: 'delfilePopupCtrl',
+			    	windowClass: 'modal-deletefiles'
+		    	});
+			}
+				
+		init();
+						
+		}])
+		  .controller('mergefilePopupCtrl', function ($scope, $modal, $modalInstance) {
+				$scope.mergeFileName = "";
+				
+			    $scope.ok = function () {
+			    	$modalInstance.dismiss('cancel');
+			  	};
+
+			    $scope.cancel = function () {
+			      $modalInstance.dismiss('cancel');
+			    };
+			})
+			 .controller('delfilePopupCtrl', function ($scope, $modal, $modalInstance) {
+		
+				
+			    $scope.ok = function () {
+			    	$modalInstance.dismiss('cancel');
+			  	};
+
+			    $scope.cancel = function () {
+			      $modalInstance.dismiss('cancel');
+			    };
+			});

@@ -2,7 +2,7 @@
 	width: 420px;
 	border-right: 1px solid #D8DDE3;
 	background-color: #edf2f8;
-	height: auto;
+	/*height: auto;*/
 	/*position: absolute;*/
 	/*top: 150px;*/
 	left: 0px;
@@ -117,7 +117,7 @@
 				.checkbox {
 						font-size: 16px;
 						color:#000;
-						margin: 22px 0px 26px 0px;
+						/*margin: 22px 0px 26px 0px;*/
 					}
 
 				textarea {
@@ -156,12 +156,7 @@
  	 	display: none;
 	}
 	}
-	
-	.img-thumbnail {
-		width: 50px;
-		height: 50px;
-	}
-	
+
 	.checkbox-no-padding {
 		padding-left: 0px !important;
 		padding-right: 0px !important;
@@ -172,4 +167,44 @@
 	margin: 70px 0px 0 130px;
 	height: 500px;
     overflow: auto;
+}
+
+.logo-bg {
+    text-align: center;
+    height: inherit;
+    margin-top: 300px;
+}
+
+.sent-date {
+	font-family: open sans;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+#thumbwrap {
+	position: relative;
+
+.thumb img { 
+	width: 50px;
+	height: 50px;
+	/*float:left;*/
+	padding: 0px 0px 0px 0px;
+}
+.thumb span { 
+	position: absolute;
+	visibility: hidden;
+	width: 70px;
+	height: 70px;
+}
+.thumb:hover, .thumb:hover span {
+	visibility: visible;
+	top: 40px;
+	z-index: 1;
+}
+
+.thumb-span {
+	width: 85px !important;
+	height: 85px !important;
+}
 }
