@@ -9,11 +9,18 @@
  */
 
 angular.module('blueYieldLoanLoungeCompanionApp')
-  .controller('sendCustPopupCtrl', function ($scope, $modal, $modalInstance) {
+  .controller('sendCustPopupCtrl', function ($scope, $modal, $modalInstance, item, dataService) {
 
+	  $scope.file = item;
+	  $scope.sendCustfiles = dataService.getSendCustFile();
 	
     $scope.ok = function () {
-    	$modalInstance.dismiss('cancel');
+    	var obj = {};
+    	obj.name = $scope.file.name;
+    	obj.type = $scope.file.type;
+    	obj.date = new Date();
+    	$scope.sendCustfiles.push(obj);
+    	$modalInstance.close();
   	};
 
     $scope.cancel = function () {

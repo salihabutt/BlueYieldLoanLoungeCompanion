@@ -5,8 +5,8 @@
  * @name blueYieldLoanLoungeCompanionApp.controller:HomeCtrl
  * @description # HomeCtrl Controller of the blueYieldLoanLoungeCompanionApp
  */
-angular.module('blueYieldLoanLoungeCompanionApp').
-controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDelegate,$modal) {
+angular.module('blueYieldLoanLoungeCompanionApp')
+.controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDelegate,$modal) {
 			var self = this,
 			init = function (){
 				self.loanPackNote(); 
@@ -87,10 +87,13 @@ controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDele
 
 			$scope.loadNewFile = function(url) {
 			//	debugger;
-			     var a= pdfDelegate
+			   /*  var a= pdfDelegate
 			        .$getByHandle('my-pdf-container')
 			        .load(url);	
-			     self.generateThumbnail(url);
+			        
+			     self.generateThumbnail(url);*/
+		
+				
 			    };
 			self.openMergePopup = function () {
 					var modalInstance = $modal.open({
@@ -125,8 +128,11 @@ controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDele
 			                    viewport: t
 			                };
 			                debugger;
-			             //  var imgsrc= f.toDataURL("image/png");
-			              // document.getElementById("material").src = imagesrc;
+			                e.render(n).then(function(){
+			                	 var imgsrc= f.toDataURL("image/png");
+					              document.getElementById('material').src = imgsrc;
+							});
+			              
 					 });
 				 });
 			}

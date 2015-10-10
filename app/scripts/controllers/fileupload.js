@@ -8,24 +8,27 @@
      * Controller of the blueYieldLoanLoungeCompanionApp
      */
     angular.module('blueYieldLoanLoungeCompanionApp')
-      .controller('FileCtrl', function ($scope, $modal) {
+      .controller('FileCtrl', function ($scope, $modal, dataService) {
     	   var self = this;
-    	   self.sendCustfiles = [];
-    	   self.recCustfiles = [];
+    	   $scope.sendCustfiles = dataService.getSendCustFile();
+    	   $scope.recCustfiles = [];
     	   self.sendCustCount = 0;
     	   self.sendCustConfig = {
     	      init: function() {
     	        this.on("addedfile", function(file) {
     	        	// show popup
-    	        	self.openCustModal();
-    	        	var obj = {};
+    	        	self.openCustModal(file);
+    	        /*	var obj = {};
     	        	obj.name = file.name;
     	        	obj.type = file.type;
-    	        	self.sendCustfiles.push(obj);
-    	        	$scope.$apply();
+    	        	$scope.sendCustfiles.push(obj);
+    	        	$scope.$apply();*/
     	        //	file = null; // to be replaced 
     	        	//var r = new FileReader(file);
     	        //	var src=r.readAsDataURL();	
+    	        });
+    	        this.on("complete", function (file) {
+    	        
     	        });
     	      },
     	      uploadMultiple: false,
@@ -33,12 +36,20 @@
     	    };
 
     	    
-    	   self.openCustModal = function () {
-    	    	$modal.open({
+    	   self.openCustModal = function (file) {
+    	    	var modalInstance = $modal.open({
     	    		animation: false,
      	    		templateUrl: 'views/sendcustomerpopup.html',
      	    		controller: 'sendCustPopupCtrl',
-     	    		windowClass: 'modal-sendcustomer'
+     	    		windowClass: 'modal-sendcustomer',
+     	    		resolve : {
+     	    			item: function () {
+     	    				return file;
+     	    			}
+     	    		}
+    	    	});
+    	    	modalInstance.result.then(function(){
+    	    		debugger;
     	    	});
     	   };
     	   self.recCustConfig = {
@@ -47,7 +58,7 @@
     	    	        var obj = {};
     	    	        obj.name = file.name;
     	    	        obj.type = file.type;
-    	    	        self.recCustfiles.push(obj);
+    	    	        $scope.recCustfiles.push(obj);
     	    	        $scope.$apply();
     	    	        file = null; // to be replaced 
     	    	      });
