@@ -112,33 +112,8 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			    	windowClass: 'modal-deletefiles'
 		    	});
 			}
-			self.generateThumbnail = function (url) {
-				var n = {};
-				n.url = url;
-				 PDFJS.getDocument(n).then(function(t){
-					 t.getPage(1).then(function(e){
-						
-						 var f = document.createElement("canvas");
-						
-							var p = f.getContext("2d");
-			                var t = e.getViewport(1);
-			                f.height = t.height, f.width = t.width;
-			                var n = {
-			                    canvasContext: p,
-			                    viewport: t
-			                };
-			                debugger;
-			                e.render(n).then(function(){
-			                	 var imgsrc= f.toDataURL("image/png");
-					              document.getElementById('material').src = imgsrc;
-							});
-			              
-					 });
-				 });
-			}
 				
-			
-			init();
+		init();
 						
 		}])
 		  .controller('mergefilePopupCtrl', function ($scope, $modal, $modalInstance) {

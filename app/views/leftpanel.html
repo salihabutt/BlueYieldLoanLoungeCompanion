@@ -23,44 +23,33 @@
 		<!-- loan package portion  -->
 		<div class="col-lg-12 no-padding universal-widget-style">
 			<div class="col-lg-12 widget-heading">Loan Package</div>
-			<div ng-controller="FileCtrl as file">
+			<div ng-controller="FileCtrl">
 			<div class="col-lg-12 widget-sub-heading">Sent to Customer</div>
 	
 				<div class="col-lg-12 input-box-section">
 				<div class="col-lg-12 checkbox-box-section">
 				<div class="col-lg-12 no-padding">
-				<div class="checkbox col-lg-9 no-padding">
-						<div class="col-lg-4 no-padding">
-							<label> 
-							<input type="checkbox" style="margin-top:15px;" ng-click="loadNewFile('images/material-design.pdf')"> <span class="img-thumbnail"><img src=""></span></div><div class="col-lg-7 no-padding" style="margin-top:15px;">Material Design</div>
+					<ul ui-sortable ng-model="sendCustfiles" class="list-no-style">
+					<li ng-repeat="item in sendCustfiles track by $index">
+						<div class="checkbox col-lg-12 no-padding">
+						<div class="col-lg-3 no-padding">
+							<label class="no-padding"> 
+							<input type="checkbox" style="margin-top:15px"> 
+							<div id="thumbwrap">
+							<a class="thumb" href="#">
+							<img ng-src="{{item.src}}">
+							<span><img ng-src="{{item.src}}" class="thumb-span"></span>
+							</a>
+							</div>
+							</div>
+							<div class="col-lg-6 no-padding" style="margin-top:15px;">{{item.name}}</div>
 							</label>
-							
+							<div class="col-lg-3 no-padding">
+							<input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
+							<p ng-if="!(item.date==null)" class="sent-date">Sent:{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>
 						</div>
-						<div class="col-lg-3" style="margin-top:15px;">
-						<input type="button" class="widget-button-send" value="Send"  />
 						</div>
-						<div class="checkbox col-lg-9 no-padding">
-						<div class="col-lg-4 no-padding">
-							<label> 
-							<input type="checkbox" style="margin-top:15px;" ng-click="loadNewFile('images/relativity.pdf')"> <span class="img-thumbnail"><img src=""></span></div><div class="col-lg-7 no-padding" style="margin-top:15px;">Relativity</div>
-							</label>
-							
-						</div>
-						<div class="col-lg-3" style="margin-top:15px;">
-						<input type="button" class="widget-button-send" value="Send"  />
-						</div>
-					<ul ui-sortable ng-model="file.sendCustfiles" class="list-no-style">
-					<li ng-repeat="item in file.sendCustfiles">
-						<div class="checkbox col-lg-9 no-padding">
-						<div class="col-lg-4 no-padding">
-							<label> 
-							<input type="checkbox" style="margin-top:15px;"> <span class="img-thumbnail"><img src=""></span></div><div class="col-lg-7 no-padding" style="margin-top:15px;">{{item.name}}</div>
-							</label>
-							
-						</div>
-						<div class="col-lg-3" style="margin-top:15px;">
-						<input type="button" class="widget-button-send" value="Send"  />
-						</div>
+						
 					</li>
 				</ul>
 				</div>
@@ -68,7 +57,7 @@
 			 <input type="text" class="widget-textbox"
 					placeholder="Select or drag&drop file to upload" /> <input
 					type="button" class="widget-button" value="SELECT" />
-				 <form action="/app/pdf" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="file.sendCustConfig">
+				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="sendCustConfig">
              
               </form>
 			</div>
@@ -76,14 +65,29 @@
 			<div class="col-lg-12 widget-sub-heading">Received to Customer
 			</div>
 				<div class="col-lg-12 input-box-section">
-					<div class="col-lg-12 checkbox-box-section">
+				<div class="col-lg-12 checkbox-box-section">
 				<div class="col-lg-12">
-					<ul ui-sortable ng-model="file.recCustfiles" class="list-no-style">
-					<li ng-repeat="item in file.recCustfiles">
-						<div class="checkbox">
-							<label> <input type="checkbox"> {{item.name}}
+					<ul ui-sortable ng-model="recCustfiles" class="list-no-style">
+							<li ng-repeat="item in recCustfiles track by $index">
+						<div class="checkbox col-lg-12 no-padding">
+						<div class="col-lg-3 no-padding">
+							<label class="no-padding"> 
+							<input type="checkbox" style="margin-top:15px"> 
+							<div id="thumbwrap">
+							<a class="thumb" href="#">
+							<img ng-src="{{item.src}}">
+							<span class="thumb-span"><img ng-src="{{item.src}}"></span>
+							</a>
+							</div>
+							</div>
+							<div class="col-lg-6 no-padding" style="margin-top:15px;">{{item.name}}</div>
 							</label>
+							<div class="col-lg-3 no-padding">
+							<input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
+							<p ng-if="!(item.date==null)" class="sent-date">Sent:{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>
 						</div>
+						</div>
+						
 					</li>
 				</ul>
 				</div>
@@ -91,7 +95,7 @@
 			<input type="text" class="widget-textbox"
 					placeholder="Select or drag&drop file to upload" /> <input
 					type="button" class="widget-button" value="SELECT" />
-				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone  dropzone-config="file.recCustConfig">
+				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone  dropzone-config="recCustConfig">
               
               </form>
 			</div>

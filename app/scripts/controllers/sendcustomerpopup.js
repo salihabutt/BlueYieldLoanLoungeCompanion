@@ -12,18 +12,22 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   .controller('sendCustPopupCtrl', function ($scope, $modal, $modalInstance, item, dataService) {
 
 	  $scope.file = item;
-	  $scope.sendCustfiles = dataService.getSendCustFile();
+	  $scope.sendCustFile = dataService.sendCustFile;
+	  $scope.applicantInfo = dataService.applicantInfo;
 	
     $scope.ok = function () {
-    	var obj = {};
-    	obj.name = $scope.file.name;
-    	obj.type = $scope.file.type;
-    	obj.date = new Date();
-    	$scope.sendCustfiles.push(obj);
+    	$scope.sendCustFile.name = $scope.file.name;
+    	$scope.sendCustFile.type = $scope.file.type;
+    	$scope.sendCustFile.url = "/images/material-design.pdf"; // right now static for demo purposes
+    	$scope.sendCustFile.date = new Date();
     	$modalInstance.close();
   	};
 
     $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
+    	$scope.sendCustFile.name = $scope.file.name;
+    	$scope.sendCustFile.type = $scope.file.type;
+    	$scope.sendCustFile.date = null;
+    	$scope.sendCustFile.url = "/images/relativity.pdf";  // right now static for demo purposes
+    	$modalInstance.dismiss('cancel');
     };
 });
