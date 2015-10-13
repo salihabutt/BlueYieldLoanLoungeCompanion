@@ -6,13 +6,16 @@
  * @description # HomeCtrl Controller of the blueYieldLoanLoungeCompanionApp
  */
 angular.module('blueYieldLoanLoungeCompanionApp')
-.controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDelegate,$modal) {
+.controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDelegate, $modal) {
 			var self = this,
 			init = function (){
 				self.loanPackNote(); 
 			}; 
-			$scope.pdfUrl = '';
-			$scope.showFile = true;
+			$scope.selFileCount = 0;
+			$scope.showFile = false;
+			$scope.isPdf = false;
+			$scope.fileToDisplay = {};
+			$scope.showThumbnail = false;
 			self.loanPkgChecklist = [ {
 				name : 'Loneliner Application',
 				check : false
@@ -50,25 +53,28 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				name : 'Fixed Rate Promotion Addendum',
 				check : false
 			} ];
-			self.employee = {
+			$scope.employee = {
 					date : "",
 					phone : "",
 					time : "",
 					position : "",
 					name : "",
 					options: ["AM", "PM"],
-					selected: "AM"
+					selected: "AM",
+					value: 'CUSTOMER VERIFIED',
+					verified: false
 			};
 			
-			self.customer = {
+			$scope.customer = {
 					date : "",
 					time : "",
 					name :"",
 					options: ["AM", "PM"],
-					selected: "AM"
+					selected: "AM",
+					value: 'CUSTOMER IDENTIFICATION VERIFIED',
+					verified: false
 			};
-			self.myOptions = ["AM", "PM"];
-			self.myModel = "AM";
+			
 			$scope.LoanPackText = "";
 			
 			self.loanPackNote = function () {
@@ -86,16 +92,11 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			};	 
 
 			$scope.loadNewFile = function(url) {
-			//	debugger;
-			   /*  var a= pdfDelegate
+			     var a= pdfDelegate
 			        .$getByHandle('my-pdf-container')
-			        .load(url);	
-			        
-			     self.generateThumbnail(url);*/
-		
-				
+			        .load(url);							
 			    };
-			self.openMergePopup = function () {
+			$scope.openMergePopup = function () {
 					var modalInstance = $modal.open({
 			    		animation: false,
 				    	templateUrl: 'views/mergefilepopup.html',
@@ -103,16 +104,49 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				    	windowClass: 'modal-mergefiles'
 			    	});
 					
-				}
-			self.openDeletePopup = function () {
+				};
+			$scope.openDeletePopup = function () {
 				var modalInstance = $modal.open({
 		    		animation: false,
 			    	templateUrl: 'views/deletepopup.html',
 			    	controller: 'delfilePopupCtrl',
 			    	windowClass: 'modal-deletefiles'
 		    	});
+			};
+			$scope.updateFileCount = function (e){
+				var checkbox = e.target;
+				checkbox.checked? $scope.selFileCount++: $scope.selFileCount--;	
+			};
+			$scope.$on('updateFileCount',function (event,data) {
+			if(data){
+				$scope.selFileCount++;
+			}else{
+				$scope.selFileCount--;
 			}
+			});
+			
+			$scope.previewDoc =  function (obj) {
+				$scope.showFile = true;
+				$scope.fileToDisplay.name = obj.name;
+				if(obj.type === 'application/pdf'){
+					$scope.isPdf = true;
+					$scope.loadNewFile(obj.url);
+				}else{
+					$scope.isPdf = false;
+					$scope.fileToDisplay.src = obj.src; 
+				}
 				
+			};	
+			$scope.getFormattedName = function (name){
+				if(name.length>16){
+					name=name.substring(0,16);
+					name = name+'...';
+				}
+				return name;
+			};
+			$scope.toggleThumbnail =  function (val){
+				$scope.showThumbnail = val;
+			};
 		init();
 						
 		}])

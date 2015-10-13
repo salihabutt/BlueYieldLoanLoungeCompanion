@@ -1,7 +1,7 @@
-<div class="left-panel" dynamic-height>
+<div class="left-panel" dynamic-height >
 	<div class="col-lg-12 icon-bar">
 		<div class="clearfix">
-			3 files selected
+			{{selFileCount}} files selected
 			<span class="icon">
 				<img src="../images/bt_print@2x.png" alt="delete-btn" /> 
 			</span>
@@ -30,11 +30,11 @@
 				<div class="col-lg-12 checkbox-box-section">
 				<div class="col-lg-12 no-padding">
 					<ul ui-sortable ng-model="sendCustfiles" class="list-no-style">
-					<li ng-repeat="item in sendCustfiles track by $index">
+					<li ng-repeat="item in sendCustfiles track by $index" >
 						<div class="checkbox col-lg-12 no-padding">
 						<div class="col-lg-3 no-padding">
 							<label class="no-padding"> 
-							<input type="checkbox" style="margin-top:15px"> 
+							<input type="checkbox" style="margin-top:15px" ng-click="updateFileCount($event)"> 
 							<div id="thumbwrap">
 							<a class="thumb" href="#">
 							<img ng-src="{{item.src}}">
@@ -42,7 +42,7 @@
 							</a>
 							</div>
 							</div>
-							<div class="col-lg-6 no-padding" style="margin-top:15px;">{{item.name}}</div>
+							<div class="col-lg-6 no-padding" style="margin-top:15px;" ng-click="previewDoc(item)">{{item.name}}</div>
 							</label>
 							<div class="col-lg-3 no-padding">
 							<input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
@@ -72,19 +72,19 @@
 						<div class="checkbox col-lg-12 no-padding">
 						<div class="col-lg-3 no-padding">
 							<label class="no-padding"> 
-							<input type="checkbox" style="margin-top:15px"> 
+							<input type="checkbox" style="margin-top:15px" ng-click="updateFileCount($event)"> 
 							<div id="thumbwrap">
 							<a class="thumb" href="#">
 							<img ng-src="{{item.src}}">
-							<span class="thumb-span"><img ng-src="{{item.src}}"></span>
+							<span><img ng-src="{{item.src}}" class="thumb-span"></span>
 							</a>
 							</div>
 							</div>
-							<div class="col-lg-6 no-padding" style="margin-top:15px;">{{item.name}}</div>
+							<div class="col-lg-6 no-padding" style="margin-top:15px;" ng-click="previewDoc(item)">{{item.name}}</div>
 							</label>
 							<div class="col-lg-3 no-padding">
 							<input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
-							<p ng-if="!(item.date==null)" class="sent-date">Sent:{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>
+							<p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>
 						</div>
 						</div>
 						
@@ -123,59 +123,7 @@
 		<!-- Borrower Stips portion  -->
 		<div ng-include="'views/stipborrower.html'"></div>
 
-		<!-- Co-Borrower Stips portion  -->
-		<div class="col-lg-12 no-padding universal-widget-style margin-top20">
-			<div class="col-lg-10 widget-heading">Co-borrower Stips</div>
-			<div class="col-lg-2 no-padding widget-heading">
-				<!-- <img src="../images/bt_print@2x.png" alt="plus sign" /> -->
-			</div>
-			<div class="col-lg-12 document-to-verify">
-				<table class="col-lg-12 no-padding">
-					<tr>
-						<td>
-							<div class="checkbox">
-								<label> <input type="checkbox">
-								</label>
-							</div>
-						</td>
-						<td class="text-left">
-							<p class="no-margin">Driver License Front</p>
-						</td>
-						<td><input type="button" class="widget-button-verify"
-							value="VERIFY" /></td>
-					</tr>
-				</table>
-			</div>
-			<div class="col-lg-12 input-box-section">
-				<input type="text" class="widget-textbox"
-					placeholder="Select or drag&drop file to upload" /> <input
-					type="button" class="widget-button" value="SELECT" />
-			</div>
-
-			<div class="col-lg-12 document-to-verify">
-				<table class="col-lg-12 no-padding">
-					<tr>
-						<td>
-							<div class="checkbox">
-								<label> <input type="checkbox">
-								</label>
-							</div>
-						</td>
-						<td class="text-left">
-							<p class="no-margin">Driver License Back</p>
-						</td>
-						<td><input type="button" class="widget-button-verify"
-							value="VERIFY" /></td>
-					</tr>
-				</table>
-			</div>
-			<div class="col-lg-12 input-box-section">
-				<input type="text" class="widget-textbox"
-					placeholder="Select or drag&drop file to upload" /> <input
-					type="button" class="widget-button" value="SELECT" />
-			</div>
-		</div>
-
+		
 		<!-- employment verification portion  -->
 		<div class="col-lg-12 no-padding universal-widget-style margin-top20">
 			
@@ -197,7 +145,7 @@
 				 <div class="form-group col-lg-6">
 				    <label for="exampleInputEmail1">Time</label><br/>
 				    <input type="text" class="widget-textbox " style="width:38%" ng-model="employee.time">
-				    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='myModel' options='myOptions'></buttons-radio>
+				    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='employee.selected' options='employee.options' style="height: 40px !important;top:-1px;left:-4px"></buttons-radio>
 				  </div>
 			</div>
 
@@ -219,7 +167,7 @@
 			</div>
 
 			<div class="col-lg-12 input-box-section  border-bottom" style="padding-top:20px !important">
-				 <input type="buttom" class="widget-button-long" value="EMPLOYMENT VERIFIED" style="width:100%">
+				 <input type="buttom" ng-class="{'widget-button-long-disabled':!employee.verified,'widget-button-long':employee.verified}" value="{{employee.value}}" >
 			</div>
 		</div>
 
@@ -243,7 +191,7 @@
 				 <div class="form-group col-lg-6">
 				    <label for="exampleInputEmail1">Time</label><br/>
 				    <input type="text" class="widget-textbox " style="width:38%" ng-model="customer.time">
-				    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='myModel' options='myOptions'></buttons-radio>
+				    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='customer.selected' options='customer.options' style="height: 40px !important;top:-1px;left:-4px"></buttons-radio>
 				  </div>
 				 
 			</div>
@@ -255,7 +203,7 @@
 				  </div>
 			</div>
 			<div class="col-lg-12 input-box-section  border-bottom" style="padding-top:20px !important">
-				 <input type="buttom" class="widget-button-long" value="EMPLOYMENT VERIFIED" style="width:100%">
+				 <input type="buttom" ng-class="{'widget-button-long-disabled':!customer.verified,'widget-button-long':customer.verified}" value="{{customer.value}}">
 			</div>
 		</div>
 

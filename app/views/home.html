@@ -7,7 +7,8 @@
 	<div style="width:78%;background:#E7EbF4;height:auto" ng-show="!showFile">
 	<div class="logo-bg">
 	<img src="images/logo_gray_BH.png">
-	</div></div>
+	</div>
+	</div>
 	<div style="width:78%;" ng-show="showFile">
 	<div class="top-bar">
 		<div class="col-lg-1"></div>
@@ -15,8 +16,7 @@
 			<span> 
 			<img src="../images/im_document@2x.png"alt="document-btn" />
 			</span> 
-			<span>dl_front.pdf</span>
-			<span>Driver's License Front</span>
+			<span style="font-weight:bold">{{fileToDisplay.name}}</span>
 		</div>
 		<div class="clearfix icon-bar">
 			<span class="icon"> <img src="../images/bt_print@2x.png"
@@ -28,20 +28,25 @@
 			</span>
 		</div>
 	</div>
-<div style="display:-webkit-box">
+<div style="display:-webkit-box;width:100%" ng-show='isPdf' >
 	<div ng-slimscroll id="preview-file" class="mousescroll slimScrollDiv">
 	 <pdf-viewer
         delegate-handle="my-pdf-container"
         url="pdfUrl"
         scale="1"
         show-toolbar="false"
-        headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer>  
+        headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer> 
 	</div>
-	<div ng-slimscroll id="preview-thumb" class="mousescroll slimScrollDiv">
-	<div class="thumbnail-wrapper" id="thumbnail-wrapper">
-
+	<div>
+	<div class="toggle-btn-thumbnail" ng-click="toggleThumbnail(!showThumbnail)"><img src="images/ic_toggle_button.png"></div>
+	<div ng-slimscroll id="preview-thumb" class="mousescroll slimScrollDiv" ng-show="showThumbnail">
+	<div class="thumbnail-wrapper" id="thumbnail-wrapper" ng-show="showThumbnail">
 	</div>
 	</div>
+	</div>
+</div>
+<div ng-show='!isPdf'>
+<img ng-src='{{fileToDisplay.src}}' style="width:100%">
 </div>
 </div>
 

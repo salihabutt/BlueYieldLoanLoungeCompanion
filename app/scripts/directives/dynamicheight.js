@@ -5,13 +5,13 @@ app.directive('dynamicHeight', function () {
       link: function (scope, element) {
         $('.left-panel').ready(function(){
         	var a =$(window).height();
-			$('.left-panel').css('height',a-100 + 'px');
+			$('.left-panel').css('height',a-80 + 'px');
 			
         });
         $('.slim-scroll-div').ready(function(){
         	var a =$(window).height();
-			$('.slim-scroll-div').css('height',a-100 + 'px');
-			$('.slim-scroll-div').parent().css('height',a-250 + 'px');
+			$('.slim-scroll-div').css('height',a-150 + 'px');
+			$('.slim-scroll-div').parent().css('height',a-150 + 'px');
         });
         $('#preview-file').ready(function(){
         	var a =$(window).height();

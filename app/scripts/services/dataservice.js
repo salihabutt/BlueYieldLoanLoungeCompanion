@@ -21,4 +21,5 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	    		email: "test@gmail.com"
 	    	
 	    };
+		
 	});

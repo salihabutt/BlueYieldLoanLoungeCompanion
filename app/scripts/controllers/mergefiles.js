@@ -10,10 +10,7 @@ controller('MergeFileControlle', function (self,$scope,$modal) {
 	    		templateUrl: 'views/mergefilepopup.html',
 	    		controller: 'mergefilePopupCtrl',
 	    		windowClass: 'modal-mergefiles'
-    	});
-		
-	}
-	
-	
+    	});	
+	};
 });
 
