@@ -196,7 +196,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		if((obj.url!=null || obj.url!='') && obj.type=='application/pdf'){
 		var pdf = {};
 		pdf.url = obj.url;
-		 PDFJS.getDocument(n).then(function(t){
+		 PDFJS.getDocument(pdf).then(function(t){
 			 t.getPage(1).then(function(e){
 				
 				 var f = document.createElement("canvas");
