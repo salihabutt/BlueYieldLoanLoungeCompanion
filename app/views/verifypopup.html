@@ -1,0 +1,63 @@
+<div class="modal-header verify-popup" popup-setting>
+    <h3 class="modal-title">Verify Stip </h3>
+</div>
+
+<div class="modal-body clearfix">
+	<div class="form-group col-lg-12">
+		<div class="col-lg-6">
+			Expiration Date:
+		</div>
+	    <div class="inner-addon right-addon col-lg-6">
+			<i class="glyphicon glyphicon-calendar"></i>
+	    	<input type="text" class="widget-textbox" style="width:100%" ng-model="employee.date" jqdatepicker>
+	    </div>
+
+	    <div class="margin-top30 col-lg-12">
+
+	    	<div class="radio">
+			  <label>
+			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+			    Paperwork OK
+			  </label>
+			</div>
+			<div class="radio">
+			  <label>
+			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+			    Blurred Image 
+			  </label>
+			</div>
+			<div class="radio">
+			  <label>
+			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+			    Partial Image
+			  </label>
+			</div>
+			<div class="radio">
+			  <label>
+			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+			    Past Expiration Date
+			  </label>
+			</div>
+			<div class="radio">
+			  <label>
+			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+			    No in (co)borrower's name 
+			  </label>
+			</div>
+			<div class="radio">
+			  <label>
+			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+			    Can't Open file
+			  </label>
+			</div>
+
+
+	    </div>
+
+	</div>
+</div>
+
+<div class="modal-footer">
+    <button class="popup-btn-close" type="button" ng-click="cancel()">CLOSE</button>
+    <button class="popup-btn-done" type="button" ng-click="ok()">DONE</button>
+</div>

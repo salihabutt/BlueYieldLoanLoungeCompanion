@@ -6,12 +6,12 @@
  * @description # HomeCtrl Controller of the blueYieldLoanLoungeCompanionApp
  */
 angular.module('blueYieldLoanLoungeCompanionApp')
-.controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDelegate,$modal) {
+.controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDelegate, $modal) {
 			var self = this,
 			init = function (){
 				self.loanPackNote(); 
 			}; 
-			$scope.pdfUrl = '';
+			$scope.selFileCount = 0;
 			$scope.showFile = true;
 			self.loanPkgChecklist = [ {
 				name : 'Loneliner Application',
@@ -50,7 +50,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				name : 'Fixed Rate Promotion Addendum',
 				check : false
 			} ];
-			self.employee = {
+			$scope.employee = {
 					date : "",
 					phone : "",
 					time : "",
@@ -60,15 +60,14 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					selected: "AM"
 			};
 			
-			self.customer = {
+			$scope.customer = {
 					date : "",
 					time : "",
 					name :"",
 					options: ["AM", "PM"],
 					selected: "AM"
 			};
-			self.myOptions = ["AM", "PM"];
-			self.myModel = "AM";
+			
 			$scope.LoanPackText = "";
 			
 			self.loanPackNote = function () {
@@ -95,7 +94,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		
 				
 			    };
-			self.openMergePopup = function () {
+			$scope.openMergePopup = function () {
 					var modalInstance = $modal.open({
 			    		animation: false,
 				    	templateUrl: 'views/mergefilepopup.html',
@@ -103,15 +102,26 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				    	windowClass: 'modal-mergefiles'
 			    	});
 					
-				}
-			self.openDeletePopup = function () {
+				};
+			$scope.openDeletePopup = function () {
 				var modalInstance = $modal.open({
 		    		animation: false,
 			    	templateUrl: 'views/deletepopup.html',
 			    	controller: 'delfilePopupCtrl',
 			    	windowClass: 'modal-deletefiles'
 		    	});
+			};
+			$scope.updateFileCount = function (e){
+				var checkbox = e.target;
+				checkbox.checked? $scope.selFileCount++: $scope.selFileCount--;	
+			};
+			$scope.$on('updateFileCount',function (event,data) {
+			if(data){
+				$scope.selFileCount++;
+			}else{
+				$scope.selFileCount--;
 			}
+			});
 				
 		init();
 						

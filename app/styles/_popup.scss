@@ -21,16 +21,22 @@
 	.modal-body{
 		background-color: #f7f7f7;
 	
-		.stip-category{
+		.stip-category {
 			list-style: none;
 			padding:0px 0px 0px 29px;
 
-			.checkbox{
+			.checkbox {
 				font-size: 16px;
 			}
 		}
+		a {
+			color: red;
+			text-decoration: underline;
+			font-weight: none;
+			font-size: 12px;
+		}
 	}
-	.modal-footer{
+	.modal-footer { 
 		border:0px;
 		background-color: #f7f7f7;
 
@@ -58,6 +64,29 @@
 	}
 
 
+}
+
+.modal-verify .modal-dialog{
+		width: 400px;
+    	height: 80%;
+
+    	
+    	.margin-top30{
+    		margin-top: 30px;
+    	}
+
+    	.inner-addon .glyphicon{
+    		padding-right: 20px;
+    		padding-top: 4px;
+    	}
+
+    	.modal-footer {
+		    padding: 15px;
+		    text-align: center;
+		    border-top: 1px solid #e5e5e5;
+		}
+    	
+			
 }
 
 .modal-sendcustomer .modal-dialog{

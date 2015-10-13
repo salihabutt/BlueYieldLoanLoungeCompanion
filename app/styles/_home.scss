@@ -6,6 +6,7 @@
 	/*position: absolute;*/
 	/*top: 150px;*/
 	left: 0px;
+	position:relative;
 
 	.icon-bar {
 		background-color: #fff;
@@ -54,6 +55,17 @@
 				padding: 10px 10px 10px 10px;
 				 border-bottom: 1px solid #D8DDE3;
 			    border-top : 1px solid #D8DDE3;
+			    ul{
+			    list-style-type:none;
+				padding-left:0px;
+			    }
+			    ul li{
+			    	width:100%;
+			    	/*background-color: #ccc;
+			    	border: 1px black solid;*/
+			    	height: 70px;
+			    	padding: 0px 0px 0px 0px;
+			    }
 			}
 
 			.widget-textbox {
@@ -122,7 +134,7 @@
 
 				textarea {
 				    height: 65px;
-					width: 223px;
+					width: 250px;
 					vertical-align: top;
 					margin-right: 10px;
 					margin-bottom:30px;
@@ -138,6 +150,7 @@
 		font-size: 14px;
 		height: 40px;
 		margin-top: 14px;
+		margin-left: 12px;
 		background-color: #B1B8C8;
 		border: 2px solid #B1B8C8;
 		border-bottom: 2px solid #9C9E9C;
@@ -190,6 +203,7 @@
 	height: 50px;
 	/*float:left;*/
 	padding: 0px 0px 0px 0px;
+	border: 1px #ccc solid;
 }
 .thumb span { 
 	position: absolute;
@@ -206,5 +220,6 @@
 .thumb-span {
 	width: 85px !important;
 	height: 85px !important;
+	border: 1px #ccc solid;
 }
 }

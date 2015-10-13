@@ -13,6 +13,7 @@
     	   $scope.sendCustfiles = [];
     	   $scope.sendCustFile = dataService.sendCustFile;
     	   $scope.recCustfiles = [];
+    	   $scope.selFileCount = dataService.selFileCount;
     	   $scope.fileObject = {};
     	   self.sendCustCount = 0;
     	   $scope.sendCustConfig = {
@@ -55,6 +56,7 @@
     	    		obj.url  = $scope.sendCustFile.url;
     	    		obj.type = $scope.sendCustFile.type;
     	    		obj.date = $scope.sendCustFile.date;
+    	    		obj.clas = 'custfile';
     	    		$scope.generateThumbnail(obj);
     	    		}
     	   }
@@ -65,9 +67,10 @@
     	    	        var obj = {};
     	    	        obj.name = file.name;
     	    	        obj.type = file.type;
+    	    	        obj.url = '/images/relativity.pdf'; //statis for now
     	    	        obj.date = new Date();
-    	    	        $scope.recCustfiles.push(obj);
-    	    	        $scope.$apply();
+    	    	        obj.clas = 'recfile';
+    	    	        $scope.generateThumbnail(obj);
     	    	        file = null; // to be replaced 
     	    	      });
     	    	   },
@@ -101,9 +104,12 @@
 			                };
 			            
 			                e.render(n).then(function(){
-			                	 
 					              obj.src = f.toDataURL("image/png");
-					              $scope.sendCustfiles.push(obj);
+					              if(obj.clas === 'custfile'){
+					            	  $scope.sendCustfiles.push(obj);
+					              }else{
+					            	  $scope.recCustfiles.push(obj);
+					              }
 					              $scope.$apply();
 							});
 			              
@@ -114,11 +120,16 @@
     				  var reader = new FileReader();
     				  reader.onload = function (e) {
     				    	obj.src = e.target.result;
-    				    	$scope.sendCustfiles.push(obj);
+    				    	if(obj.clas === 'custfile'){
+				            	  $scope.sendCustfiles.push(obj);
+				              }else{
+				            	  $scope.recCustfiles.push(obj);
+				              }
    			             	$scope.$apply();
     	                }
     				    reader.readAsDataURL($scope.fileObject);    
     			}
 			};
+			
     
       });

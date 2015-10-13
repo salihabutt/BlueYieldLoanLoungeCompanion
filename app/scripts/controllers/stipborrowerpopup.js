@@ -15,10 +15,25 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	$scope.sellerStip = stipDataService.getSellerData();
 	$scope.subject = subject;
     $scope.ok = function () {
-    	$modalInstance.dismiss('cancel');
+    	$modalInstance.close();
   	};
 
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
+    
+    $scope.removeCategory = function (index,type) {
+    	
+    	switch (type) {
+ 		case 'Borrower':
+ 			$scope.borrowerStip[index].check=false;
+ 		break;
+ 		case 'Co-borrower':
+ 			$scope.coborrowerStip[index].check=false;
+ 		break;
+ 		case 'Seller':
+ 			$scope.sellerStip[index].check=false;
+ 		break;
+	}
+    }
 });
