@@ -22,10 +22,7 @@
     	        	// show popup
     	        	$scope.fileObject = file;
     	        	$scope.openCustModal(file);
-    	       
-    	        //	file = null; // to be replaced 
-    	        	//var r = new FileReader(file);
-    	        //	var src=r.readAsDataURL();	
+
     	        });
     	      },
     	      uploadMultiple: false,
@@ -52,7 +49,7 @@
     	   $scope.persistObject = function () {
     			if(!self.isEmpty($scope.sendCustFile)){
     	    		var obj = {};
-    	    		obj.name = $scope.sendCustFile.name;
+    	    		obj.name = $scope.getFormattedName($scope.sendCustFile.name);
     	    		obj.url  = $scope.sendCustFile.url;
     	    		obj.type = $scope.sendCustFile.type;
     	    		obj.date = $scope.sendCustFile.date;
@@ -65,7 +62,7 @@
     	    	      this.on("addedfile", function(file) {
     	    	    	$scope.fileObject = file;
     	    	        var obj = {};
-    	    	        obj.name = file.name;
+    	    	        obj.name = $scope.getFormattedName(file.name);
     	    	        obj.type = file.type;
     	    	        obj.url = '/images/relativity.pdf'; //statis for now
     	    	        obj.date = new Date();

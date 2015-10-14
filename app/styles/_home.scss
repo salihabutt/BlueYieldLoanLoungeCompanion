@@ -96,14 +96,24 @@
     			text-align: center;
 			}
 
+			.widget-button-long-disabled {
+			    width: 100%;
+			    font-size: 14px;
+			    height: 40px;
+			    background-color: #BABFBB;
+			    color: #fff;
+			    border: none;
+    			text-align: center;
+				}
 			.widget-button-verify {
-			    width: 80px;
+			    width: 84px;
 			    font-size: 14px;
 			    height: 40px;
 			    background-color: #B1B8C8;
 			    border: 2px solid #B1B8C8;
 			    border-bottom: 2px solid #9C9E9C;
 			    color: #fff;
+			    float: right;
 			}
 			.document-to-verify {
 			    font-size: 18px;
@@ -222,4 +232,12 @@
 	height: 85px !important;
 	border: 1px #ccc solid;
 }
+
+}
+
+.toggle-btn-thumbnail {
+	height: 24px;
+	width: 30px;
+	background-color: #ccc;
+	text-align: center;
 }

@@ -5,12 +5,12 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     return {
         restrict: 'A',
         require: 'ngModel',
-         link: function (scope, element) {
+         link: function (scope, element,attrs, ngModel) {
             element.datepicker({
                 dateFormat: 'dd/mm/yy',
                 onSelect: function (date) {
-                    scope.date = date;
-                    scope.$apply();
+                	  ngModel.$setViewValue(date);
+                	  scope.$apply();
                 }
             });
         }

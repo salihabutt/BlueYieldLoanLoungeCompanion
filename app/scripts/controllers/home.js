@@ -12,7 +12,10 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				self.loanPackNote(); 
 			}; 
 			$scope.selFileCount = 0;
-			$scope.showFile = true;
+			$scope.showFile = false;
+			$scope.isPdf = false;
+			$scope.fileToDisplay = {};
+			$scope.showThumbnail = false;
 			self.loanPkgChecklist = [ {
 				name : 'Loneliner Application',
 				check : false
@@ -57,7 +60,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					position : "",
 					name : "",
 					options: ["AM", "PM"],
-					selected: "AM"
+					selected: "AM",
+					value: 'CUSTOMER VERIFIED',
+					verified: false
 			};
 			
 			$scope.customer = {
@@ -65,7 +70,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					time : "",
 					name :"",
 					options: ["AM", "PM"],
-					selected: "AM"
+					selected: "AM",
+					value: 'CUSTOMER IDENTIFICATION VERIFIED',
+					verified: false
 			};
 			
 			$scope.LoanPackText = "";
@@ -85,14 +92,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			};	 
 
 			$scope.loadNewFile = function(url) {
-			//	debugger;
-			   /*  var a= pdfDelegate
+			     var a= pdfDelegate
 			        .$getByHandle('my-pdf-container')
-			        .load(url);	
-			        
-			     self.generateThumbnail(url);*/
-		
-				
+			        .load(url);							
 			    };
 			$scope.openMergePopup = function () {
 					var modalInstance = $modal.open({
@@ -122,7 +124,29 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				$scope.selFileCount--;
 			}
 			});
+			
+			$scope.previewDoc =  function (obj) {
+				$scope.showFile = true;
+				$scope.fileToDisplay.name = obj.name;
+				if(obj.type === 'application/pdf'){
+					$scope.isPdf = true;
+					$scope.loadNewFile(obj.url);
+				}else{
+					$scope.isPdf = false;
+					$scope.fileToDisplay.src = obj.src; 
+				}
 				
+			};	
+			$scope.getFormattedName = function (name){
+				if(name.length>16){
+					name=name.substring(0,16);
+					name = name+'...';
+				}
+				return name;
+			};
+			$scope.toggleThumbnail =  function (val){
+				$scope.showThumbnail = val;
+			};
 		init();
 						
 		}])

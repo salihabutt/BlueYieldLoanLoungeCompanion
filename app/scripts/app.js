@@ -23,7 +23,8 @@ var app=angular
 		'ui.mask',
 		'ui.bootstrap',
 		'ngDropzone',
-		'pdf'
+		'pdf',
+		'dndLists'
 	]);
 
 	app.config(function ($stateProvider, $urlRouterProvider) {

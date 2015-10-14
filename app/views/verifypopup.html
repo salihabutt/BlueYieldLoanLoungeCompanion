@@ -9,44 +9,45 @@
 		</div>
 	    <div class="inner-addon right-addon col-lg-6">
 			<i class="glyphicon glyphicon-calendar"></i>
-	    	<input type="text" class="widget-textbox" style="width:100%" ng-model="employee.date" jqdatepicker>
+	    	<input type="text" class="widget-textbox" style="width:100%" ng-model="getData.getExpDate" jqdatepicker>
+
 	    </div>
 
 	    <div class="margin-top30 col-lg-12">
 
 	    	<div class="radio">
 			  <label>
-			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+			    <input type="radio" name="optionsRadios" ng-model="getData.expirationType" value="Paperwork OK" checked>
 			    Paperwork OK
 			  </label>
 			</div>
 			<div class="radio">
 			  <label>
-			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+			    <input type="radio" name="optionsRadios" ng-model="getData.expirationType" value="Blurred Image">
 			    Blurred Image 
 			  </label>
 			</div>
 			<div class="radio">
 			  <label>
-			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+			    <input type="radio" name="optionsRadios" ng-model="getData.expirationType" value="Partial Image">
 			    Partial Image
 			  </label>
 			</div>
 			<div class="radio">
 			  <label>
-			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+			    <input type="radio" name="optionsRadios" ng-model="getData.expirationType" value="Past Expiration Date" >
 			    Past Expiration Date
 			  </label>
 			</div>
 			<div class="radio">
 			  <label>
-			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+			    <input type="radio" name="optionsRadios" ng-model="getData.expirationType" value="No in (co)borrower's name " checked>
 			    No in (co)borrower's name 
 			  </label>
 			</div>
 			<div class="radio">
 			  <label>
-			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+			    <input type="radio" name="optionsRadios" ng-model="getData.expirationType" value="Can't Open file" >
 			    Can't Open file
 			  </label>
 			</div>

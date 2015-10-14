@@ -15,9 +15,7 @@ app.directive('filenamecheck', function($q, $timeout) {
 	        var def = $q.defer();
 
 	        $timeout(function() {
-	          // Mock a delayed response
 	          if (REGEXP.test(viewValue)) {
-	            // The username is available
 	            def.resolve();
 	          } else {
 	            def.reject();

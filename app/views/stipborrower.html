@@ -2,7 +2,7 @@
 	<div class="col-lg-12 no-padding universal-widget-style margin-top20">
 		<div class="col-lg-10 widget-heading">Borrower Stips</div>
 		<div class="col-lg-2 no-padding widget-heading">
-			<img src="images/bt_plus_white.png" style="margin: 15px 21px;" alt="plus sign" ng-click="open('borrower')" />
+			<img src="images/bt_plus_white.png" style="margin: 14px 21px;" alt="plus sign" ng-click="open('borrower')" />
 		</div>
 		<ul class="list-no-style">
 		<li ng-repeat="parent in bData track by $index" ng-init="outerIndex=$index">
@@ -17,19 +17,29 @@
 					</td>
 					<td class="text-left">
 						<p class="no-margin">{{parent.name}}</p>
-					<!-- 	<p class="no-margin image-status">09/12/15: Blurred Image</p>
-						<p class="no-margin location-status">Location Coborrower -
-							Driver's License(Front)</p>-->
+							
+							<span ng-show="parent.exDate != undefined">
+								<p class="no-margin image-status" >{{parent.exDate}} : {{parent.exType}} </p>
+								<span ng-if="parent.paperworkCheck"><a href="javascript:void(0)">cancel</a></span>
+							<!-- 	<p class="no-margin location-status">Location Coborrower -
+									Driver's License(Front)</p>-->
+							</span>
 					</td>
 					<td><input type="button" class="widget-button-verify"
-						value="VERIFY" ng-click="calling()" /></td>
+						value="VERIFY" ng-click="verifyPopupTrigger(parent)" ng-if="!parent.paperworkCheck" />
+						<span ng-if="parent.paperworkCheck">Verified</span>
+						<span ng-if="parent.paperworkCheck"><img src="images/ic_verified.png" alt="verified" /></span>
+					</td>
 				</tr>
 			</table>
 		</div>
 		<div class="col-lg-12 document-box-section">
 			<div class="col-lg-12 no-padding">
-						<ul  ng-model = "parent.files" ui-sortable>	
-							<li ng-repeat="item in parent.files track by $index">
+							<ul dnd-list="parent.files">	
+							<li ng-repeat="item in parent.files track by $id(item)" 
+							 	dnd-draggable="item"
+        						dnd-moved="parent.files.splice($index, 1)"
+        						dnd-effect-allowed="move">
 								<div class="checkbox col-lg-12 no-padding">
 									<div class="col-lg-3 no-padding">
 										<label> <input type="checkbox"
@@ -41,7 +51,7 @@
 												</a>
 											</div>
 									</div>
-									<div class="col-lg-6 no-padding" style="margin-top: 15px;">{{item.name}}</div>
+									<div class="col-lg-6 no-padding" style="margin-top: 15px;" ng-click="previewDoc(item)">{{item.name}}</div>
 									</label>
 									<div class="col-lg-3 no-padding">
 										<p class="sent-date">Uploaded:{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>
@@ -51,6 +61,7 @@
 							</li>
 						</ul>
 					</div>
+					<div>
 						 <input type="text" class="widget-textbox"
 					placeholder="Select or drag&drop file to upload" /> <input
 					type="button" class="widget-button" value="SELECT" />
@@ -60,6 +71,7 @@
 				 from the server to do further operations -->
              		<input type="hidden" name="data" value="outerIndex" >
               </form>
+              </div>
 		</div>
 
 		</li>
@@ -69,7 +81,7 @@
 		<div class="col-lg-12 no-padding universal-widget-style margin-top20">
 		<div class="col-lg-10 widget-heading">Co-borrower Stips</div>
 		<div class="col-lg-2 no-padding widget-heading">
-			<img src="images/bt_plus_white.png" style="margin: 15px 21px;" alt="plus sign" ng-click="open('co-borrower')" />
+			<img src="images/bt_plus_white.png" style="margin: 14px 21px;" alt="plus sign" ng-click="open('co-borrower')" />
 		</div>
 		<ul class="list-no-style">
 		<li ng-repeat="parent in cData track by $index" ng-init="outerIndex=$index">
@@ -89,15 +101,18 @@
 							Driver's License(Front)</p>-->
 					</td>
 					<td>
-						<input type="button" class="widget-button-verify" value="VERIFY" ng-click="calling()" />
+						<input type="button" class="widget-button-verify" value="VERIFY" ng-click="verifyPopupTrigger(parent)" />
 					</td>
 				</tr>
 			</table>
 		</div>
 		<div class="col-lg-12 document-box-section">
 			<div class="col-lg-12 no-padding">
-						<ul  ng-model = "parent.files" ui-sortable>	
-							<li ng-repeat="item in parent.files track by $index" >
+						<ul dnd-list="parent.files">	
+							<li ng-repeat="item in parent.files track by $id(item)" 
+							 	dnd-draggable="item"
+        						dnd-moved="parent.files.splice($index, 1)"
+        						dnd-effect-allowed="move">
 								<div class="checkbox col-lg-12 no-padding">
 									<div class="col-lg-3 no-padding">
 										<label> <input type="checkbox"
@@ -109,7 +124,7 @@
 												</a>
 											</div>
 									</div>
-									<div class="col-lg-6 no-padding" style="margin-top: 15px;">{{item.name}}</div>
+									<div class="col-lg-6 no-padding" style="margin-top: 15px;" ng-click="previewDoc(item)">{{item.name}}</div>
 									</label>
 									<div class="col-lg-3 no-padding">
 										<p class="sent-date">Uploaded:{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>

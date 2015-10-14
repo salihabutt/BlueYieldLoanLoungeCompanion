@@ -18,34 +18,40 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     $scope.cData = [];
     $scope.sData = [];
     $scope.selectedItem = {};
+    $scope.selectedSubCategory = {};
+  
     $scope.init = function () {
     	$scope.addBoCategory();
     	$scope.addCoCategory();
 
     };
 
-    $scope.calling = function(){
-
-    	$scope.verifyPopupTrigger();
+   
+    $scope.verifyPopupTrigger = function (clickedParent) {
     	
-    	
-    }; 
-
-    $scope.verifyPopupTrigger = function () {
-    	
+    	$scope.selectedSubCategory =  clickedParent;
     	var modalInstance = $modal.open({
     		animation: true,
     		templateUrl: 'views/verifypopup.html',
     		controller: 'verifyPopup',
-    		windowClass: 'modal-verify',
-    		resolve: {}
+    		windowClass: 'modal-verify'
     	});
 
-    		
-    	modalInstance.result.finally(function () {
-    		// $scope.updateBoCategory();
-    		// $scope.updateCoCategory();
-    	});
+
+    	modalInstance.result.then(function (data) {
+			$scope.selectedSubCategory["exType"] = data.expirationType;
+			$scope.selectedSubCategory["exDate"] = data.getExpDate;
+
+			if(data.expirationType == "Paperwork OK"){
+				$scope.selectedSubCategory["paperworkCheck"] = true;
+			}
+
+			var elementPos = $scope.bData.map(function(x) {return x.name; }).indexOf($scope.selectedSubCategory.name);
+			if(elementPos > -1){	
+				$scope.bData[elementPos] = $scope.selectedSubCategory;
+			}
+
+	    });
 
   	};
 
@@ -56,7 +62,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     		controller: 'stipborrowerPopupCtrl',
     		resolve: {
     			subject: function () {
-    				var subject='';
+    				var subject = '';
     				switch (type) {
             	 		case 'borrower':
             	 			subject = 'Borrower';
@@ -119,6 +125,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					obj.name = $scope.borrowerStip[i].name;
 					obj.check = false;
 					obj.files = [];
+					
 					$scope.bData.push(obj);
 			}
 		} 
@@ -141,7 +148,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			if($scope.borrowerStip[i].check){
 				var elementPos = $scope.bData.map(function(x) {return x.name; }).indexOf($scope.borrowerStip[i].name);
 				if(elementPos<0){
-					var obj = {};
+					
 					obj.name = $scope.borrowerStip[i].name;
 					obj.check = false;
 					obj.files = [];
@@ -184,7 +191,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   	 
   	 $scope.addFiletoCategory = function (file,index,category) {
   		 var objToPersist = {};
-  		 objToPersist.name = file.name;
+  		 objToPersist.name = $scope.getFormattedName(file.name);
   		 objToPersist.type= file.type;
   		 objToPersist.url = '/images/relativity.pdf';
   		 objToPersist.check = false;
@@ -213,9 +220,11 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			            obj.src = f.toDataURL("image/png");
 			            switch(category){
 			            case 'BO':
+			            	obj.key = $scope.bData.length + 1;
 			            	$scope.bData[index].files.push(obj);
 			            break;
 			            case 'CO':
+			            	obj.key = $scope.cData.length + 1;
 			            	$scope.cData[index].files.push(obj);
 			            break;
 			            }
@@ -300,10 +309,6 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			$scope.cData[index].check = true;
 		}
 	};
-	$scope.test = function (parent,index) {
-		debugger;
-		$scope.bData[parent].files.splice(index,1);
-	}
 	
   	$scope.init();
 });
