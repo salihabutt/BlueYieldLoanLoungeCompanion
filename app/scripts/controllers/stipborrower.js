@@ -114,7 +114,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   	   	      }
   	  	};
   	 
-  	 $scope.check = function (index) {
+  	 $scope.setcatIndex = function (index) {
   		$scope.index = index;
   	 };
   	 
@@ -148,7 +148,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			if($scope.borrowerStip[i].check){
 				var elementPos = $scope.bData.map(function(x) {return x.name; }).indexOf($scope.borrowerStip[i].name);
 				if(elementPos<0){
-					
+					var obj = {};
 					obj.name = $scope.borrowerStip[i].name;
 					obj.check = false;
 					obj.files = [];
