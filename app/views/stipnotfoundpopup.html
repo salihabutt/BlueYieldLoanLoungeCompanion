@@ -1,0 +1,14 @@
+
+<div class="col-lg-6" popup-setting>
+	<div class="modal-body clearfix">
+		<ul>
+			<li ng-repeat="parent in stipnotFoundData" ng-init="outerIndex = $index">
+				<p>{{parent.type}}</p>
+				<ul>
+					<li ng-repeat="item in parent.subTypes track by $index"><a href="#" ng-click="setLocation(outerIndex,$index)">{{item}}</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>

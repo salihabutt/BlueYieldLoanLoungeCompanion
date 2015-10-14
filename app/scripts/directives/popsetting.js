@@ -6,12 +6,12 @@ app.directive('popupSetting', function () {
 
       	$('.verify-popup').ready(function(){
 	      	var popup = $(".modal");
-			$(".left-panel").append(popup);
-			var popupback = $(".modal-backdrop");
-			$(".left-panel").append(popupback);
+    			$(".left-panel").append(popup);
+    			var popupback = $(".modal-backdrop");
+    			$(".left-panel").append(popupback);
 
-			$(".modal").css("position","absolute");
-			$(".modal-backdrop").css("position","absolute")
+    			$(".modal").css("position","absolute");
+    			$(".modal-backdrop").css("position","absolute")
       	});
       }
     };
