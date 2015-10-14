@@ -66,7 +66,7 @@
 					placeholder="Select or drag&drop file to upload" /> <input
 					type="button" class="widget-button" value="SELECT" />
 					
-				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="fileBoUploadConfig"  ng-click="check(outerIndex)">
+				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="fileBoUploadConfig"  ng-click="setcatIndex(outerIndex)">
 				 <!-- once the file is dropped, we need to send the category id to server which we will get 
 				 from the server to do further operations -->
              		<input type="hidden" name="data" value="outerIndex" >
@@ -138,7 +138,81 @@
 					placeholder="Select or drag&drop file to upload" /> <input
 					type="button" class="widget-button" value="SELECT" />
 					
-				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="fileCoUploadConfig"  ng-click="check(outerIndex)">
+				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="fileCoUploadConfig"  ng-click="setcatIndex(outerIndex)">
+				 <!-- once the file is dropped, we need to send the category id to server which we will get 
+				 from the server to do further operations -->
+             		<input type="hidden" name="data" value="outerIndex" >
+              </form>
+		</div>
+
+		</li>
+		</ul>
+	</div>
+</div>
+
+<!-- Seller Stips -->
+<!-- Co-borrower stips -->
+		<div class="col-lg-12 no-padding universal-widget-style margin-top20">
+		<div class="col-lg-10 widget-heading">Seller Stips</div>
+		<div class="col-lg-2 no-padding widget-heading">
+			<img src="images/bt_plus_white.png" style="margin: 14px 21px;" alt="plus sign" ng-click="open('seller')" />
+		</div>
+		<ul class="list-no-style">
+		<li ng-repeat="parent in cData track by $index" ng-init="outerIndex=$index">
+		<div class="col-lg-12 document-to-verify">
+			<table class="col-lg-12 no-padding">
+				<tr>
+					<td>
+						<div class="checkbox">
+							<label> <input type="checkbox" ng-model="item.check" ng-click="updateCoCheckboxes($event,outerIndex)">
+							</label>
+						</div>
+					</td>
+					<td class="text-left">
+						<p class="no-margin">{{parent.name}}</p>
+					<!-- 	<p class="no-margin image-status">09/12/15: Blurred Image</p>
+						<p class="no-margin location-status">Location Coborrower -
+							Driver's License(Front)</p>-->
+					</td>
+					<td>
+						<input type="button" class="widget-button-verify" value="VERIFY" ng-click="verifyPopupTrigger(parent)" />
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-lg-12 document-box-section">
+			<div class="col-lg-12 no-padding">
+						<ul dnd-list="parent.files">	
+							<li ng-repeat="item in parent.files track by $id(item)" 
+							 	dnd-draggable="item"
+        						dnd-moved="parent.files.splice($index, 1)"
+        						dnd-effect-allowed="move">
+								<div class="checkbox col-lg-12 no-padding">
+									<div class="col-lg-3 no-padding">
+										<label> <input type="checkbox"
+											style="margin-top: 15px;" ng-model="item.check"
+											ng-click="updateFileCount($event);updateCoChckCategory(outerIndex)">
+											<div id="thumbwrap">
+												<a class="thumb" href="#"> <img ng-src="{{item.src}}">
+													<span><img ng-src="{{item.src}}" class="thumb-span"></span>
+												</a>
+											</div>
+									</div>
+									<div class="col-lg-6 no-padding" style="margin-top: 15px;" ng-click="previewDoc(item)">{{item.name}}</div>
+									</label>
+									<div class="col-lg-3 no-padding">
+										<p class="sent-date">Uploaded:{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>
+									</div>
+								</div>
+
+							</li>
+						</ul>
+					</div>
+						 <input type="text" class="widget-textbox"
+					placeholder="Select or drag&drop file to upload" /> <input
+					type="button" class="widget-button" value="SELECT" />
+					
+				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="fileCoUploadConfig"  ng-click="setcatIndex(outerIndex)">
 				 <!-- once the file is dropped, we need to send the category id to server which we will get 
 				 from the server to do further operations -->
              		<input type="hidden" name="data" value="outerIndex" >

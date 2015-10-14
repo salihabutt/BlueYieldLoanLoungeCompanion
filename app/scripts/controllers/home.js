@@ -9,14 +9,14 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 .controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDelegate, $modal) {
 			var self = this,
 			init = function (){
-				self.loanPackNote(); 
+				$scope.loanPackNote(); 
 			}; 
 			$scope.selFileCount = 0;
 			$scope.showFile = false;
 			$scope.isPdf = false;
 			$scope.fileToDisplay = {};
 			$scope.showThumbnail = false;
-			self.loanPkgChecklist = [ {
+			$scope.loanPkgChecklist = [ {
 				name : 'Loneliner Application',
 				check : false
 			}, {
@@ -77,18 +77,18 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			
 			$scope.LoanPackText = "";
 			
-			self.loanPackNote = function () {
+			$scope.loanPackNote = function () {
 				var note = "the following items are missing from your Loan Package:";
-				for (var i=0;i<self.loanPkgChecklist.length;i++){
-					if(!self.loanPkgChecklist[i].check){
-						note = note + "\n" + self.loanPkgChecklist[i].name;
+				for (var i=0;i<$scope.loanPkgChecklist.length;i++){
+					if(!$scope.loanPkgChecklist[i].check){
+						note = note + "\n" + $scope.loanPkgChecklist[i].name;
 					}
 				}
 				$scope.LoanPackText = note;
 			};
 			
-			self.loanPkgCheck = function () {
-				self.loanPackNote();	
+			$scope.loanPkgCheck = function () {
+				$scope.loanPackNote();	
 			};	 
 
 			$scope.loadNewFile = function(url) {
