@@ -64,3 +64,45 @@ div#preview-thumb {
     height: 140px;
     margin-left:40px;
 }
+
+div#printImages {
+    position: fixed;
+    top: 250px;
+    left: 550px;
+    visibility: hidden;
+    display: block;
+	width: auto;
+	height: auto;
+	overflow: visible;
+}
+
+div#printPDF {
+    position: fixed;
+    top: 250px;
+    left: 550px;
+    visibility: hidden;
+	width: auto;
+	height: auto;
+	overflow: visible;
+	display: none;
+}
+
+@media screen {
+    #printSection {
+        display: none;
+    }
+}
+
+@media print {
+    body * {
+        visibility:hidden;
+    }
+    #printSection, #printSection * {
+        visibility:visible;
+    }
+    #printSection {
+        position:absolute;
+        left:0;
+        top:0;
+    }
+}

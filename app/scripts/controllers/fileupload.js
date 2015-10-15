@@ -46,7 +46,7 @@
     	   $scope.persistObject = function (objToPersist) {
     			if(!self.isEmpty(objToPersist)){
     	    		var obj = {};
-    	    		obj.name = $scope.getFormattedName(objToPersist.name);
+    	    		obj.name = objToPersist.name;
     	    		obj.url  = objToPersist.url;
     	    		obj.type = objToPersist.type;
     	    		obj.date = objToPersist.date;
@@ -60,7 +60,7 @@
     	    	      this.on("addedfile", function(file) {
     	    	    	$scope.fileObject = file;
     	    	        var obj = {};
-    	    	        obj.name = $scope.getFormattedName(file.name);
+    	    	        obj.name = file.name;
     	    	        obj.type = file.type;
     	    	        obj.url = '/images/relativity.pdf'; //statis for now
     	    	        obj.date = new Date();

@@ -17,7 +17,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			$scope.fileToDisplay = {};
 			$scope.showThumbnail = false;
 			$scope.loanPkgChecklist = [ {
-				name : 'Loneliner Application',
+				name : 'Loanliner Application',
 				check : false
 			}, {
 				name : 'Tier Addendum',
@@ -152,26 +152,67 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			};
 			$scope.deleteFiles = function () {
 				if($scope.selFileCount>0){
-					$scope.removeData($scope.sendCustfiles);
-					$scope.removeData($scope.recCustfiles);
+					$scope.removeSendCustData();
+					$scope.removeRecCustData();
 					$scope.$broadcast('deleteFiles');
 				}
 			};
-			$scope.removeData = function (array) {
-				for(var i =0;i<array.length;i++){
-					if(array[i].checked){
-						array.splice(i,1);
+			$scope.removeSendCustData = function () {
+				var temp = [];
+				for(var i =0;i<$scope.sendCustfiles.length;i++){
+					if(!$scope.sendCustfiles[i].checked){
+						temp.push($scope.sendCustfiles[i]);
+					}else{
 						$scope.selFileCount--;
 					}
 				}
+				$scope.sendCustfiles = temp;
 			}
+			
+			$scope.removeRecCustData = function () {
+				var temp = [];
+				for(var i =0;i<$scope.recCustfiles.length;i++){
+					if(!$scope.recCustfiles[i].checked){
+						temp.push($scope.recCustfiles[i]);
+					}else{
+						$scope.selFileCount--;
+					}
+				}
+				$scope.recCustfiles = temp;
+			}
+			$scope.pdfForPrint = [];
+			$scope.imagesForPrint = [];
+			$scope.printMultipleFiles = function () {
+				var popupWin = window.open('', '_blank', 'width=800,height=600');
+				var printContents = document.getElementById('printImages').innerHTML;
+				popupWin.document.open();
+		        popupWin.document.write('<html><body onload="window.print()">' + printContents + '</html>');
+		        popupWin.document.close();
+			};
+			
+			$scope.saveDocForPrinting = function (item) {
+				if(item.checked){
+				if(item.type== 'application/pdf'){
+					$scope.pdfForPrint.push(item);
+				}else{
+					item.url = 'images/im_logo.png';
+					$scope.imagesForPrint.push(item);
+				}
+				}
+			};
+			
+			
 			
 		init();
 		
 		/************** Data for Loan Package *************************/
 		$scope.sendCustfiles = [];
  	   	$scope.recCustfiles = [];
-						
+ 	   	
+ 	    $scope.bData = [];
+ 	    $scope.cData = [];
+ 	    $scope.sData = [];
+		/****************** MOdel END *********************************/				
 		}])
 		  .controller('mergefilePopupCtrl', function ($scope, $modal, $modalInstance) {
 				$scope.mergeFileName = "";

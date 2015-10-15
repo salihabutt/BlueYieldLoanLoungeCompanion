@@ -14,9 +14,6 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     $scope.sellerStip = stipDataService.getSellerData();
     $scope.index = 0;
     $scope.fileObject = {};
-    $scope.bData = [];
-    $scope.cData = [];
-    $scope.sData = [];
     $scope.selectedSubCategory = {};
     $scope.verifyBtnCheck = false;
   
@@ -42,7 +39,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
         					title = 'Verify Borrower\'s ' + clickedParent.name ;
         				break;
         				case 'CO':
-        					title = 'Verify Co-Borroweer\'s ' + clickedParent.name;
+        					title = 'Verify Co-Borrower\'s ' + clickedParent.name;
             			break;
         				case 'SE':
         					title = 'Verify Seller\'s ' + clickedParent.name;
@@ -288,7 +285,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   	   
   	   	 $scope.addFiletoCategory = function (file,index,category) {
   		 var objToPersist = {};
-  		 objToPersist.name = $scope.getFormattedName(file.name);
+  		 objToPersist.name = file.name;
   		 objToPersist.type= file.type;
   		 objToPersist.url = '/images/relativity.pdf';           // this is static and will be replaced with amazon s3 url for file
   		 objToPersist.check = false;
@@ -450,19 +447,50 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	};
 /************************** Listening to Delete Event *******************************/
 	$scope.$on('deleteFiles',function(){
-		$scope.removeFiles($scope.bData);
-		$scope.removeFiles($scope.cData);
-		$scope.removeFiles($scope.sData);
+		$scope.removeBoFiles();
+		$scope.removeCoFiles();
+		$scope.removeSeFiles();
 	});
 	
-	$scope.removeFiles = function (array) {
-		for(var i =0;i<array.length;i++){
-			for(var j=0;j<array[i].files.length;j++){
-				if(array[i].files[j].check){
-					array[i].files.splice(j,1);
+
+	$scope.removeBoFiles = function () {
+		for(var i =0;i<$scope.bData.length;i++){
+			var temp = [];
+			for(var j=0;j<$scope.bData[i].files.length;j++){
+				if(!$scope.bData[i].files[j].check){
+					temp.push($scope.bData[i].files[j]);
+				}else{
 					$scope.$emit('updateFileCount', false);
 				}
 			}
+			$scope.bData[i].files = temp;
+		}
+	};
+	$scope.removeCoFiles = function () {
+		
+		for(var i =0;i<$scope.cData.length;i++){
+			var temp = [];
+			for(var j=0;j<$scope.cData[0].files.length;j++){
+				if(!$scope.cData[0].files[j].check){
+					temp.push($scope.cData[i].files[j]);
+				}else{
+					$scope.$emit('updateFileCount', false);
+				}
+			}
+			$scope.cData[0].files = temp;
+		}
+	};
+	$scope.removeSeFiles = function () {
+		for(var i =0;i<$scope.sData.length;i++){
+			var temp = [];
+			for(var j=0;j<$scope.sData[i].files.length;j++){
+				if(!$scope.sData[i].files[j].check){
+					temp.push($scope.sData[i].files[j]);
+				}else{
+					$scope.$emit('updateFileCount', false);
+				}
+			}
+			$scope.sData[i].files = temp;
 		}
 	};
   	$scope.init();

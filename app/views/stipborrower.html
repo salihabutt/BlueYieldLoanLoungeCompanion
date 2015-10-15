@@ -42,24 +42,28 @@
 							 	dnd-draggable="item"
         						dnd-moved="parent.files.splice($index, 1)"
         						dnd-effect-allowed="move">
-								<div class="checkbox col-lg-12 no-padding">
-									<div class="col-lg-3 no-padding">
-										<label> <input type="checkbox"
-											style="margin-top: 15px;" ng-model="item.check"
-											ng-click="updateFileCount($event);updateChckCategory(outerIndex)">
-											<div id="thumbwrap">
-												<a class="thumb" href="#"> <img ng-src="{{item.src}}">
-													<span><img ng-src="{{item.src}}" class="thumb-span"></span>
-												</a>
-											</div>
-									</div>
-									<div class="col-lg-5 no-padding" style="margin-top: 15px;" ng-click="previewDoc(item)">{{item.name}}</div>
-									</label>
-									<div class="col-lg-3 no-padding">
-										<p class="sent-date">Uploaded:{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>
-									</div>
-								</div>
-
+								<div class="checkbox col-lg-12">
+                                            <div class="col-lg-9 no-padding">
+                                                <label class="no-padding col-lg-12">
+                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)">
+                                                    <span ng-click="previewDoc(item)">
+											<div class="col-lg-3 no-padding" id="thumbwrap">
+												<a class="thumb" href="#">
+													<img ng-src="{{item.src}}">
+													<span>
+														<img ng-src="{{item.src}}" class="thumb-span">
+													</span>
+                                                    </a>
+                                            </div>
+                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;">{{item.name}}</div>
+                                            </span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-3 no-padding text-right">
+                                            <input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
+                                            <p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
+                                        </div>
+                            </div>
 							</li>
 						</ul>
 					</div>
@@ -119,23 +123,29 @@
 							 	dnd-draggable="item"
         						dnd-moved="parent.files.splice($index, 1)"
         						dnd-effect-allowed="move">
-								<div class="checkbox col-lg-12 no-padding">
-									<div class="col-lg-3 no-padding">
-										<label> <input type="checkbox"
-											style="margin-top: 15px;" ng-model="item.check"
-											ng-click="updateFileCount($event);updateCoChckCategory(outerIndex)">
-											<div id="thumbwrap">
-												<a class="thumb" href="#"> <img ng-src="{{item.src}}">
-													<span><img ng-src="{{item.src}}" class="thumb-span"></span>
-												</a>
-											</div>
-									</div>
-									<div class="col-lg-5 no-padding" style="margin-top: 15px;" ng-click="previewDoc(item)">{{item.name}}</div>
-									</label>
-									<div class="col-lg-3 no-padding">
-										<p class="sent-date">Uploaded:{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>
-									</div>
-								</div>
+								<div class="checkbox col-lg-12">
+                                            <div class="col-lg-9 no-padding">
+                                                <label class="no-padding col-lg-12">
+                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)">
+                                                    <span ng-click="previewDoc(item)">
+											<div class="col-lg-3 no-padding" id="thumbwrap">
+												<a class="thumb" href="#">
+													<img ng-src="{{item.src}}">
+													<span>
+														<img ng-src="{{item.src}}" class="thumb-span">
+													</span>
+                                                    </a>
+                                            </div>
+
+                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;">{{item.name}}</div>
+                                            </span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-3 no-padding text-right">
+                                            <input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
+                                            <p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
+                                        </div>
+                            </div>
 
 							</li>
 						</ul>
@@ -195,23 +205,29 @@
 							 	dnd-draggable="item"
         						dnd-moved="parent.files.splice($index, 1)"
         						dnd-effect-allowed="move">
-								<div class="checkbox col-lg-12 no-padding">
-									<div class="col-lg-3 no-padding">
-										<label> <input type="checkbox"
-											style="margin-top: 15px;" ng-model="item.check"
-											ng-click="updateFileCount($event);updateSeChckCategory(outerIndex)">
-											<div id="thumbwrap">
-												<a class="thumb" href="#"> <img ng-src="{{item.src}}">
-													<span><img ng-src="{{item.src}}" class="thumb-span"></span>
-												</a>
-											</div>
-									</div>
-									<div class="col-lg-5 no-padding" style="margin-top: 15px;" ng-click="previewDoc(item)">{{item.name}}</div>
-									</label>
-									<div class="col-lg-3 no-padding">
-										<p class="sent-date">Uploaded:{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>
-									</div>
-								</div>
+								<div class="checkbox col-lg-12">
+                                            <div class="col-lg-9 no-padding">
+                                                <label class="no-padding col-lg-12">
+                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)">
+                                                    <span ng-click="previewDoc(item)">
+											<div class="col-lg-3 no-padding" id="thumbwrap">
+												<a class="thumb" href="#">
+													<img ng-src="{{item.src}}">
+													<span>
+														<img ng-src="{{item.src}}" class="thumb-span">
+													</span>
+                                                    </a>
+                                            </div>
+
+                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;">{{item.name}}</div>
+                                            </span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-3 no-padding text-right">
+                                            <input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
+                                            <p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
+                                        </div>
+                            </div>
 
 							</li>
 						</ul>

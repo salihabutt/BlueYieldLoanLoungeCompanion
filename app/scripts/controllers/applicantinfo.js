@@ -22,7 +22,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	    		animation: false,
 		    	templateUrl: 'views/customerinfopopup.html',
 		    	controller: 'custInfoPopupCtrl',
-		    	windowClass: 'modal-custInfo'
+		    	windowClass: 'modal-custinfo'
 	    	});
     };
     
