@@ -8,14 +8,9 @@
      * Controller of the blueYieldLoanLoungeCompanionApp
      */
     angular.module('blueYieldLoanLoungeCompanionApp')
-      .controller('FileCtrl', function ($scope, $modal, dataService) {
+      .controller('FileCtrl', function ($scope, $modal) {
     	   var self = this;
-    	   $scope.sendCustfiles = [];
-    	   $scope.sendCustFile = dataService.sendCustFile;
-    	   $scope.recCustfiles = [];
-    	   $scope.selFileCount = dataService.selFileCount;
     	   $scope.fileObject = {};
-    	   self.sendCustCount = 0;
     	   $scope.sendCustConfig = {
     	      init: function() {
     	        this.on("addedfile", function(file) {
@@ -42,18 +37,21 @@
      	    			}
      	    		}
     	    	});
-    	    	modalInstance.result.finally(function() {
-    	    		$scope.persistObject();
-    	    	});
+    	    	  modalInstance.result.then(function (obj) {
+    	    		  $scope.persistObject(obj);
+    	    	    }, function (obj) {
+    	    	    	$scope.persistObject(obj);
+    	    	    });
     	   };
-    	   $scope.persistObject = function () {
-    			if(!self.isEmpty($scope.sendCustFile)){
+    	   $scope.persistObject = function (objToPersist) {
+    			if(!self.isEmpty(objToPersist)){
     	    		var obj = {};
-    	    		obj.name = $scope.getFormattedName($scope.sendCustFile.name);
-    	    		obj.url  = $scope.sendCustFile.url;
-    	    		obj.type = $scope.sendCustFile.type;
-    	    		obj.date = $scope.sendCustFile.date;
+    	    		obj.name = $scope.getFormattedName(objToPersist.name);
+    	    		obj.url  = objToPersist.url;
+    	    		obj.type = objToPersist.type;
+    	    		obj.date = objToPersist.date;
     	    		obj.clas = 'custfile';
+    	    		obj.checked = objToPersist.checked;
     	    		$scope.generateThumbnail(obj);
     	    		}
     	   }
@@ -67,6 +65,7 @@
     	    	        obj.url = '/images/relativity.pdf'; //statis for now
     	    	        obj.date = new Date();
     	    	        obj.clas = 'recfile';
+    	    	        obj.checked = false;
     	    	        $scope.generateThumbnail(obj);
     	    	        file = null; // to be replaced 
     	    	      });

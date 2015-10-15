@@ -71,7 +71,7 @@
     	height: 80%;
 
     	
-    	.margin-top30{
+    	.margin-top{
     		margin-top: 30px;
     	}
 
@@ -84,6 +84,30 @@
 		    padding: 15px;
 		    text-align: center;
 		    border-top: 1px solid #e5e5e5;
+		}
+		
+		.widget-textbox {
+		    width: 79%;
+		    height: 40px;
+		    padding: 0px 12px;
+		    border: 1px solid #D8DDE3;
+		    box-shadow: 0px 2px 5px #DCDCDC inset;
+		}
+
+		.widget-button {
+			    margin-left: -5px;
+			    font-size: 14px;
+			    height: 40px;
+			    background-color: #5ACE73;
+			    border: 2px solid #5ACE73;
+			    border-bottom: 2px solid #48A95D;
+			    color: #fff;
+		}
+		.stip-not-found {
+			top: 10px;
+			span {
+				font-weight: bold;
+			}
 		}
     	
 			
@@ -182,7 +206,7 @@
 		width: 500px;
 
     	
-    	.margin-top30{
+    	.margin-top{
     		margin-top: 30px;
     	}
 
@@ -195,5 +219,33 @@
     	}
     	p{
     	    margin: 0 0 5px;
+    	}			
+}
+
+.modal-nostipfound .modal-dialog{
+
+		left: 50px;
+		ul{
+			    list-style-type:none;
+				padding-left:0px;
+				
+			    }
+			    ul li{
+			    	width:100%;
+			    	padding: 0px 0px 0px 0px;
+			    }
+			   li ul li:hover {
+			    	background-color: #BDEDFF;
+			    }
+			     a, a:hover, a:active, a:visited {
+    				text-decoration:none;
+    				color: #000000;
+				}
+    	span{
+    		font-weight: bold;
+    	}
+    	p{
+    		margin-top:10px;
+    	    color: #B6B6B4;
     	}			
 }

@@ -78,7 +78,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			$scope.LoanPackText = "";
 			
 			$scope.loanPackNote = function () {
-				var note = "the following items are missing from your Loan Package:";
+				var note = "The following items are missing from your Loan Package:";
 				for (var i=0;i<$scope.loanPkgChecklist.length;i++){
 					if(!$scope.loanPkgChecklist[i].check){
 						note = note + "\n" + $scope.loanPkgChecklist[i].name;
@@ -112,6 +112,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			    	controller: 'delfilePopupCtrl',
 			    	windowClass: 'modal-deletefiles'
 		    	});
+				modalInstance.result.then(function () {
+					$scope.deleteFiles();
+				})
 			};
 			$scope.updateFileCount = function (e){
 				var checkbox = e.target;
@@ -147,7 +150,27 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			$scope.toggleThumbnail =  function (val){
 				$scope.showThumbnail = val;
 			};
+			$scope.deleteFiles = function () {
+				if($scope.selFileCount>0){
+					$scope.removeData($scope.sendCustfiles);
+					$scope.removeData($scope.recCustfiles);
+					$scope.$broadcast('deleteFiles');
+				}
+			};
+			$scope.removeData = function (array) {
+				for(var i =0;i<array.length;i++){
+					if(array[i].checked){
+						array.splice(i,1);
+						$scope.selFileCount--;
+					}
+				}
+			}
+			
 		init();
+		
+		/************** Data for Loan Package *************************/
+		$scope.sendCustfiles = [];
+ 	   	$scope.recCustfiles = [];
 						
 		}])
 		  .controller('mergefilePopupCtrl', function ($scope, $modal, $modalInstance) {
@@ -165,7 +188,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		
 				
 			    $scope.ok = function () {
-			    	$modalInstance.dismiss('cancel');
+			    	$modalInstance.close();
 			  	};
 
 			    $scope.cancel = function () {

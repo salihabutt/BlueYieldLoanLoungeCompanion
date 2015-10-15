@@ -19,14 +19,16 @@
 						<p class="no-margin">{{parent.name}}</p>
 							
 							<span ng-show="parent.exDate != undefined">
-								<p class="no-margin image-status" >{{parent.exDate}} : {{parent.exType}} </p>
-								<span ng-if="parent.paperworkCheck"><a href="javascript:void(0)">cancel</a></span>
+								<p ng-if="!verifyBtnCheck" class="no-margin image-status pul-left" >{{parent.exDate}} : {{parent.exType}} </p>
+							
+							
+								<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck">(cancel)</p>
 							<!-- 	<p class="no-margin location-status">Location Coborrower -
 									Driver's License(Front)</p>-->
 							</span>
 					</td>
 					<td><input type="button" class="widget-button-verify"
-						value="VERIFY" ng-click="verifyPopupTrigger(parent)" ng-if="!parent.paperworkCheck" />
+						value="VERIFY" ng-click="verifyPopupTrigger(parent,'BO')" ng-if="!parent.paperworkCheck" />
 						<span ng-if="parent.paperworkCheck">Verified</span>
 						<span ng-if="parent.paperworkCheck"><img src="images/ic_verified.png" alt="verified" /></span>
 					</td>
@@ -51,7 +53,7 @@
 												</a>
 											</div>
 									</div>
-									<div class="col-lg-6 no-padding" style="margin-top: 15px;" ng-click="previewDoc(item)">{{item.name}}</div>
+									<div class="col-lg-5 no-padding" style="margin-top: 15px;" ng-click="previewDoc(item)">{{item.name}}</div>
 									</label>
 									<div class="col-lg-3 no-padding">
 										<p class="sent-date">Uploaded:{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>
@@ -63,7 +65,7 @@
 					</div>
 					<div>
 						 <input type="text" class="widget-textbox"
-					placeholder="Select or drag&drop file to upload" /> <input
+					placeholder="Select or drag & drop file to upload" /> <input
 					type="button" class="widget-button" value="SELECT" />
 					
 				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="fileBoUploadConfig"  ng-click="setcatIndex(outerIndex)">
@@ -96,12 +98,16 @@
 					</td>
 					<td class="text-left">
 						<p class="no-margin">{{parent.name}}</p>
-					<!-- 	<p class="no-margin image-status">09/12/15: Blurred Image</p>
-						<p class="no-margin location-status">Location Coborrower -
-							Driver's License(Front)</p>-->
+							
+							<span ng-show="parent.exDate != undefined">
+								<p class="no-margin image-status" >{{parent.exDate}} : {{parent.exType}} </p>
+								<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck">(cancel)</p>
+							<!-- 	<p class="no-margin location-status">Location Coborrower -
+									Driver's License(Front)</p>-->
+							</span>
 					</td>
 					<td>
-						<input type="button" class="widget-button-verify" value="VERIFY" ng-click="verifyPopupTrigger(parent)" />
+						<input type="button" class="widget-button-verify" value="VERIFY" ng-click="verifyPopupTrigger(parent,'CO')" />
 					</td>
 				</tr>
 			</table>
@@ -124,7 +130,7 @@
 												</a>
 											</div>
 									</div>
-									<div class="col-lg-6 no-padding" style="margin-top: 15px;" ng-click="previewDoc(item)">{{item.name}}</div>
+									<div class="col-lg-5 no-padding" style="margin-top: 15px;" ng-click="previewDoc(item)">{{item.name}}</div>
 									</label>
 									<div class="col-lg-3 no-padding">
 										<p class="sent-date">Uploaded:{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>
@@ -135,7 +141,7 @@
 						</ul>
 					</div>
 						 <input type="text" class="widget-textbox"
-					placeholder="Select or drag&drop file to upload" /> <input
+					placeholder="Select or drag & drop file to upload" /> <input
 					type="button" class="widget-button" value="SELECT" />
 					
 				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="fileCoUploadConfig"  ng-click="setcatIndex(outerIndex)">
@@ -148,34 +154,36 @@
 		</li>
 		</ul>
 	</div>
-</div>
 
 <!-- Seller Stips -->
-<!-- Co-borrower stips -->
 		<div class="col-lg-12 no-padding universal-widget-style margin-top20">
 		<div class="col-lg-10 widget-heading">Seller Stips</div>
 		<div class="col-lg-2 no-padding widget-heading">
 			<img src="images/bt_plus_white.png" style="margin: 14px 21px;" alt="plus sign" ng-click="open('seller')" />
 		</div>
 		<ul class="list-no-style">
-		<li ng-repeat="parent in cData track by $index" ng-init="outerIndex=$index">
+		<li ng-repeat="parent in sData track by $index" ng-init="outerIndex=$index">
 		<div class="col-lg-12 document-to-verify">
 			<table class="col-lg-12 no-padding">
 				<tr>
 					<td>
 						<div class="checkbox">
-							<label> <input type="checkbox" ng-model="item.check" ng-click="updateCoCheckboxes($event,outerIndex)">
+							<label> <input type="checkbox" ng-model="item.check" ng-click="updateSeCheckboxes($event,outerIndex)">
 							</label>
 						</div>
 					</td>
 					<td class="text-left">
 						<p class="no-margin">{{parent.name}}</p>
-					<!-- 	<p class="no-margin image-status">09/12/15: Blurred Image</p>
-						<p class="no-margin location-status">Location Coborrower -
-							Driver's License(Front)</p>-->
+							
+							<span ng-show="parent.exDate != undefined">
+								<p class="no-margin image-status" >{{parent.exDate}} : {{parent.exType}} </p>
+								<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck">(cancel)</p>
+							<!-- 	<p class="no-margin location-status">Location Coborrower -
+									Driver's License(Front)</p>-->
+							</span>
 					</td>
 					<td>
-						<input type="button" class="widget-button-verify" value="VERIFY" ng-click="verifyPopupTrigger(parent)" />
+						<input type="button" class="widget-button-verify" value="VERIFY" ng-click="verifyPopupTrigger(parent,'SE')" />
 					</td>
 				</tr>
 			</table>
@@ -191,14 +199,14 @@
 									<div class="col-lg-3 no-padding">
 										<label> <input type="checkbox"
 											style="margin-top: 15px;" ng-model="item.check"
-											ng-click="updateFileCount($event);updateCoChckCategory(outerIndex)">
+											ng-click="updateFileCount($event);updateSeChckCategory(outerIndex)">
 											<div id="thumbwrap">
 												<a class="thumb" href="#"> <img ng-src="{{item.src}}">
 													<span><img ng-src="{{item.src}}" class="thumb-span"></span>
 												</a>
 											</div>
 									</div>
-									<div class="col-lg-6 no-padding" style="margin-top: 15px;" ng-click="previewDoc(item)">{{item.name}}</div>
+									<div class="col-lg-5 no-padding" style="margin-top: 15px;" ng-click="previewDoc(item)">{{item.name}}</div>
 									</label>
 									<div class="col-lg-3 no-padding">
 										<p class="sent-date">Uploaded:{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>
@@ -209,10 +217,10 @@
 						</ul>
 					</div>
 						 <input type="text" class="widget-textbox"
-					placeholder="Select or drag&drop file to upload" /> <input
+					placeholder="Select or drag & drop file to upload" /> <input
 					type="button" class="widget-button" value="SELECT" />
 					
-				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="fileCoUploadConfig"  ng-click="setcatIndex(outerIndex)">
+				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="fileSeUploadConfig"  ng-click="setcatIndex(outerIndex)">
 				 <!-- once the file is dropped, we need to send the category id to server which we will get 
 				 from the server to do further operations -->
              		<input type="hidden" name="data" value="outerIndex" >
