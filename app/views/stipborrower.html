@@ -11,7 +11,7 @@
 				<tr>
 					<td>
 						<div class="checkbox">
-							<label> <input type="checkbox" ng-model="item.check" ng-click="updateCheckboxes($event,outerIndex)">
+							<label> <input type="checkbox" ng-model="parent.check" ng-click="updateCheckboxes($event,outerIndex)">
 							</label>
 						</div>
 					</td>
@@ -92,7 +92,7 @@
 				<tr>
 					<td>
 						<div class="checkbox">
-							<label> <input type="checkbox" ng-model="item.check" ng-click="updateCoCheckboxes($event,outerIndex)">
+							<label> <input type="checkbox" ng-model="parent.check" ng-click="updateCoCheckboxes($event,outerIndex)">
 							</label>
 						</div>
 					</td>
@@ -168,7 +168,7 @@
 				<tr>
 					<td>
 						<div class="checkbox">
-							<label> <input type="checkbox" ng-model="item.check" ng-click="updateSeCheckboxes($event,outerIndex)">
+							<label> <input type="checkbox" ng-model="parent.check" ng-click="updateSeCheckboxes($event,outerIndex)">
 							</label>
 						</div>
 					</td>
