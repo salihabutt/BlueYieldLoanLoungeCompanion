@@ -178,10 +178,10 @@ angular.module('blueYieldLoanLoungeCompanionApp')
  /* ************************* ADDING IN CATEGORY ****************************/	 
   	 $scope.addBoCategory = function () {
   		for(var i=0;i<$scope.borrowerStip.length;i++){
-			if($scope.borrowerStip[i].check){
+			if($scope.borrowerStip[i].checked){
 					var obj = {};
 					obj.name = $scope.borrowerStip[i].name;
-					obj.check = false;
+					obj.checked = false;
 					obj.files = [];
 					
 					$scope.bData.push(obj);
@@ -190,10 +190,10 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   	 };
 	 $scope.addCoCategory = function () {
 	  		for(var i=0;i<$scope.coborrowerStip.length;i++){
-				if($scope.coborrowerStip[i].check){
+				if($scope.coborrowerStip[i].checked){
 						var obj = {};
 						obj.name = $scope.coborrowerStip[i].name;
-						obj.check = false;
+						obj.checked = false;
 						obj.files = [];
 						$scope.cData.push(obj);
 				}
@@ -202,10 +202,10 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		 
 	  	 $scope.addSeCategory = function () {
 		  		for(var i=0;i<$scope.sellerStip.length;i++){
-					if($scope.sellerStip[i].check){
+					if($scope.sellerStip[i].checked){
 							var obj = {};
 							obj.name = $scope.sellerStip[i].name;
-							obj.check = false;
+							obj.checked = false;
 							obj.files = [];
 							$scope.sData.push(obj);
 					}
@@ -215,12 +215,12 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		  	 
   	 $scope.updateBoCategory = function () {
   		for(var i=0;i<$scope.borrowerStip.length;i++){
-			if($scope.borrowerStip[i].check){
+			if($scope.borrowerStip[i].checked){
 				var elementPos = $scope.bData.map(function(x) {return x.name; }).indexOf($scope.borrowerStip[i].name);
 				if(elementPos<0){
 					var obj = {};
 					obj.name = $scope.borrowerStip[i].name;
-					obj.check = false;
+					obj.checked = false;
 					obj.files = [];
 					$scope.bData.push(obj);
 				}
@@ -238,12 +238,12 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   	 
   	 $scope.updateCoCategory = function () {
    		for(var i=0;i<$scope.coborrowerStip.length;i++){
- 			if($scope.coborrowerStip[i].check){
+ 			if($scope.coborrowerStip[i].checked){
  				var elementPos = $scope.cData.map(function(x) {return x.name; }).indexOf($scope.coborrowerStip[i].name);
  				if(elementPos<0){
  					var obj = {};
  					obj.name = $scope.coborrowerStip[i].name;
- 					obj.check = false;
+ 					obj.checked = false;
  					obj.files = [];
  					$scope.cData.push(obj);
  				}
@@ -261,12 +261,12 @@ angular.module('blueYieldLoanLoungeCompanionApp')
    	 
  	 $scope.updateSeCategory = function () {
     		for(var i=0;i<$scope.sellerStip.length;i++){
-  			if($scope.sellerStip[i].check){
+  			if($scope.sellerStip[i].checked){
   				var elementPos = $scope.sData.map(function(x) {return x.name; }).indexOf($scope.sellerStip[i].name);
   				if(elementPos<0){
   					var obj = {};
   					obj.name = $scope.sellerStip[i].name;
-  					obj.check = false;
+  					obj.checked = false;
   					obj.files = [];
   					$scope.sData.push(obj);
   				}
@@ -288,7 +288,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   		 objToPersist.name = file.name;
   		 objToPersist.type= file.type;
   		 objToPersist.url = '/images/relativity.pdf';           // this is static and will be replaced with amazon s3 url for file
-  		 objToPersist.check = false;
+  		 objToPersist.checked = false;
   		 objToPersist.date = new Date();
   		$scope.generateThumbnail(objToPersist,index,category,file);
   	 };
@@ -356,14 +356,14 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		var size = $scope.bData[index].files.length;
 		if(event.target.checked){
 			for(var i=0;i<size;i++){
-				$scope.bData[index].files[i].check = true;
+				$scope.bData[index].files[i].checked = true;
 				$scope.$emit('updateFileCount', true);   /* selected file count update is happening in home 
 															controller which is parent controller
 															being a child we need to emit an event to update file count in parent*/
 			}
 		}else{
 			for(var i=0;i<size;i++){
-				$scope.bData[index].files[i].check = false;
+				$scope.bData[index].files[i].checked = false;
 				$scope.$emit('updateFileCount', false);
 			}
 		}
@@ -373,12 +373,12 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		var size = $scope.cData[index].files.length;
 		if(event.target.checked){
 			for(var i=0;i<size;i++){
-				$scope.cData[index].files[i].check = true;
+				$scope.cData[index].files[i].checked = true;
 				$scope.$emit('updateFileCount', true);
 			}
 		}else{
 			for(var i=0;i<size;i++){
-				$scope.cData[index].files[i].check = false;
+				$scope.cData[index].files[i].checked = false;
 				$scope.$emit('updateFileCount', false);
 			}
 		}
@@ -388,12 +388,12 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		var size = $scope.cData[index].files.length;
 		if(event.target.checked){
 			for(var i=0;i<size;i++){
-				$scope.cData[index].files[i].check = true;
+				$scope.cData[index].files[i].checked = true;
 				$scope.$emit('updateFileCount', true);
 			}
 		}else{
 			for(var i=0;i<size;i++){
-				$scope.cData[index].files[i].check = false;
+				$scope.cData[index].files[i].checked = false;
 				$scope.$emit('updateFileCount', false);
 			}
 		}
@@ -405,14 +405,14 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		var size = $scope.bData[index].files.length;
 		var count = 0;
 		for(var i=0;i<size;i++){
-			if($scope.bData[index].files[i].check){
+			if($scope.bData[index].files[i].checked){
 				count++;
 			}
 		}
 		if(count<=0){
-			$scope.bData[index].check = false;
+			$scope.bData[index].checked = false;
 		}else{
-			$scope.bData[index].check = true;
+			$scope.bData[index].checked = true;
 		}
 	};
 
@@ -420,29 +420,29 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		var size = $scope.cData[index].files.length;
 		var count = 0;
 		for(var i=0;i<size;i++){
-			if($scope.cData[index].files[i].check){
+			if($scope.cData[index].files[i].checked){
 				count++;
 			}
 		}
 		if(count<=0){
-			$scope.cData[index].check = false;
+			$scope.cData[index].checked = false;
 		}else{
-			$scope.cData[index].check = true;
+			$scope.cData[index].checked = true;
 		}
 	};
 	
-	$scope.updateCoChckCategory = function (index) {
+	$scope.updateSeChckCategory = function (index) {
 		var size = $scope.sData[index].files.length;
 		var count = 0;
 		for(var i=0;i<size;i++){
-			if($scope.sData[index].files[i].check){
+			if($scope.sData[index].files[i].checked){
 				count++;
 			}
 		}
 		if(count<=0){
-			$scope.sData[index].check = false;
+			$scope.sData[index].checked = false;
 		}else{
-			$scope.sData[index].check = true;
+			$scope.sData[index].checked = true;
 		}
 	};
 /************************** Listening to Delete Event *******************************/
@@ -457,7 +457,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		for(var i =0;i<$scope.bData.length;i++){
 			var temp = [];
 			for(var j=0;j<$scope.bData[i].files.length;j++){
-				if(!$scope.bData[i].files[j].check){
+				if(!$scope.bData[i].files[j].checked){
 					temp.push($scope.bData[i].files[j]);
 				}else{
 					$scope.$emit('updateFileCount', false);
@@ -471,7 +471,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		for(var i =0;i<$scope.cData.length;i++){
 			var temp = [];
 			for(var j=0;j<$scope.cData[0].files.length;j++){
-				if(!$scope.cData[0].files[j].check){
+				if(!$scope.cData[0].files[j].checked){
 					temp.push($scope.cData[i].files[j]);
 				}else{
 					$scope.$emit('updateFileCount', false);
@@ -484,7 +484,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		for(var i =0;i<$scope.sData.length;i++){
 			var temp = [];
 			for(var j=0;j<$scope.sData[i].files.length;j++){
-				if(!$scope.sData[i].files[j].check){
+				if(!$scope.sData[i].files[j].checked){
 					temp.push($scope.sData[i].files[j]);
 				}else{
 					$scope.$emit('updateFileCount', false);

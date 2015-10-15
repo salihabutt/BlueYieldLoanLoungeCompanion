@@ -11,7 +11,7 @@
 				<tr>
 					<td>
 						<div class="checkbox">
-							<label> <input type="checkbox" ng-model="parent.check" ng-click="updateCheckboxes($event,outerIndex)">
+							<label> <input type="checkbox" ng-model="parent.checked" ng-click="updateCheckboxes($event,outerIndex)">
 							</label>
 						</div>
 					</td>
@@ -45,7 +45,7 @@
 								<div class="checkbox col-lg-12">
                                             <div class="col-lg-9 no-padding">
                                                 <label class="no-padding col-lg-12">
-                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)">
+                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);updateChckCategory(outerIndex)">
                                                     <span ng-click="previewDoc(item)">
 											<div class="col-lg-3 no-padding" id="thumbwrap">
 												<a class="thumb" href="#">
@@ -96,7 +96,7 @@
 				<tr>
 					<td>
 						<div class="checkbox">
-							<label> <input type="checkbox" ng-model="parent.check" ng-click="updateCoCheckboxes($event,outerIndex)">
+							<label> <input type="checkbox" ng-model="parent.checked" ng-click="updateCoCheckboxes($event,outerIndex)">
 							</label>
 						</div>
 					</td>
@@ -126,7 +126,7 @@
 								<div class="checkbox col-lg-12">
                                             <div class="col-lg-9 no-padding">
                                                 <label class="no-padding col-lg-12">
-                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)">
+                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);updateCoChckCategory(outerIndex)">
                                                     <span ng-click="previewDoc(item)">
 											<div class="col-lg-3 no-padding" id="thumbwrap">
 												<a class="thumb" href="#">
@@ -178,7 +178,7 @@
 				<tr>
 					<td>
 						<div class="checkbox">
-							<label> <input type="checkbox" ng-model="parent.check" ng-click="updateSeCheckboxes($event,outerIndex)">
+							<label> <input type="checkbox" ng-model="parent.checked" ng-click="updateSeCheckboxes($event,outerIndex)">
 							</label>
 						</div>
 					</td>
@@ -208,7 +208,7 @@
 								<div class="checkbox col-lg-12">
                                             <div class="col-lg-9 no-padding">
                                                 <label class="no-padding col-lg-12">
-                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)">
+                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);updateSeChckCategory(outerIndex)">
                                                     <span ng-click="previewDoc(item)">
 											<div class="col-lg-3 no-padding" id="thumbwrap">
 												<a class="thumb" href="#">
