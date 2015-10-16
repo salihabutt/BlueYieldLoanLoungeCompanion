@@ -28,7 +28,7 @@
 							</span>
 					</td>
 					<td><input type="button" class="widget-button-verify"
-						value="VERIFY" ng-click="verifyPopupTrigger(parent,'BO')" ng-if="!parent.paperworkCheck" />
+						value="VERIFY" ng-click="verifyPopupTrigger(parent,'BO');preivewMergedImages(parent.files)" ng-if="!parent.paperworkCheck" />
 						<span ng-if="parent.paperworkCheck">Verified</span>
 						<span ng-if="parent.paperworkCheck"><img src="images/ic_verified.png" alt="verified" /></span>
 					</td>
@@ -44,9 +44,9 @@
         						dnd-effect-allowed="move">
 								<div class="checkbox col-lg-12">
                                             <div class="col-lg-9 no-padding">
-                                                <label class="no-padding col-lg-12">
+                                                <div class="no-padding col-lg-12">
                                                     <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);updateChckCategory(outerIndex)">
-                                                    <span ng-click="previewDoc(item)">
+                                                   
 											<div class="col-lg-3 no-padding" id="thumbwrap">
 												<a class="thumb" href="#">
 													<img ng-src="{{item.src}}">
@@ -55,11 +55,11 @@
 													</span>
                                                     </a>
                                             </div>
-                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;">{{item.name}}</div>
-                                            </span>
-                                            </label>
+                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;" ng-click="previewDoc(item)">{{item.name}}</div>
+                                            
+                                            </div>
                                         </div>
-                                        <div class="col-lg-3 no-padding text-right">
+                                        <div class="col-lg-3 no-padding text-right" ng-click="previewDoc(item)">
                                             <input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
                                             <p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
                                         </div>
@@ -125,9 +125,9 @@
         						dnd-effect-allowed="move">
 								<div class="checkbox col-lg-12">
                                             <div class="col-lg-9 no-padding">
-                                                <label class="no-padding col-lg-12">
+                                                <div class="no-padding col-lg-12">
                                                     <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);updateCoChckCategory(outerIndex)">
-                                                    <span ng-click="previewDoc(item)">
+                                                  
 											<div class="col-lg-3 no-padding" id="thumbwrap">
 												<a class="thumb" href="#">
 													<img ng-src="{{item.src}}">
@@ -137,11 +137,11 @@
                                                     </a>
                                             </div>
 
-                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;">{{item.name}}</div>
-                                            </span>
-                                            </label>
+                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;" ng-click="previewDoc(item)">{{item.name}}</div>
+                                           
+                                            </div>
                                         </div>
-                                        <div class="col-lg-3 no-padding text-right">
+                                        <div class="col-lg-3 no-padding text-right" ng-click="previewDoc(item)">
                                             <input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
                                             <p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
                                         </div>
@@ -207,9 +207,9 @@
         						dnd-effect-allowed="move">
 								<div class="checkbox col-lg-12">
                                             <div class="col-lg-9 no-padding">
-                                                <label class="no-padding col-lg-12">
+                                                <div class="no-padding col-lg-12">
                                                     <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);updateSeChckCategory(outerIndex)">
-                                                    <span ng-click="previewDoc(item)">
+                                                   
 											<div class="col-lg-3 no-padding" id="thumbwrap">
 												<a class="thumb" href="#">
 													<img ng-src="{{item.src}}">
@@ -218,15 +218,16 @@
 													</span>
                                                     </a>
                                             </div>
-
-                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;">{{item.name}}</div>
-                                            </span>
-                                            </label>
+ 											
+                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;" ng-click="previewDoc(item)">{{item.name}}</div>
+                                           
+                                            </div>
                                         </div>
-                                        <div class="col-lg-3 no-padding text-right">
+                                        <div class="col-lg-3 no-padding text-right" ng-click="previewDoc(item)">
                                             <input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
                                             <p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
                                         </div>
+                                      
                             </div>
 
 							</li>

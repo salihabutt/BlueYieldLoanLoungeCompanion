@@ -85,6 +85,7 @@ angular.module("pdf").controller("PdfCtrl", ["$scope", "$element", "$attrs", "pd
 					var img = document.createElement("img");
 					img.src = f.toDataURL("image/png");
 					img.id = "img"+e.pageNumber;
+					img.onclick = function() {u.goToPage(4);}
 					var pagediv = document.createElement("DIV");
 					var span = document.createElement("span");
 					pagediv.innerHTML = "Page" + e.pageNumber;

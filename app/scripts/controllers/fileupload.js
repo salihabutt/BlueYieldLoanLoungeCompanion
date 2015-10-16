@@ -10,12 +10,12 @@
     angular.module('blueYieldLoanLoungeCompanionApp')
       .controller('FileCtrl', function ($scope, $modal) {
     	   var self = this;
-    	   $scope.fileObject = {};
+    	   self.fileObject = {};
     	   $scope.sendCustConfig = {
     	      init: function() {
     	        this.on("addedfile", function(file) {
     	        	// show popup
-    	        	$scope.fileObject = file;
+    	        	self.fileObject = file;
     	        	$scope.openCustModal(file);
 
     	        });
@@ -52,13 +52,13 @@
     	    		obj.date = objToPersist.date;
     	    		obj.clas = 'custfile';
     	    		obj.checked = objToPersist.checked;
-    	    		$scope.generateThumbnail(obj);
+    	    		self.generateThumbnail(obj);
     	    		}
     	   }
     	   $scope.recCustConfig = {
     	    	 init: function() {
     	    	      this.on("addedfile", function(file) {
-    	    	    	$scope.fileObject = file;
+    	    	    	self.fileObject = file;
     	    	        var obj = {};
     	    	        obj.name = file.name;
     	    	        obj.type = file.type;
@@ -66,7 +66,7 @@
     	    	        obj.date = new Date();
     	    	        obj.clas = 'recfile';
     	    	        obj.checked = false;
-    	    	        $scope.generateThumbnail(obj);
+    	    	        self.generateThumbnail(obj);
     	    	        file = null; // to be replaced 
     	    	      });
     	    	   },
@@ -82,25 +82,25 @@
 
     		    return true;
     		}
-    		$scope.generateThumbnail = function (obj) {
+    		self.generateThumbnail = function (obj) {
     			if((obj.url!=null || obj.url!='') && obj.type=='application/pdf'){
-				var n = {};
-				n.url = obj.url;
-				 PDFJS.getDocument(n).then(function(t){
-					 t.getPage(1).then(function(e){
+				var pdf = {};
+				pdf.url = obj.url;
+				 PDFJS.getDocument(pdf).then(function(doc){
+					 doc.getPage(1).then(function(event){
 						
-						 var f = document.createElement("canvas");
+						 var canvas = document.createElement("canvas");
 						
-							var p = f.getContext("2d");
-			                var t = e.getViewport(1);
-			                f.height = t.height, f.width = t.width;
-			                var n = {
-			                    canvasContext: p,
-			                    viewport: t
+							var context = canvas.getContext("2d");
+			                var doc = event.getViewport(1);
+			                canvas.height = doc.height, canvas.width = doc.width;
+			                var pdf = {
+			                    canvasContext: context,
+			                    viewport: doc
 			                };
 			            
-			                e.render(n).then(function(){
-					              obj.src = f.toDataURL("image/png");
+			                event.render(pdf).then(function(){
+					              obj.src = canvas.toDataURL("image/png");
 					              if(obj.clas === 'custfile'){
 					            	  $scope.sendCustfiles.push(obj);
 					              }else{
@@ -115,7 +115,8 @@
     			else{
     				  var reader = new FileReader();
     				  reader.onload = function (e) {
-    				    	obj.src = e.target.result;
+    				    	var src = e.target.result;
+    				    	obj.src = src;
     				    	if(obj.clas === 'custfile'){
 				            	  $scope.sendCustfiles.push(obj);
 				              }else{
@@ -123,7 +124,7 @@
 				              }
    			             	$scope.$apply();
     	                }
-    				    reader.readAsDataURL($scope.fileObject);    
+    				    reader.readAsDataURL(self.fileObject);    
     			}
 			};
 			

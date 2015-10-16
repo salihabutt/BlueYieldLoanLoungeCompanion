@@ -3,13 +3,13 @@
 		<div class="clearfix">
 			{{selFileCount}} files selected
 			<span class="icon">
-				<a href="#"  ng-click="printMultipleFiles()"><img src="../images/bt_print@2x.png" alt="delete-btn" /></a> 
+				<a href="#"  print><img src="../images/bt_print@2x.png" alt="print-btn" /></a> 
 			</span>
             <span class="icon">
-				<img src="../images/bt_donwload@2x.png" alt="delete-btn" /> 
+				<img src="../images/bt_donwload@2x.png" alt="download-btn" ng-click="downloadFiles()"/> 
 			</span>
             <span class="icon">
-				<img src="../images/bt_Merge@2x.png" alt="delete-btn" ng-click="openMergePopup()"/> 
+				<img src="../images/bt_Merge@2x.png" alt="merge-btn" ng-click="openMergePopup()"/> 
 			</span>
             <span class="icon">
 				<img src="../images/bt_delete@2x.png" alt="delete-btn" ng-click=" openDeletePopup()"/> 
@@ -33,9 +33,9 @@
                                     <li ng-repeat="item in sendCustfiles track by $index">
                                         <div class="checkbox col-lg-12 no-padding">
                                             <div class="col-lg-9 no-padding">
-                                                <label class="no-padding col-lg-12">
+                                                <div class="no-padding col-lg-12">
                                                     <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);saveDocForPrinting(item)">
-                                                    <span ng-click="previewDoc(item)">
+                                             
 											<div class="col-lg-3 no-padding" id="thumbwrap">
 												<a class="thumb" href="#">
 													<img ng-src="{{item.src}}">
@@ -45,11 +45,10 @@
                                                     </a>
                                             </div>
 
-                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;">{{item.name}}</div>
-                                            </span>
-                                            </label>
+                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;" ng-click="previewDoc(item)">{{item.name}}</div>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-3 no-padding text-right">
+                                        <div class="col-lg-3 no-padding text-right" ng-click="previewDoc(item)">
                                             <input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
                                             <p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
                                         </div>
@@ -74,9 +73,9 @@
                                     <li ng-repeat="item in recCustfiles track by $index">
                                         <div class="checkbox col-lg-12 no-padding">
                                             <div class="col-lg-9 no-padding">
-                                                <label class="no-padding col-lg-12">
+                                                <div class="no-padding col-lg-12">
                                                     <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);saveDocForPrinting(item)">
-                                                    <span ng-click="previewDoc(item)">
+                                                   
 											<div class="col-lg-3 no-padding" id="thumbwrap">
 												<a class="thumb" href="#">
 													<img ng-src="{{item.src}}">
@@ -86,11 +85,11 @@
                                                     </a>
                                             </div>
 
-                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;">{{item.name}}</div>
-                                            </span>
-                                            </label>
+                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;" ng-click="previewDoc(item)">{{item.name}}</div>
+                                         
+                                            </div>
                                         </div>
-                                        <div class="col-lg-3 no-padding text-right">
+                                        <div class="col-lg-3 no-padding text-right" ng-click="previewDoc(item)">
                                             <input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
                                             <p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
                                         </div>

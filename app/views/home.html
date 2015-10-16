@@ -31,7 +31,7 @@
         </div>
         <div style="display:-webkit-box;width:100%" ng-show='isPdf'>
             <div ng-slimscroll id="preview-file" class="mousescroll slimScrollDiv">
-                <pdf-viewer delegate-handle="my-pdf-container" url="pdfUrl" scale="1" show-toolbar="false" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer>
+                <pdf-viewer delegate-handle="my-pdf-container" url="" scale="1" show-toolbar="true" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer>
             </div>
             <div>
                 <div class="toggle-btn-thumbnail" ng-click="toggleThumbnail(!showThumbnail)"><img src="images/ic_toggle_button.png">
@@ -42,18 +42,22 @@
                 </div>
             </div>
         </div>
-        <div class="img-div" ng-show='!isPdf'>
-            <img ng-src='{{fileToDisplay.src}}' >
-        </div>
+        <div ng-show='!isPdf' class="img-div">
+        <div ng-repeat="item in imagesToDisplay">
+            <img ng-src='{{item.src}}' >
+         </div>
+         </div>
     </div>
     
     <div>
-    <div ng-repeat="item in pdfForPrint" id="printPDF">
-    <pdf-viewer delegate-handle="my-pdf-container" url="{{item.url}}" scale="1" show-toolbar="false" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer>
-    </div>
+   <!-- <div id="printPDF">
+  <div ng-repeat="item in pdfForPrint">
+    <pdf-viewer delegate-handle="my-pdf-container1" url="item.url" scale="1" show-toolbar="false" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer>
+    </div>-->
     <div id="printImages">
     <div ng-repeat="item in imagesForPrint">
     <img src="{{item.src}}" >
+    </div>
     </div>
     </div>
     </div>
