@@ -34,7 +34,7 @@
                                         <div class="checkbox col-lg-12 no-padding">
                                             <div class="col-lg-9 no-padding">
                                                 <label class="no-padding col-lg-12">
-                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)">
+                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);saveDocForPrinting(item)">
                                                     <span ng-click="previewDoc(item)">
 											<div class="col-lg-3 no-padding" id="thumbwrap">
 												<a class="thumb" href="#">
@@ -75,7 +75,7 @@
                                         <div class="checkbox col-lg-12 no-padding">
                                             <div class="col-lg-9 no-padding">
                                                 <label class="no-padding col-lg-12">
-                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)">
+                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);saveDocForPrinting(item)">
                                                     <span ng-click="previewDoc(item)">
 											<div class="col-lg-3 no-padding" id="thumbwrap">
 												<a class="thumb" href="#">
