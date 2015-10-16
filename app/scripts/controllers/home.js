@@ -35,7 +35,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				name : 'Authorization for Payoff',
 				check : false
 			}, {
-				name : 'Gaurantee of Title(Dealer)',
+				name : 'Gaurantee of Title (Dealer)',
 				check : false
 			}, {
 				name : 'Warranty Contract',
@@ -44,7 +44,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				name : 'Vehicle Bill of Sale',
 				check : false
 			}, {
-				name : 'Power of Attorney(Seller)',
+				name : 'Power of Attorney (Seller)',
 				check : false
 			}, {
 				name : 'Credit/Security Agreement',
