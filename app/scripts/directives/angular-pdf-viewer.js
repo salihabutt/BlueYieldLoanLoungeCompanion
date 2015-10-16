@@ -91,6 +91,11 @@ angular.module("pdf").controller("PdfCtrl", ["$scope", "$element", "$attrs", "pd
 					pagediv.className = "page";
 					thumbwrapper.appendChild(idiv).appendChild(img);
 					thumbwrapper.appendChild(pagediv);
+					document.getElementById("img-" + e.pageNumber).addEventListener('click', begin, false);
+				}
+				
+				function begin(val){
+					
 				}
 		}
         },

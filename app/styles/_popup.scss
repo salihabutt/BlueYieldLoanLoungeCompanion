@@ -194,8 +194,7 @@
 		}
 }
 
-.modal-custInfo .modal-dialog{
-		background-color: #EDF2F8;
+.modal-custinfo .modal-dialog{
 		position: fixed;
        	top: 7%;
     	left: 13.5%;
@@ -248,4 +247,8 @@
     		margin-top:10px;
     	    color: #B6B6B4;
     	}			
+}
+
+input[type="radio"][disabled] ~ span {
+	color: #B5B3B3 !important;
 }

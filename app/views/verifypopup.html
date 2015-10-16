@@ -4,6 +4,7 @@
 
 <div class="modal-body clearfix">
 	<div class="form-group col-lg-12">
+	
 		<div class="col-lg-6">
 			Expiration Date:
 		</div>
@@ -17,37 +18,37 @@
 	    	<div class="radio">
 			  <label>
 			    <input type="radio" name="optionsRadios" ng-disabled="pastDate" ng-model="getData.expirationType" value="Paperwork OK">
-			    Paperwork OK
+			    <span>Paperwork OK</span>
 			  </label>
 			</div>
 			<div class="radio">
 			  <label>
 			    <input type="radio" name="optionsRadios" ng-disabled="pastDate" ng-model="getData.expirationType" value="Blurred Image">
-			    Blurred Image 
+			    <span>Blurred Image</span> 
 			  </label>
 			</div>
 			<div class="radio">
 			  <label>
 			    <input type="radio" name="optionsRadios" ng-disabled="pastDate" ng-model="getData.expirationType" value="Partial Image">
-			    Partial Image
+			    <span>Partial Image</span>
 			  </label>
 			</div>
 			<div class="radio">
 			  <label>
 			    <input type="radio" id="pastExp" name="optionsRadios" ng-model="getData.expirationType" value="Past Expiration Date" >
-			    Past Expiration Date
+			    <span>Past Expiration Date</span>
 			  </label>
 			</div>
 			<div class="radio">
 			  <label>
 			    <input type="radio" name="optionsRadios" ng-disabled="pastDate" ng-model="getData.expirationType" value="No in (co)borrower's name " checked>
-			    No in (co)borrower's name 
+			    <span>Not in (co)borrower's name</span> 
 			  </label>
 			</div>
 			<div class="radio">
 			  <label>
 			    <input type="radio" name="optionsRadios" ng-disabled="pastDate" ng-model="getData.expirationType" value="Can't Open file" >
-			    Can't Open file
+			    <span>Can't Open file</span>
 			  </label>
 			</div>
 

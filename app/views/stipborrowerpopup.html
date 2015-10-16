@@ -8,7 +8,7 @@
                 <div class="checkbox">
                     <label> 
                         <input name="stipCheckbox" type="checkbox" ng-model="item.check" ng-disabled="item.check"> {{item.name}}
-                        <a href="#" ng-if="item.check" ng-click="removeCategory($index,'Borrower')">Remove</a>
+                        <a href="#" ng-if="item.check && $index > 3" ng-click="removeCategory($index,'Borrower')">Remove</a>
                     </label>
                 </div>
             </li>
@@ -35,7 +35,7 @@
                 <div class="checkbox">
                     <label> 
                         <input name="stipCheckbox" type="checkbox" ng-model="item.check" ng-disabled="item.check"> {{item.name}}
-                        <a href="#" ng-if="item.check" ng-click="removeCategory($index,'Co-borrower')">Remove</a>
+                        <a href="#" ng-if="item.check && $index > 3" ng-click="removeCategory($index,'Co-borrower')">Remove</a>
                     </label>
                 </div>
             </li>
@@ -62,7 +62,7 @@
                 <div class="checkbox">
                     <label> 
                         <input name="stipCheckbox" type="checkbox" ng-model="item.check" ng-disabled="item.check"> {{item.name}}
-                        <a href="#" ng-if="item.check" ng-click="removeCategory($index,'Seller')">Remove</a>
+                        <a href="#" ng-if="item.check && $index > 3" ng-click="removeCategory($index,'Seller')">Remove</a>
                     </label>
                 </div>
             </li>

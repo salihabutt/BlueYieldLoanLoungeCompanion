@@ -3,211 +3,220 @@
 		<div class="clearfix">
 			{{selFileCount}} files selected
 			<span class="icon">
-				<img src="../images/bt_print@2x.png" alt="delete-btn" /> 
+				<a href="#"  ng-click="printMultipleFiles()"><img src="../images/bt_print@2x.png" alt="delete-btn" /></a> 
 			</span>
-			<span class="icon">
+            <span class="icon">
 				<img src="../images/bt_donwload@2x.png" alt="delete-btn" /> 
-			</span> 
-			<span class="icon">
+			</span>
+            <span class="icon">
 				<img src="../images/bt_Merge@2x.png" alt="delete-btn" ng-click="openMergePopup()"/> 
-			</span> 
-			<span class="icon">
+			</span>
+            <span class="icon">
 				<img src="../images/bt_delete@2x.png" alt="delete-btn" ng-click=" openDeletePopup()"/> 
-			</span>  
-		</div>
-	</div>
+			</span>
+        </div>
+    </div>
 
-	<div ng-slimscroll class="slim-scroll-div">
-	<div class="col-lg-12 widget-section" >
-		
-		<!-- loan package portion  -->
-		<div class="col-lg-12 no-padding universal-widget-style">
-			<div class="col-lg-12 widget-heading">Loan Package</div>
-			<div ng-controller="FileCtrl">
-			<div class="col-lg-12 widget-sub-heading">Sent to Customer</div>
-	
-				<div class="col-lg-12 input-box-section">
-				<div class="col-lg-12 checkbox-box-section">
-				<div class="col-lg-12 no-padding">
-					<ul ui-sortable ng-model="sendCustfiles" class="list-no-style">
-					<li ng-repeat="item in sendCustfiles track by $index" >
-						<div class="checkbox col-lg-12 no-padding">
-						<div class="col-lg-3 no-padding">
-							<label class="no-padding"> 
-							<input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)"> 
-							<div id="thumbwrap">
-							<a class="thumb" href="#">
-							<img ng-src="{{item.src}}">
-							<span><img ng-src="{{item.src}}" class="thumb-span"></span>
-							</a>
-							</div>
-							</div>
-							<div class="col-lg-6 no-padding" style="margin-top:15px;" ng-click="previewDoc(item)">{{item.name}}</div>
-							</label>
-							<div class="col-lg-3 no-padding">
-							<input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
-							<p ng-if="!(item.date==null)" class="sent-date">Sent:{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>
-						</div>
-						</div>
-						
-					</li>
-				</ul>
-				</div>
-			</div>
-			 <input type="text" class="widget-textbox"
-					placeholder="Select or drag & drop file to upload" /> <input
-					type="button" class="widget-button" value="SELECT" />
-				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="sendCustConfig">
-             
-              </form>
-			</div>
-			
-			<div class="col-lg-12 widget-sub-heading">Received to Customer
-			</div>
-				<div class="col-lg-12 input-box-section">
-				<div class="col-lg-12 checkbox-box-section">
-				<div class="col-lg-12">
-					<ul ui-sortable ng-model="recCustfiles" class="list-no-style">
-							<li ng-repeat="item in recCustfiles track by $index">
-						<div class="checkbox col-lg-12 no-padding">
-						<div class="col-lg-3 no-padding">
-							<label class="no-padding"> 
-							<input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)"> 
-							<div id="thumbwrap">
-							<a class="thumb" href="#">
-							<img ng-src="{{item.src}}">
-							<span><img ng-src="{{item.src}}" class="thumb-span"></span>
-							</a>
-							</div>
-							</div>
-							<div class="col-lg-6 no-padding" style="margin-top:15px;" ng-click="previewDoc(item)">{{item.name}}</div>
-							</label>
-							<div class="col-lg-3 no-padding">
-							<input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
-							<p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'DD/MM/YYYY'}}</p>
-						</div>
-						</div>
-						
-					</li>
-				</ul>
-				</div>
-			</div>
-			<input type="text" class="widget-textbox"
-					placeholder="Select or drag & drop file to upload" /> <input
-					type="button" class="widget-button" value="SELECT" />
-				 <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone  dropzone-config="recCustConfig">
-              
-              </form>
-			</div>
-			</div>
-			<div class="col-lg-12 widget-sub-heading">Loan Package
-				Verification Checklist</div>
-			<div class="col-lg-12 checkbox-box-section">
-				<div class="col-lg-12">
-					<ul ng-model="loanPkgChecklist" class="list-no-style">
-					<li ng-repeat="item in loanPkgChecklist">
-						<div class="checkbox">
-							<label> <input type="checkbox" ng-model="item.check" ng-click="loanPkgCheck()"> {{item.name}}
-							</label>
-						</div>
-					</li>
-				</ul>
-				</div>
-				<div class="col-lg-12 checkbox-box-section no-padding">
-					<textarea ng-model="LoanPackText"></textarea>
-					<input type="button" class="widget-button no-margin" value="SEND" />
-				</div>
-			</div>
-		</div>
+    <div ng-slimscroll class="slim-scroll-div">
+        <div class="col-lg-12 widget-section">
+
+            <!-- loan package portion  -->
+            <div class="col-lg-12 no-padding universal-widget-style">
+                <div class="col-lg-12 widget-heading">Loan Package</div>
+                <div ng-controller="FileCtrl">
+                    <div class="col-lg-12 widget-sub-heading">Sent to Customer</div>
+
+                    <div class="col-lg-12 input-box-section">
+                        <div class="col-lg-12 checkbox-box-section">
+                            <div class="col-lg-12 no-padding">
+                                <ul ui-sortable ng-model="sendCustfiles" class="list-no-style">
+                                    <li ng-repeat="item in sendCustfiles track by $index">
+                                        <div class="checkbox col-lg-12 no-padding">
+                                            <div class="col-lg-9 no-padding">
+                                                <label class="no-padding col-lg-12">
+                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)">
+                                                    <span ng-click="previewDoc(item)">
+											<div class="col-lg-3 no-padding" id="thumbwrap">
+												<a class="thumb" href="#">
+													<img ng-src="{{item.src}}">
+													<span>
+														<img ng-src="{{item.src}}" class="thumb-span">
+													</span>
+                                                    </a>
+                                            </div>
+
+                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;">{{item.name}}</div>
+                                            </span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-3 no-padding text-right">
+                                            <input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
+                                            <p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
+                                        </div>
+                            </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <input type="text" class="widget-textbox" placeholder="Select or drag & drop file to upload" />
+                        <input type="button" class="widget-button" value="SELECT" />
+                        <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="sendCustConfig">
+
+                        </form>
+                    </div>
+
+                    <div class="col-lg-12 widget-sub-heading">Received to Customer
+                    </div>
+                    <div class="col-lg-12 input-box-section">
+                        <div class="col-lg-12 checkbox-box-section no-padding">
+                            <div class="col-lg-12">
+                                <ul ui-sortable ng-model="recCustfiles" class="list-no-style">
+                                    <li ng-repeat="item in recCustfiles track by $index">
+                                        <div class="checkbox col-lg-12 no-padding">
+                                            <div class="col-lg-9 no-padding">
+                                                <label class="no-padding col-lg-12">
+                                                    <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)">
+                                                    <span ng-click="previewDoc(item)">
+											<div class="col-lg-3 no-padding" id="thumbwrap">
+												<a class="thumb" href="#">
+													<img ng-src="{{item.src}}">
+													<span>
+														<img ng-src="{{item.src}}" class="thumb-span">
+													</span>
+                                                    </a>
+                                            </div>
+
+                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;">{{item.name}}</div>
+                                            </span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-3 no-padding text-right">
+                                            <input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
+                                            <p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
+                                        </div>
+                            </div>
+
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <input type="text" class="widget-textbox" placeholder="Select or drag & drop file to upload" />
+                    <input type="button" class="widget-button" value="SELECT" />
+                    <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="recCustConfig">
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-12 widget-sub-heading">Loan Package Verification Checklist</div>
+            <div class="col-lg-12 checkbox-box-section">
+                <div class="col-lg-12">
+                    <ul ng-model="loanPkgChecklist" class="list-no-style">
+                        <li ng-repeat="item in loanPkgChecklist">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="item.check" ng-click="loanPkgCheck()"> {{item.name}}
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-12 checkbox-box-section no-padding">
+                    <textarea ng-model="LoanPackText"></textarea>
+                    <input type="button" class="widget-button no-margin" value="SEND" />
+                </div>
+            </div>
+        </div>
+
 
 		<!-- Borrower Stips portion  -->
 		<div ng-include="'views/stipborrower.html'"></div>
 
-		
-		<!-- employment verification portion  -->
-		<div class="col-lg-12 no-padding universal-widget-style margin-top20">
-			
-			<div class="col-lg-10 widget-heading">
-				Employment Verification
-			</div>
-			<div class="col-lg-2 no-padding widget-heading">
-				<!-- <img src="../images/bt_print@2x.png" alt="plus sign" /> -->  
-			</div>
-			
-			<div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
-			  <div class="form-group col-lg-6">
-				    <label for="exampleInputEmail1">Date</label>
-				    <div class="inner-addon right-addon">
-          			
-				    <input type="text" placeholder="Date" class="widget-textbox calender-icon" style="width:100%" ng-model="employee.date" jqdatepicker>
-				    </div>
-				  </div>
-				 <div class="form-group col-lg-6">
-				    <label for="exampleInputEmail1">Time</label><br/>
-				    <input type="text" placeholder="Time" class="widget-textbox " style="width:51%" ng-model="employee.time">
-				    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='employee.selected' options='employee.options' style="height: 40px !important;top:-1px;left:-4px"></buttons-radio>
-				  </div>
-			</div>
+        <!-- employment verification portion  -->
+        <div class="col-lg-12 no-padding universal-widget-style margin-top20">
 
-			<div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
-				 <div class="form-group col-lg-12">
-				    <label for="exampleInputEmail1">Contact Name</label>
-				    <input type="text" placeholder="Contact Name" class="widget-textbox" style="width:100%" ng-model="employee.name">
-				  </div>
-			</div>
-			<div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
-				 <div class="form-group col-lg-6">
-				    <label for="exampleInputEmail1">Position</label>
-				    <input type="text" placeholder="Position" class="widget-textbox" style="width:100%" ng-model="employee.position">
-				  </div>
-				 <div class="form-group col-lg-6 ">
-				    <label for="exampleInputEmail1">Phone Number</label>
-				    <input type="text" placeholder="Phone Number" class="widget-textbox" style="width:100%" ng-model="employee.number" ui-mask="(999) 999 999" placeholder="(999) 999 999">
-				  </div> 
-			</div>
+            <div class="col-lg-10 widget-heading">
+                Employment Verification
+            </div>
+            <div class="col-lg-2 no-padding widget-heading">
+                <!-- <img src="../images/bt_print@2x.png" alt="plus sign" /> -->
+            </div>
 
-			<div class="col-lg-12 input-box-section  border-bottom" style="padding-top:20px !important">
-				 <input type="button" ng-class="{'widget-button-long-disabled':!employee.verified,'widget-button-long':employee.verified}" value="{{employee.value}}" >
-			</div>
-		</div>
+            <div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
+                <div class="form-group col-lg-6">
+                    <label for="exampleInputEmail1">Date</label>
+                    <div class="inner-addon right-addon">
 
-		<!-- Customer Identification portion  -->
-		<div class="col-lg-12 no-padding universal-widget-style margin-top20">
-			<div class="col-lg-10 widget-heading">
-				Customer Identification
-			</div>
-			<div class="col-lg-2 no-padding widget-heading">
-				<!-- <img src="../images/bt_print@2x.png" alt="plus sign" /> -->  
-			</div>
-			
-			<div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
-			<div class="form-group col-lg-6">
-				    <label for="exampleInputEmail1">Date</label>
-				    <div class="inner-addon right-addon">
-				    <input type="text" placeholder="Date" class="widget-textbox calender-icon" style="width:100%" ng-model="customer.date" jqdatepicker>
-				  </div>
-				  </div>
-				 <div class="form-group col-lg-6">
-				    <label for="exampleInputEmail1">Time</label><br/>
-				    <input type="text" placeholder="Time" class="widget-textbox " style="width:51%" ng-model="customer.time">
-				    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='customer.selected' options='customer.options' style="height: 40px !important;top:-1px;left:-4px"></buttons-radio>
-				  </div>
-				 
-			</div>
+                        <input type="text" placeholder="MM/DD/YY" class="widget-textbox calender-icon" style="width:100%" ng-model="employee.date" jqdatepicker>
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label for="exampleInputEmail1">Time</label>
+                    <br/>
+                    <input type="text"  placeholder="00:00" ui-mask="99:99" class="widget-textbox " style="width:50%" ng-model="employee.time">
+                    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='employee.selected' options='employee.options' style="height: 40px !important;top:-1px;left:-4px"></buttons-radio>
+                </div>
+            </div>
 
-			<div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
-				 <div class="form-group col-lg-12">
-				    <label for="exampleInputEmail1">Contact Name</label>
-				    <input type="text" placeholder="Contact Name" class="widget-textbox" style="width:100%" ng-mode="customer.name">
-				  </div>
-			</div>
-			<div class="col-lg-12 input-box-section  border-bottom" style="padding-top:20px !important">
-				 <input type="button" ng-class="{'widget-button-long-disabled':!customer.verified,'widget-button-long':customer.verified}" value="{{customer.value}}">
-			</div>
-		</div>
+            <div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
+                <div class="form-group col-lg-12">
+                    <label for="exampleInputEmail1">Contact Name</label>
+                    <input type="text" placeholder="Contact Name" class="widget-textbox" style="width:100%" ng-model="employee.name">
+                </div>
+            </div>
+            <div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
+                <div class="form-group col-lg-6">
+                    <label for="exampleInputEmail1">Position</label>
+                    <input type="text" placeholder="Position" class="widget-textbox" style="width:100%" ng-model="employee.position">
+                </div>
+                <div class="form-group col-lg-6 ">
+                    <label for="exampleInputEmail1">Phone Number</label>
+                    <input type="text" class="widget-textbox" style="width:100%" ng-model="employee.number" ui-mask="(999) 999-999" placeholder="(999) 999-999">
+                </div>
+            </div>
 
-	</div>
-	</div>
+            <div class="col-lg-12 input-box-section  border-bottom" style="padding-top:20px !important">
+                <input type="button" ng-class="{'widget-button-long-disabled':!employee.verified,'widget-button-long':employee.verified}" value="{{employee.value}}">
+            </div>
+        </div>
+
+        <!-- Customer Identification portion  -->
+        <div class="col-lg-12 no-padding universal-widget-style margin-top20">
+            <div class="col-lg-10 widget-heading">
+                Customer Identification
+            </div>
+            <div class="col-lg-2 no-padding widget-heading">
+                <!-- <img src="../images/bt_print@2x.png" alt="plus sign" /> -->
+            </div>
+
+            <div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
+                <div class="form-group col-lg-6">
+                    <label for="exampleInputEmail1">Date</label>
+                    <div class="inner-addon right-addon">
+                        <input type="text" placeholder="MM/DD/YY" class="widget-textbox calender-icon" style="width:100%" ng-model="customer.date" jqdatepicker>
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label for="exampleInputEmail1">Time</label>
+                    <br/>
+
+                    <input type="text" placeholder="00:00" ui-mask="99:99" class="widget-textbox " style="width:50%" ng-model="customer.time">
+
+                    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='customer.selected' options='customer.options' style="height: 40px !important;top:-1px;left:-4px"></buttons-radio>
+                </div>
+
+            </div>
+
+            <div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
+                <div class="form-group col-lg-12">
+                    <label for="exampleInputEmail1">Contact Name</label>
+                    <input type="text" placeholder="Contact Name" class="widget-textbox" style="width:100%" ng-mode="customer.name">
+                </div>
+            </div>
+            <div class="col-lg-12 input-box-section  border-bottom" style="padding-top:20px !important">
+                <input type="button" ng-class="{'widget-button-long-disabled':!customer.verified,'widget-button-long':customer.verified}" value="{{customer.value}}">
+            </div>
+        </div>
+
+    </div>
 </div>
-
-
+</div>

@@ -257,8 +257,8 @@
 .thumb span { 
 	position: absolute;
 	visibility: hidden;
-	width: 70px;
-	height: 70px;
+	width: 200px;
+	height: 200px;
 }
 .thumb:hover, .thumb:hover span {
 	visibility: visible;
@@ -267,8 +267,8 @@
 }
 
 .thumb-span {
-	width: 85px !important;
-	height: 85px !important;
+	width: 200px !important;
+	height: 200px !important;
 	border: 1px #ccc solid;
 }
 
@@ -287,3 +287,25 @@
 	background-position: 95% center;
 }
 
+
+
+/* dropzone css changes */
+
+.dropzone .dz-default.dz-message{
+    position: absolute;
+    width: 429px;
+    height: 40px;
+    margin-left: -214px;
+    margin-top: -40.5px;
+    top: 50%;
+    left: 50%;
+}
+
+
+/* truncating file names */
+
+.word-truncate{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

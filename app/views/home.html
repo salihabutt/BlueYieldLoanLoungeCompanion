@@ -46,5 +46,16 @@
             <img ng-src='{{fileToDisplay.src}}' >
         </div>
     </div>
+    
+    <div>
+    <div ng-repeat="item in pdfForPrint" id="printPDF">
+    <pdf-viewer delegate-handle="my-pdf-container" url="{{item.url}}" scale="1" show-toolbar="false" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer>
+    </div>
+    <div id="printImages">
+    <div ng-repeat="item in imagesForPrint">
+    <img src="{{item.src}}" >
+    </div>
+    </div>
+    </div>
 
 </div>
