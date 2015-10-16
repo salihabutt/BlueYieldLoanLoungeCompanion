@@ -11,173 +11,173 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	.service('stipDataService', function () {
 		this.borData = [{
 			name: "Driver License Front",
-			check: true
+			checked: true
 		},
 		{
 			name: "Driver License Back",
-			check: true
+			checked: true
 		},
 		{
 			name: "Registration",
-			check: true
+			checked: true
 		},
 		{
 			name: "Insurance Card",
-			check: true
+			checked: true
 		},
 		{
 			name: "Social Security Card",
-			check: false
+			checked: false
 		},
 		{
 			name: "Resident Card",
-			check: false
+			checked: false
 		},
 		{
 			name: "Title Front",
-			check: false
+			checked: false
 		},
 		{
 			name: "Title Back",
-			check: false
+			checked: false
 		},
 		{
 			name: "Paystub",
-			check: false
+			checked: false
 		},
 		{
 			name: "Marriage Certificate",
-			check: false
+			checked: false
 		},
 		{
 			name: "Death Certificate",
-			check: false
+			checked: false
 		},
 		{
 			name: "Passport",
-			check: false
+			checked: false
 		},
 		{
 			name: "Income Taxes",
-			check: false
+			checked: false
 		},
 		{
 			name: "Bank Statement",
-			check: false
+			checked: false
 		}];
 
 		this.cobData = [{
 			name: "Driver License Front",
-			check: true
+			checked: true
 		},
 		{
 			name: "Driver License Back",
-			check: true
+			checked: true
 		},
 		{
 			name: "Registration",
-			check: true
+			checked: true
 		},
 		{
 			name: "Insurance Card",
-			check: true
+			checked: true
 		},
 		{
 			name: "Social Security Card",
-			check: false
+			checked: false
 		},
 		{
 			name: "Resident Card",
-			check: false
+			checked: false
 		},
 		{
 			name: "Title Front",
-			check: false
+			checked: false
 		},
 		{
 			name: "Title Back",
-			check: false
+			checked: false
 		},
 		{
 			name: "Paystub",
-			check: false
+			checked: false
 		},
 		{
 			name: "Marriage Certificate",
-			check: false
+			checked: false
 		},
 		{
 			name: "Death Certificate",
-			check: false
+			checked: false
 		},
 		{
 			name: "Passport",
-			check: false
+			checked: false
 		},
 		{
 			name: "Income Taxes",
-			check: false
+			checked: false
 		},
 		{
 			name: "Bank Statement",
-			check: false
+			checked: false
 		}];
 		
 		this.selData = [{
 			name: "Driver License Front",
-			check: true
+			checked: true
 		},
 		{
 			name: "Driver License Back",
-			check: true
+			checked: true
 		},
 		{
 			name: "Registration",
-			check: true
+			checked: true
 		},
 		{
 			name: "Insurance Card",
-			check: true
+			checked: true
 		},
 		{
 			name: "Social Security Card",
-			check: false
+			checked: false
 		},
 		{
 			name: "Resident Card",
-			check: false
+			checked: false
 		},
 		{
 			name: "Title Front",
-			check: false
+			checked: false
 		},
 		{
 			name: "Title Back",
-			check: false
+			checked: false
 		},
 		{
 			name: "Paystub",
-			check: false
+			checked: false
 		},
 		{
 			name: "Marriage Certificate",
-			check: false
+			checked: false
 		},
 		{
 			name: "Death Certificate",
-			check: false
+			checked: false
 		},
 		{
 			name: "Passport",
-			check: false
+			checked: false
 		},
 		{
 			name: "Income Taxes",
-			check: false
+			checked: false
 		},
 		{
 			name: "Bank Statement",
-			check: false
+			checked: false
 		}];
 
 		this.getBorData = function () {
