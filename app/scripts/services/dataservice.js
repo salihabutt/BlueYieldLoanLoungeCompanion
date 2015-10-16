@@ -9,7 +9,6 @@
  */
 angular.module('blueYieldLoanLoungeCompanionApp')
 	.service('dataService', function () {
-		this.sendCustFile={};	
 		this.applicantInfo = {
 	    		name: "Karley Test",
 	    		address: "1234 Vita St, Paramount, CA 90723",

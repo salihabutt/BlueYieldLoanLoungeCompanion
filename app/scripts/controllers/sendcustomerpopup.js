@@ -18,9 +18,10 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     	var obj = {};
     	obj.name = $scope.file.name;
     	obj.type = $scope.file.type;
-    	obj.url = "/images/material-design.pdf"; // right now static for demo purposes
+    	obj.url = '/images/material-design.pdf'; // right now static for demo purposes
     	obj.date = new Date();
     	obj.checked = false;
+    	obj.src = '';
     	$modalInstance.close(obj);
   	};
 
@@ -29,8 +30,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     	obj.name = $scope.file.name;
     	obj.type = $scope.file.type;
     	obj.date = null;
-    	obj.url = "/images/relativity.pdf";  // right now static for demo purposes
+    	obj.url = '/images/relativity.pdf';  // right now static for demo purposes
     	obj.checked = false;
+    	obj.src = '';
     	$modalInstance.dismiss(obj);
     };
 });

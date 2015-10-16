@@ -6,7 +6,7 @@
  * @description # HomeCtrl Controller of the blueYieldLoanLoungeCompanionApp
  */
 angular.module('blueYieldLoanLoungeCompanionApp')
-.controller('HomeCtrl', ['$scope','pdfDelegate','$modal',function($scope, pdfDelegate, $modal) {
+.controller('HomeCtrl', ['$scope','$http','pdfDelegate','$modal',function($scope, $http, pdfDelegate, $modal) {
 			var self = this,
 			init = function (){
 				$scope.loanPackNote(); 
@@ -94,7 +94,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			$scope.loadNewFile = function(url) {
 			     var a= pdfDelegate
 			        .$getByHandle('my-pdf-container')
-			        .load(url);							
+			        .load(url);		
 			    };
 			$scope.openMergePopup = function () {
 					var modalInstance = $modal.open({
@@ -118,13 +118,16 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			};
 			$scope.updateFileCount = function (e){
 				var checkbox = e.target;
-				checkbox.checked? $scope.selFileCount++: $scope.selFileCount--;	
+				checkbox.checked? $scope.selFileCount++: $scope.selFileCount--;
+				self.saveDocForPrinting();
 			};
 			$scope.$on('updateFileCount',function (event,data) {
 			if(data){
 				$scope.selFileCount++;
 			}else{
-				$scope.selFileCount--;
+				if($scope.selFileCount > 0){
+					$scope.selFileCount--;
+				}
 			}
 			});
 			
@@ -140,13 +143,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				}
 				
 			};	
-			$scope.getFormattedName = function (name){
-				if(name.length>16){
-					name=name.substring(0,16);
-					name = name+'...';
-				}
-				return name;
-			};
+
 			$scope.toggleThumbnail =  function (val){
 				$scope.showThumbnail = val;
 			};
@@ -182,27 +179,77 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			}
 			$scope.pdfForPrint = [];
 			$scope.imagesForPrint = [];
-			$scope.printMultipleFiles = function () {
-				var popupWin = window.open('', '_blank', 'width=800,height=600');
-				var printContents = document.getElementById('printImages').innerHTML;
-				popupWin.document.open();
-		        popupWin.document.write('<html><body onload="window.print()">' + printContents + '</html>');
-		        popupWin.document.close();
-			};
+	
 			
-			$scope.saveDocForPrinting = function (item) {
-				if(item.checked){
-				if(item.type== 'application/pdf'){
-					$scope.pdfForPrint.push(item);
-				}else{
-					item.url = 'images/im_logo.png';
-					$scope.imagesForPrint.push(item);
-				}
+			self.saveDocForPrinting = function () {
+				$scope.pdfForPrint = [];
+				$scope.imagesForPrint = [];
+				self.addFilesForPrint($scope.sendCustfiles);
+				self.addFilesForPrint($scope.recCustfiles);
+				self.addBCSFilesForPrint($scope.bData);
+				self.addBCSFilesForPrint($scope.cData);
+				self.addBCSFilesForPrint($scope.sData);
+			};
+			self.addBCSFilesForPrint = function (array) {   //Borrower,Co Borrower,Seller files 
+				for(var i=0; i<array.length; i++){
+					self.addFilesForPrint(array[i].files);
 				}
 			};
+			self.addFilesForPrint = function (array) {
+				for(var i=0;i<array.length;i++){
+					if(array[i].checked){
+						if(array[i].type == 'application/pdf'){
+							$scope.pdfForPrint.push(array[i]);
+						}else{
+							$scope.imagesForPrint.push(array[i]);
+						}
+					}
+				}
+			};
+			$scope.downloadFiles = function () {
+				var fileToDownload = $scope.pdfForPrint;
+				for(var i=0;i<fileToDownload.length;i++){
+					self.downloadPdfDocs(fileToDownload[i]);
+				}
+				fileToDownload = $scope.imagesForPrint;
+				for(var j=0;j<fileToDownload.length;j++){
+					self.downloadImageDocs(fileToDownload[j]);
+				}
+				
+			}
 			
-			
-			
+			// two functions are mad just for demo purposes to show pdf and image download
+			self.downloadPdfDocs = function (item){
+				  var xhr = new XMLHttpRequest();
+				  xhr.responseType = 'blob';
+				  xhr.onload = function() {
+				    var a = document.createElement('a');
+				    a.href = window.URL.createObjectURL(xhr.response); // xhr.response is a blob
+				    a.download = item.name; // Set the file name.
+				    a.style.display = 'none';
+				    document.body.appendChild(a);
+				    a.click();
+				    //delete a;
+				  };
+				  xhr.open('GET', 'http://localhost:9000/images/material-design.pdf'); //url will be replaced here
+				  xhr.send();
+			}
+			self.downloadImageDocs = function (item){
+				  var xhr = new XMLHttpRequest();
+				  xhr.responseType = 'blob';
+				  xhr.onload = function() {
+				    var a = document.createElement('a');
+				    a.href = window.URL.createObjectURL(xhr.response); // xhr.response is a blob
+				    a.download = item.name; // Set the file name.
+				    a.style.display = 'none';
+				    document.body.appendChild(a);
+				    a.click();
+				    //delete a;
+				  };
+				  xhr.open('GET', 'http://localhost:9000/images/im_logo@2x.png'); //url will be replaced here
+				  xhr.send();
+			}
+				
 		init();
 		
 		/************** Data for Loan Package *************************/
