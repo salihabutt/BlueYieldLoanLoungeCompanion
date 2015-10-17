@@ -42,14 +42,16 @@
                 </div>
             </div>
         </div>
-        <div class="img-div" ng-show='!isPdf'>
-            <img ng-src='{{fileToDisplay.src}}' >
-        </div>
+        <div ng-show='!isPdf' class="img-div">
+        <div ng-repeat="item in imagesToDisplay">
+            <img ng-src='{{item.src}}' >
+         </div>
+         </div>
     </div>
     
     <div>
-    <div id="printPDF">
-   <!-- <div ng-repeat="item in pdfForPrint">
+   <!-- <div id="printPDF">
+  <div ng-repeat="item in pdfForPrint">
     <pdf-viewer delegate-handle="my-pdf-container1" url="item.url" scale="1" show-toolbar="false" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer>
     </div>-->
     <div id="printImages">

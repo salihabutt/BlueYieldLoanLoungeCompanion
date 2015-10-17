@@ -15,6 +15,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			$scope.showFile = false;
 			$scope.isPdf = false;
 			$scope.fileToDisplay = {};
+			$scope.imagesToDisplay = [];
 			$scope.showThumbnail = false;
 			$scope.loanPkgChecklist = [ {
 				name : 'Loanliner Application',
@@ -132,6 +133,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			});
 			
 			$scope.previewDoc =  function (obj) {
+				$scope.imagesToDisplay = [];
 				$scope.showFile = true;
 				$scope.fileToDisplay.name = obj.name;
 				if(obj.type === 'application/pdf'){
@@ -139,10 +141,25 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					$scope.loadNewFile(obj.url);
 				}else{
 					$scope.isPdf = false;
-					$scope.fileToDisplay.src = obj.src; 
+					$scope.fileToDisplay.src = obj.src;
+					$scope.imagesToDisplay.push(obj);
 				}
 				
 			};	
+			
+			$scope.preivewMergedImages = function (array) {
+				$scope.imagesToDisplay = [];
+				$scope.showFile = true;
+				$scope.isPdf = false;
+				for(var i=0;i<array.length;i++){
+					var obj = {};
+					if(obj.type != 'application/pdf'){
+						obj.name = array[i].name;
+						obj.src = array[i].src;
+					}
+					$scope.imagesToDisplay.push(obj);
+				}
+			}
 
 			$scope.toggleThumbnail =  function (val){
 				$scope.showThumbnail = val;

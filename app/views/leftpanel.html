@@ -33,7 +33,7 @@
                                     <li ng-repeat="item in sendCustfiles track by $index">
                                         <div class="checkbox col-lg-12 no-padding">
                                             <div class="col-lg-9 no-padding">
-                                                <label class="no-padding col-lg-12">
+                                                <div class="no-padding col-lg-12">
                                                     <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);saveDocForPrinting(item)">
                                              
 											<div class="col-lg-3 no-padding" id="thumbwrap">
@@ -46,7 +46,7 @@
                                             </div>
 
                                             <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;" ng-click="previewDoc(item)">{{item.name}}</div>
-                                            </label>
+                                            </div>
                                         </div>
                                         <div class="col-lg-3 no-padding text-right" ng-click="previewDoc(item)">
                                             <input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
@@ -73,7 +73,7 @@
                                     <li ng-repeat="item in recCustfiles track by $index">
                                         <div class="checkbox col-lg-12 no-padding">
                                             <div class="col-lg-9 no-padding">
-                                                <label class="no-padding col-lg-12">
+                                                <div class="no-padding col-lg-12">
                                                     <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);saveDocForPrinting(item)">
                                                    
 											<div class="col-lg-3 no-padding" id="thumbwrap">
@@ -87,7 +87,7 @@
 
                                             <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;" ng-click="previewDoc(item)">{{item.name}}</div>
                                          
-                                            </label>
+                                            </div>
                                         </div>
                                         <div class="col-lg-3 no-padding text-right" ng-click="previewDoc(item)">
                                             <input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
