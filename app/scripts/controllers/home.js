@@ -62,7 +62,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					name : "",
 					options: ["AM", "PM"],
 					selected: "AM",
-					value: 'CUSTOMER VERIFIED',
+					value: 'VERIFY EMPLOYEE',
 					verified: false
 			};
 			
@@ -268,9 +268,11 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			};
 			$scope.verifyCustomer =function () {
 				$scope.customer.verified = true;
+				$scope.customer.value= 'CUSTOMER VERFIFIED';
 			};
 			$scope.verifyEmployee =function () {
 				$scope.employee.verified = true;
+				$scope.employee.value='EMPLOYEE VERIFIED';
 			}
 				
 				
