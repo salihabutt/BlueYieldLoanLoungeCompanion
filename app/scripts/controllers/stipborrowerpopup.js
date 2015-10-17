@@ -26,13 +26,13 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     	
     	switch (type) {
  		case 'Borrower':
- 			$scope.borrowerStip[index].check=false;
+ 			$scope.borrowerStip[index].checked=false;
  		break;
  		case 'Co-borrower':
- 			$scope.coborrowerStip[index].check=false;
+ 			$scope.coborrowerStip[index].checked=false;
  		break;
  		case 'Seller':
- 			$scope.sellerStip[index].check=false;
+ 			$scope.sellerStip[index].checked=false;
  		break;
 	}
     }
