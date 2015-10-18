@@ -1,7 +1,7 @@
 <div class="left-panel" dynamic-height >
 	<div class="col-lg-12 icon-bar">
 		<div class="clearfix">
-			{{selFileCount}} files selected
+			{{selFileCount}} file(s) selected
 			<span class="icon">
 				<a href="#"  print><img src="../images/bt_print@2x.png" alt="print-btn" /></a> 
 			</span>
@@ -30,9 +30,9 @@
                         <div class="col-lg-12 checkbox-box-section">
                             <div class="col-lg-12 no-padding">
                                 <ul ui-sortable ng-model="sendCustfiles" class="list-no-style">
-                                    <li ng-repeat="item in sendCustfiles track by $index">
+                                    <li ng-repeat="item in sendCustfiles|orderBy:'name' track by item.id">
                                         <div class="checkbox col-lg-12 no-padding">
-                                            <div class="col-lg-9 no-padding">
+                                            <div class="col-lg-10 no-padding">
                                                 <div class="no-padding col-lg-12">
                                                     <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);saveDocForPrinting(item)">
                                              
@@ -45,12 +45,12 @@
                                                     </a>
                                             </div>
 
-                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;" ng-click="previewDoc(item)">{{item.name}}</div>
+                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;cursor:pointer" ng-click="previewDoc(item)">{{item.name}}</div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3 no-padding text-right" ng-click="previewDoc(item)">
-                                            <input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
-                                            <p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
+                                        <div class="col-lg-2 no-padding text-right" style="cursor:pointer">
+                                            <input type="button" class="widget-button-send"  ng-click="sendLoanPackage(item)" value="Send" ng-if="item.date==null" />
+                                            <p ng-if="!(item.date==null)" class="sent-date" ng-click="previewDoc(item)">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
                                         </div>
                             </div>
                                     </li>
@@ -70,27 +70,25 @@
                         <div class="col-lg-12 checkbox-box-section no-padding">
                             <div class="col-lg-12">
                                 <ul ui-sortable ng-model="recCustfiles" class="list-no-style">
-                                    <li ng-repeat="item in recCustfiles track by $index">
+                                    <li ng-repeat="item in recCustfiles|orderBy:'name' track by $index">
                                         <div class="checkbox col-lg-12 no-padding">
-                                            <div class="col-lg-9 no-padding">
+                                            <div class="col-lg-10 no-padding">
                                                 <div class="no-padding col-lg-12">
                                                     <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);saveDocForPrinting(item)">
                                                    
-											<div class="col-lg-3 no-padding" id="thumbwrap">
-												<a class="thumb" href="#">
-													<img ng-src="{{item.src}}">
-													<span>
-														<img ng-src="{{item.src}}" class="thumb-span">
-													</span>
-                                                    </a>
-                                            </div>
+													<div class="col-lg-3 no-padding" id="thumbwrap">
+														<a class="thumb" href="#">
+															<img ng-src="{{item.src}}">
+															<span>
+																<img ng-src="{{item.src}}" class="thumb-span">
+															</span>
+                                                    	</a>
+                                           			</div>
 
-                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;" ng-click="previewDoc(item)">{{item.name}}</div>
-                                         
+                                            	<div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;cursor:pointer" ng-click="previewDoc(item)">{{item.name}}</div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3 no-padding text-right" ng-click="previewDoc(item)">
-                                            <input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
+                                        <div class="col-lg-2 no-padding text-right" ng-click="previewDoc(item)" style="cursor:pointer">                       
                                             <p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
                                         </div>
                             </div>
@@ -121,7 +119,7 @@
                 </div>
                 <div class="col-lg-12 checkbox-box-section no-padding">
                     <textarea ng-model="LoanPackText"></textarea>
-                    <input type="button" class="widget-button no-margin" value="SEND" />
+                    <input type="button" class="widget-button no-margin" value="SEND"  ng-click="sendLoanPkgEmail()"/>
                 </div>
             </div>
         </div>
@@ -151,8 +149,8 @@
                 <div class="form-group col-lg-6">
                     <label for="exampleInputEmail1">Time</label>
                     <br/>
-                    <input type="text"  placeholder="00:00" ui-mask="99:99" class="widget-textbox " style="width:50%" ng-model="employee.time">
-                    <buttons-radio class="btn-group" data-toggle="buttons-radio" model='employee.selected' options='employee.options' style="height: 40px !important;top:-1px;left:-4px"></buttons-radio>
+                    <input type="text" name="emplTime"   ui-mask="12:59" class="widget-textbox " style="width:50%" ng-model="employee.time">
+                    <buttons-radio class="btn-group btn-group-custom " data-toggle="buttons-radio" model='employee.selected' options='employee.options' ></buttons-radio>
                 </div>
             </div>
 
@@ -169,7 +167,7 @@
                 </div>
                 <div class="form-group col-lg-6 ">
                     <label for="exampleInputEmail1">Phone Number</label>
-                    <input type="text" class="widget-textbox" style="width:100%" ng-model="employee.number" ui-mask="(999) 999-999" placeholder="(999) 999-999">
+                    <input type="text" class="widget-textbox" style="width:100%" ng-model="employee.number" ui-mask="(999) 999-9999">
                 </div>
             </div>
 
@@ -198,7 +196,7 @@
                     <label for="exampleInputEmail1">Time</label>
                     <br/>
 
-                    <input type="text" placeholder="00:00" ui-mask="99:99" class="widget-textbox " style="width:50%" ng-model="customer.time">
+                    <input type="text"   ui-mask="12:59" class="widget-textbox " style="width:50%" ng-model="customer.time">
 
                     <buttons-radio class="btn-group" data-toggle="buttons-radio" model='customer.selected' options='customer.options' style="height: 40px !important;top:-1px;left:-4px"></buttons-radio>
                 </div>

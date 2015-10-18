@@ -47,8 +47,7 @@
 
 	.widget-section {
 		padding:20px;
-
-
+		
 		.universal-widget-style {
 			border : 1px solid #D8DDE3;
 
@@ -199,8 +198,7 @@
 		width: 80px;
 		font-size: 14px;
 		height: 40px;
-		margin-top: 14px;
-		margin-left: 12px;
+		margin-top: 5px;
 		background-color: #B1B8C8;
 		border: 2px solid #B1B8C8;
 		border-bottom: 2px solid #9C9E9C;
@@ -267,8 +265,8 @@
 }
 
 .thumb-span {
-	width: 200px !important;
-	height: 200px !important;
+	width: 300px !important;
+	height: 300px !important;
 	border: 1px #ccc solid;
 }
 
@@ -308,4 +306,13 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.btn-group-custom {
+height: 40px !important;top:-1px;left:-4px;
+}
+
+
+input[type="button"]{
+	outline: none;
 }

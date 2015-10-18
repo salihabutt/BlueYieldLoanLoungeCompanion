@@ -7,7 +7,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
         require: 'ngModel',
          link: function (scope, element,attrs, ngModel) {
             element.datepicker({
-                dateFormat: 'mm/dd/yy',
+                dateFormat: 'mm/dd/y',
                 onSelect: function (date) {
                 	  ngModel.$setViewValue(date);
                 	  scope.$apply();

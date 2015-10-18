@@ -25,13 +25,13 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     $scope.removeCategory = function (index,type) {
     	
     	switch (type) {
- 		case 'Borrower':
+ 		case 'BO':
  			$scope.borrowerStip[index].checked=false;
  		break;
- 		case 'Co-borrower':
+ 		case 'CO':
  			$scope.coborrowerStip[index].checked=false;
  		break;
- 		case 'Seller':
+ 		case 'SE':
  			$scope.sellerStip[index].checked=false;
  		break;
 	}

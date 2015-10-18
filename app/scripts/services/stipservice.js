@@ -10,11 +10,11 @@
 angular.module('blueYieldLoanLoungeCompanionApp')
 	.service('stipDataService', function () {
 		this.borData = [{
-			name: "Driver License Front",
+			name: "Driver's License Front",
 			checked: true
 		},
 		{
-			name: "Driver License Back",
+			name: "Driver's License Back",
 			checked: true
 		},
 		{
@@ -67,11 +67,11 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		}];
 
 		this.cobData = [{
-			name: "Driver License Front",
+			name: "Driver's License Front",
 			checked: true
 		},
 		{
-			name: "Driver License Back",
+			name: "Driver's License Back",
 			checked: true
 		},
 		{
@@ -124,11 +124,11 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		}];
 		
 		this.selData = [{
-			name: "Driver License Front",
+			name: "Driver's License Front",
 			checked: true
 		},
 		{
-			name: "Driver License Back",
+			name: "Driver's License Back",
 			checked: true
 		},
 		{

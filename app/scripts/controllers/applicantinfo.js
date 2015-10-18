@@ -21,14 +21,14 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     		var modalInstance = $modal.open({
 	    		animation: false,
 		    	templateUrl: 'views/customerinfopopup.html',
-		    	controller: 'custInfoPopupCtrl',
 		    	windowClass: 'modal-custinfo'
 	    	});
     };
     
   })  
-  .controller('custInfoPopupCtrl', function ($scope,dataService,$modal) {
-	  $scope.customerInfo = {
+  .controller('custInfoPopupCtrl', function ($scope,$modal) {
+	  var self = this;
+	  self.customerInfo = {
 			  name: 'Karley Test',
 			  lc: 'Ryan Cowan',
 			  fundAssTo: 'Shawn levin',
@@ -38,6 +38,6 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			  appExpDate: '10/10/2015',
 			  lienHolder: 'Chryslar Financial Services',
 			  gap: 'Yes',
-			  esc: 'yes'
+			  esc: 'Yes'
 	  };
   });

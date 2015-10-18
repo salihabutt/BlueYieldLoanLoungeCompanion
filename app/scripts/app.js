@@ -24,8 +24,7 @@ var app=angular
 		'ui.bootstrap',
 		'ngDropzone',
 		'pdf',
-		'dndLists',
-		'AngularPrint'
+		'dndLists'
 	]);
 
 	app.config(function ($stateProvider, $urlRouterProvider) {
