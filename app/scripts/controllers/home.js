@@ -246,7 +246,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				    a.click();
 				    //delete a;
 				  };
-				  xhr.open('GET', 'http://localhost:9000/images/material-design.pdf'); //url will be replaced here
+				  var curUrl = window.location.href;
+				  curUrl = curUrl.split('#')[0];
+				  xhr.open('GET', curUrl+'/images/material-design.pdf'); //url will be replaced here
 				  xhr.send();
 			};
 			self.downloadImageDocs = function (item){
@@ -261,7 +263,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				    a.click();
 				    //delete a;
 				  };
-				  xhr.open('GET', 'http://localhost:9000/images/im_logo@2x.png'); //url will be replaced here
+				  var curUrl = window.location.href;
+				  curUrl = curUrl.split('#')[0];
+				  xhr.open('GET', curUrl+'images/im_logo@2x.png'); //url will be replaced here
 				  xhr.send();
 			};
 			$scope.verifyCustomer =function () {
