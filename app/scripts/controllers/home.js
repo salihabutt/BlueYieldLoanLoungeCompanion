@@ -103,7 +103,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			    	});
 					
 				};
-			$scope.openDeletePopup = function () {
+			$scope.openDeletePopup = function (type) {
 				var modalInstance = $modal.open({
 		    		animation: false,
 			    	templateUrl: 'views/deletepopup.html',
@@ -111,7 +111,11 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			    	windowClass: 'modal-deletefiles'
 		    	});
 				modalInstance.result.then(function () {
+					if(type === 'single'){
+						self.deleteCurrent();
+					}else{
 					$scope.deleteFiles();
+					}
 				})
 			};
 			$scope.updateFileCount = function (e){
@@ -133,7 +137,8 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			$scope.previewDoc =  function (obj,category) {
 				$scope.imagesToDisplay = [];
 				$scope.showFile = true;
-				$scope.fileToDisplay.name = obj.name;
+				$scope.fileToDisplay= obj;
+				$scope.fileToDisplay.category = category;
 				if(obj.type === 'application/pdf'){
 					$scope.isPdf = true;
 					$scope.loadNewFile(obj.url);
@@ -202,12 +207,16 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 						var index = $scope.sendCustfiles.map(function(x) {return x.id; }).indexOf($scope.imagesToDisplay[i].id);
 						if(index<0){
 							$scope.imagesToDisplay.splice(index,1);
+							$scope.fileToDisplay = {};
+							$scope.showFile = false;
 						}
 					break;
 					case 'RC':
 						var index = $scope.recCustfiles.map(function(x) {return x.id; }).indexOf($scope.imagesToDisplay[i].id);
 						if(index<0){
 							$scope.imagesToDisplay.splice(index,1);
+							$scope.fileToDisplay = {};
+							$scope.showFile = false;
 						}
 					break;
 					case 'BO':
@@ -215,6 +224,8 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 						var index = $scope.bData[parentindex].files.map(function(x) {return x.id; }).indexOf($scope.imagesToDisplay[i].id);
 						if(index<0){
 							$scope.imagesToDisplay.splice(index,1);
+							$scope.fileToDisplay = {};
+							$scope.showFile = false;
 						}
 					break;
 					case 'CO':
@@ -222,6 +233,8 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 						var index = $scope.cData[parentindex].files.map(function(x) {return x.id; }).indexOf($scope.imagesToDisplay[i].id);
 						if(index<0){
 							$scope.imagesToDisplay.splice(index,1);
+							$scope.fileToDisplay = {};
+							$scope.showFile = false;
 						}
 					break;
 					case 'SE':
@@ -229,11 +242,52 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 						var index = $scope.sData[parentindex].files.map(function(x) {return x.id; }).indexOf($scope.imagesToDisplay[i].id);
 						if(index<0){
 							$scope.imagesToDisplay.splice(index,1);
+							$scope.fileToDisplay = {};
+							$scope.showFile = false;
 						}
 					break;
 					}
 				}
-			}
+			};
+			
+			self.deleteCurrent = function () {
+				switch($scope.fileToDisplay.category){
+				case 'SC':
+					var index = $scope.sendCustfiles.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.id);
+					if(index>=0){
+						$scope.sendCustfiles.splice(index,1);
+					}
+				break;
+				case 'RC':
+					var index = $scope.recCustfiles.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.id);
+					if(index>=0){
+						$scope.recCustfiles.splice(index,1);
+					}
+				break;
+				case 'BO':
+					var parentindex = $scope.bData.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.parentid);
+					var index = $scope.bData[parentindex].files.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.id);
+					if(index>=0){
+						$scope.bData[parentindex].files.splice(index,1);
+					}
+				break;
+				case 'CO':
+					var parentindex = $scope.cData.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.parentid);
+					var index = $scope.cData[parentindex].files.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.id);
+					if(index>=0){
+						$scope.cData[parentindex].files.splice(index,1);
+					}
+				break;
+				case 'SE':
+					var parentindex = $scope.sData.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.parentid);
+					var index = $scope.sData[parentindex].files.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.id);
+					if(index>=0){
+						$scope.sData[parentindex].files.splice(index,1);
+					}
+				break;
+				}
+				self.updateFilesToProcess();
+			};
 	
 			
 			self.saveDocForPrinting = function () {
@@ -308,6 +362,29 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				  xhr.open('GET', curUrl+'images/im_logo@2x.png'); //url will be replaced here
 				  xhr.send();
 			};
+			
+			self.downloadCurrentFile = function (){
+				var fileToDownload = $scope.fileToDisplay;
+				  var xhr = new XMLHttpRequest();
+				  xhr.responseType = 'blob';
+				  xhr.onload = function() {
+				    var a = document.createElement('a');
+				    a.href = window.URL.createObjectURL(xhr.response); // xhr.response is a blob
+				    a.download = fileToDownload.name; // Set the file name.
+				    a.style.display = 'none';
+				    document.body.appendChild(a);
+				    a.click();
+				    //delete a;
+				  };
+				  var curUrl = window.location.href;
+				  curUrl = curUrl.split('#')[0];
+				  if(fileToDownload.type === 'application/pdf'){
+					  xhr.open('GET', curUrl+'/images/material-design.pdf');
+				  }else{
+				  xhr.open('GET', curUrl+'images/im_logo@2x.png'); //url will be replaced here
+				  }
+				  xhr.send();
+			};
 			$scope.verifyCustomer =function () {
 				$scope.customer.verified = true;
 				$scope.customer.value= 'CUSTOMER IDENTIFICATION VERFIFIED';
@@ -343,7 +420,6 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			})
 			 .controller('delfilePopupCtrl', function ($scope, $modal, $modalInstance) {
 		
-				
 			    $scope.ok = function () {
 			    	$modalInstance.close();
 			  	};

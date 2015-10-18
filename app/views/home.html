@@ -17,9 +17,9 @@
             <span style="font-weight:bold">{{fileToDisplay.name}}</span>
         </div>
        	<div class="clearfix icon-bar">
-       		<span class="icon"> <img src="../images/bt_print@2x.png" alt="delete-btn" /></span> 
-       		<span class="icon"> <img src="../images/bt_donwload@2x.png"alt="download-btn" /></span> 
-       		<span class="icon"> <img src="../images/bt_delete@2x.png"alt="print-btn" /></span>
+       		<span class="icon"> <img src="../images/bt_print@2x.png" alt="delete-btn" print-single/></span> 
+       		<span class="icon"> <img src="../images/bt_donwload@2x.png"alt="download-btn" ng-click="home.downloadCurrentFile()" /></span> 
+       		<span class="icon"> <img src="../images/bt_delete@2x.png"alt="print-btn" ng-click="openDeletePopup('single')"/></span>
        </div>
 	</div>
 	<div style="display:-webkit-box;width:100%" ng-show='isPdf'>
@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div ng-show='!isPdf' class="img-div">
+        <div ng-show='!isPdf' class="img-div" id="imagesToDisplay">
         <div ng-repeat="item in imagesToDisplay">
             <img ng-src='{{item.src}}' >
          </div>

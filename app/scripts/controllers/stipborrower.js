@@ -288,7 +288,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			            break;
 			            case 'SE':
 			            	var size = $scope.sData[index].files.length;
-			            	obj.id = $scope.sData[index].files[size-1]+1;
+			            	obj.id = size>0?$scope.sData[index].files[size-1].id+1:1;
 			            	obj.parentid = $scope.sData[index].id;
 			            	$scope.sData[index].files.push(obj);
 			            break;
@@ -376,7 +376,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		
 		for(var i =0;i<$scope.cData.length;i++){
 			var temp = [];
-			for(var j=0;j<$scope.cData[0].files.length;j++){
+			for(var j=0;j<$scope.cData[i].files.length;j++){
 				if(!$scope.cData[i].files[j].checked){
 					temp.push($scope.cData[i].files[j]);
 				}else{
