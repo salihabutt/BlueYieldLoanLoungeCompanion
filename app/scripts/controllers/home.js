@@ -119,6 +119,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				checkbox.checked? $scope.selFileCount++: $scope.selFileCount--;
 				self.saveDocForPrinting();
 			};
+		
 			$scope.$on('updateFileCount',function (event,data) {
 			if(data){
 				$scope.selFileCount++;
@@ -168,6 +169,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					$scope.removeRecCustData();
 					$scope.$broadcast('deleteFiles');
 					self.saveDocForPrinting()   // update files for other process like print,download
+					self.updateFilesToProcess();
 				}
 			};
 			$scope.removeSendCustData = function () {
@@ -180,7 +182,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					}
 				}
 				$scope.sendCustfiles = temp;
-			}
+			};
 			
 			$scope.removeRecCustData = function () {
 				var temp = [];
@@ -192,8 +194,46 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					}
 				}
 				$scope.recCustfiles = temp;
+			};
+			self.updateFilesToProcess = function () {
+				for(var i=0;i<$scope.imagesToDisplay.length;i++){
+					switch($scope.imagesToDisplay[i].category){
+					case 'SC':
+						var index = $scope.sendCustfiles.map(function(x) {return x.id; }).indexOf($scope.imagesToDisplay[i].id);
+						if(index<0){
+							$scope.imagesToDisplay.splice(index,1);
+						}
+					break;
+					case 'RC':
+						var index = $scope.recCustfiles.map(function(x) {return x.id; }).indexOf($scope.imagesToDisplay[i].id);
+						if(index<0){
+							$scope.imagesToDisplay.splice(index,1);
+						}
+					break;
+					case 'BO':
+						var parentindex = $scope.bData.map(function(x) {return x.id; }).indexOf($scope.imagesToDisplay[i].parentid);
+						var index = $scope.bData[parentindex].files.map(function(x) {return x.id; }).indexOf($scope.imagesToDisplay[i].id);
+						if(index<0){
+							$scope.imagesToDisplay.splice(index,1);
+						}
+					break;
+					case 'CO':
+						var parentindex = $scope.cData.map(function(x) {return x.id; }).indexOf($scope.imagesToDisplay[i].parentid);
+						var index = $scope.cData[parentindex].files.map(function(x) {return x.id; }).indexOf($scope.imagesToDisplay[i].id);
+						if(index<0){
+							$scope.imagesToDisplay.splice(index,1);
+						}
+					break;
+					case 'SE':
+						var parentindex = $scope.sData.map(function(x) {return x.id; }).indexOf($scope.imagesToDisplay[i].parentid);
+						var index = $scope.sData[parentindex].files.map(function(x) {return x.id; }).indexOf($scope.imagesToDisplay[i].id);
+						if(index<0){
+							$scope.imagesToDisplay.splice(index,1);
+						}
+					break;
+					}
+				}
 			}
-			
 	
 			
 			self.saveDocForPrinting = function () {

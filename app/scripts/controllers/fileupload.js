@@ -77,7 +77,7 @@
     	    		obj.type = objToPersist.type;
     	    		obj.date = objToPersist.date;
     	    		obj.clas = 'custfile';
-    	    		obj.id = $scope.sendCustfiles.length+1;   // unique of id of every file must b there since tracking in list is done by id
+    	    		obj.id = $scope.sendCustfiles.length>0?$scope.sendCustfiles[$scope.sendCustfiles.length-1].id+1:1;   // unique of id of every file must b there since tracking in list is done by id
     	    		obj.checked = objToPersist.checked;
     	    		self.generateThumbnail(obj,file);
     	    		}
@@ -93,7 +93,7 @@
     	    	        obj.date = new Date();
     	    	        obj.clas = 'recfile';
     	    	        obj.checked = false;
-    	    	        obj.id = $scope.recCustfiles.length+1;
+    	    	        obj.id = $scope.recCustfiles.length>0?$scope.recCustfiles[$scope.recCustfiles.length-1].id+1:1;
     	    	        self.generateThumbnail(obj,file);
     	    	        file = null; // to be replaced 
     	    	      });
