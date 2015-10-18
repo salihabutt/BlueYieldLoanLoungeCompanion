@@ -9,7 +9,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 .controller('HomeCtrl', ['$scope','$http','pdfDelegate','$modal',function($scope, $http, pdfDelegate, $modal) {
 			var self = this,
 			init = function (){
-				$scope.loanPackNote(); 
+				self.loanPkgCheck(); 
 			}; 
 			$scope.selFileCount = 0;
 			$scope.showFile = false;
@@ -17,6 +17,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			$scope.fileToDisplay = {};
 			$scope.imagesToDisplay = [];
 			$scope.showThumbnail = false;
+			$scope.LoanPackText = "";
+			$scope.pdfToProcess = [];
+			$scope.imagesToProcess = [];
 			$scope.loanPkgChecklist = [ {
 				name : 'Loanliner Application',
 				check : false
@@ -75,21 +78,15 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					value: 'VERIFY CUSTOMER IDENTIFICATION',
 					verified: false
 			};
-			
-			$scope.LoanPackText = "";
-			
-			$scope.loanPackNote = function () {
+				
+			self.loanPkgCheck = function () {
 				var note = "The following items are missing from your Loan Package:";
 				for (var i=0;i<$scope.loanPkgChecklist.length;i++){
 					if(!$scope.loanPkgChecklist[i].check){
 						note = note + "\n" + $scope.loanPkgChecklist[i].name;
 					}
 				}
-				$scope.LoanPackText = note;
-			};
-			
-			$scope.loanPkgCheck = function () {
-				$scope.loanPackNote();	
+				$scope.LoanPackText = note;	
 			};	 
 
 			$scope.loadNewFile = function(url) {
@@ -132,7 +129,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			}
 			});
 			
-			$scope.previewDoc =  function (obj) {
+			$scope.previewDoc =  function (obj,category) {
 				$scope.imagesToDisplay = [];
 				$scope.showFile = true;
 				$scope.fileToDisplay.name = obj.name;
@@ -142,6 +139,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				}else{
 					$scope.isPdf = false;
 					$scope.fileToDisplay.src = obj.src;
+					obj.category = category;
 					$scope.imagesToDisplay.push(obj);
 				}
 				
@@ -169,6 +167,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					$scope.removeSendCustData();
 					$scope.removeRecCustData();
 					$scope.$broadcast('deleteFiles');
+					self.saveDocForPrinting()   // update files for other process like print,download
 				}
 			};
 			$scope.removeSendCustData = function () {
@@ -194,13 +193,12 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				}
 				$scope.recCustfiles = temp;
 			}
-			$scope.pdfForPrint = [];
-			$scope.imagesForPrint = [];
+			
 	
 			
 			self.saveDocForPrinting = function () {
-				$scope.pdfForPrint = [];
-				$scope.imagesForPrint = [];
+				$scope.pdfToProcess = [];
+				$scope.imagesToProcess = [];
 				self.addFilesForPrint($scope.sendCustfiles);
 				self.addFilesForPrint($scope.recCustfiles);
 				self.addBCSFilesForPrint($scope.bData);
@@ -216,19 +214,19 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				for(var i=0;i<array.length;i++){
 					if(array[i].checked){
 						if(array[i].type == 'application/pdf'){
-							$scope.pdfForPrint.push(array[i]);
+							$scope.pdfToProcess.push(array[i]);
 						}else{
-							$scope.imagesForPrint.push(array[i]);
+							$scope.imagesToProcess.push(array[i]);
 						}
 					}
 				}
 			};
 			$scope.downloadFiles = function () {
-				var fileToDownload = $scope.pdfForPrint;
+				var fileToDownload = $scope.pdfToProcess;
 				for(var i=0;i<fileToDownload.length;i++){
 					self.downloadPdfDocs(fileToDownload[i]);
 				}
-				fileToDownload = $scope.imagesForPrint;
+				fileToDownload = $scope.imagesToProcess;
 				for(var j=0;j<fileToDownload.length;j++){
 					self.downloadImageDocs(fileToDownload[j]);
 				}

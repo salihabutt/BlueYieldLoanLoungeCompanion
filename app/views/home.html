@@ -1,5 +1,5 @@
 <div ng-include="'views/applicantinfo.html'" class="applicant-wrapper clearfix"></div>
-<div class="col-lg-12 no-padding" style="display:-webkit-box;" ng-controller="HomeCtrl">
+<div class="col-lg-12 no-padding" style="display:-webkit-box;" ng-controller="HomeCtrl as home">
 <div ng-include="'views/leftpanel.html'"></div>
 <!--  ************************ RIGHT PANEL ********************************* -->
 <div class="right-panel" ng-show="!showFile">
@@ -48,7 +48,7 @@
     <pdf-viewer delegate-handle="my-pdf-container1" url="item.url" scale="1" show-toolbar="false" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer>
     </div>-->
     <div id="printImages">
-    <div ng-repeat="item in imagesForPrint">
+    <div ng-repeat="item in imagesToProcess">
     <img src="{{item.src}}" >
     </div>
     </div>
