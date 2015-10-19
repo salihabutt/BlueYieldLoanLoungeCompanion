@@ -236,6 +236,4 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			
 			return this.selData;
 		};
-		
-		
 	});

@@ -7,44 +7,14 @@
 			Expiration Date:
 		</div>
 	    <div class="inner-addon right-addon col-lg-6">
-	    	<input type="text" class="widget-textbox calender-icon" style="width:100%" ng-model="getData.getExpDate" jqdatepicker>
+	    	<input type="text" class="widget-textbox calender-icon" style="width:100%" ng-model="getData.expDate" jqdatepicker ng-change="setExpDate()">
 
 	    </div>
-		<div class="margin-top30 col-lg-12">
+		<div class="margin-top30 col-lg-12" ng-repeat="item in stipStatusArray track by $index">
 			<div class="radio">
 			  <label>
-			    <input type="radio" name="optionsRadios" ng-disabled="pastDate" ng-model="getData.expirationType" value="Paperwork OK">
-			    <span>Paperwork OK</span>
-			  </label>
-			</div>
-			<div class="radio">
-			  <label>
-			    <input type="radio" name="optionsRadios" ng-disabled="pastDate" ng-model="getData.expirationType" value="Blurred Image">
-			    <span>Blurred Image</span> 
-			  </label>
-			</div>
-			<div class="radio">
-			  <label>
-			    <input type="radio" name="optionsRadios" ng-disabled="pastDate" ng-model="getData.expirationType" value="Partial Image">
-			    <span>Partial Image</span>
-			  </label>
-			</div>
-			<div class="radio">
-			  <label>
-			    <input type="radio" id="pastExp" name="optionsRadios" ng-model="getData.expirationType" value="Past Expiration Date" >
-			    <span>Past Expiration Date</span>
-			  </label>
-			</div>
-			<div class="radio">
-			  <label>
-			    <input type="radio" name="optionsRadios" ng-disabled="pastDate" ng-model="getData.expirationType" value="No in (co)borrower's name " checked>
-			    <span>Not in (co)borrower's name</span> 
-			  </label>
-			</div>
-			<div class="radio">
-			  <label>
-			    <input type="radio" name="optionsRadios" ng-disabled="pastDate" ng-model="getData.expirationType" value="Can't Open file" >
-			    <span>Can't Open file</span>
+			    <input type="radio" name="optionsRadios" ng-disabled="item.disabled"  ng-click="setStipStatus(item.name)" ng-model="item.checked" ng-value="item.checked" >
+			    <span>{{item.name}}</span>
 			  </label>
 			</div>
 	    </div>

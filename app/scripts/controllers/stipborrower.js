@@ -305,15 +305,19 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		var size = $scope.bData[index].files.length;
 		if(event.target.checked){
 			for(var i=0;i<size;i++){
-				$scope.bData[index].files[i].checked = true;
-				$scope.$emit('updateFileCount', true);   /* selected file count update is happening in home 
+				if(!$scope.bData[index].files[i].checked){
+					$scope.bData[index].files[i].checked = true;
+					$scope.$emit('updateFileCount', true);
+				}/* selected file count update is happening in home 
 															controller which is parent controller
 															being a child we need to emit an event to update file count in parent*/
 			}
 		}else{
 			for(var i=0;i<size;i++){
-				$scope.bData[index].files[i].checked = false;
-				$scope.$emit('updateFileCount', false);
+				if($scope.bData[index].files[i].checked){
+					$scope.bData[index].files[i].checked = false;
+					$scope.$emit('updateFileCount', false);
+				}
 			}
 		}
 	};
@@ -322,13 +326,17 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		var size = $scope.cData[index].files.length;
 		if(event.target.checked){
 			for(var i=0;i<size;i++){
-				$scope.cData[index].files[i].checked = true;
-				$scope.$emit('updateFileCount', true);
+				if(!$scope.cData[index].files[i].checked){
+					$scope.cData[index].files[i].checked = true;
+					$scope.$emit('updateFileCount', true);
+				}
 			}
 		}else{
 			for(var i=0;i<size;i++){
-				$scope.cData[index].files[i].checked = false;
-				$scope.$emit('updateFileCount', false);
+				if($scope.cData[index].files[i].checked){
+					$scope.cData[index].files[i].checked = false;
+					$scope.$emit('updateFileCount', false);
+				}
 			}
 		}
 	};
@@ -337,13 +345,17 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		var size = $scope.sData[index].files.length;
 		if(event.target.checked){
 			for(var i=0;i<size;i++){
-				$scope.sData[index].files[i].checked = true;
-				$scope.$emit('updateFileCount', true);
+				if(!$scope.sData[index].files[i].checked){
+					$scope.sData[index].files[i].checked = true;
+					$scope.$emit('updateFileCount', true);
+				}
 			}
 		}else{
 			for(var i=0;i<size;i++){
-				$scope.sData[index].files[i].checked = false;
-				$scope.$emit('updateFileCount', false);
+				if($scope.sData[index].files[i].checked){
+					$scope.sData[index].files[i].checked = false;
+					$scope.$emit('updateFileCount', false);
+				}
 			}
 		}
 	};
@@ -465,9 +477,11 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 
 
 	    	modalInstance.result.then(function (data) {
-	    		$scope.selectedSubCategory['exType'] = data.expirationType;
-	    		$scope.selectedSubCategory['exDate'] = data.getExpDate;
-	    		$scope.selectedSubCategory['paperworkCheck'] = data.expirationType == 'Paperwork OK'?true:false;
+	    		$scope.selectedSubCategory.stipStatus = data.stipStatus;
+	    		$scope.selectedSubCategory.expDate = data.expDate;
+	    		$scope.selectedSubCategory.verifyDate = new Date();
+	    		$scope.selectedSubCategory.paperworkCheck = data.stipStatus === 'Paperwork OK'?true:false;
+	    		$scope.selectedSubCategory.stipLocation = data.stipLocation.trim() === '-'?'':data.stipLocation;
 
 		    });
 
@@ -475,8 +489,11 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 
 	  	$scope.verifyAgain = function(clickedParent){
 	  		$scope.selectedSubCategoryVerify =  clickedParent;
-	  		$scope.selectedSubCategoryVerify['paperworkCheck'] = false;
-	  		$scope.selectedSubCategoryVerify['exDate'] = undefined;
+	  		$scope.selectedSubCategory.stipStatus = '';
+	  		$scope.selectedSubCategoryVerify.paperworkCheck = false;
+	  		$scope.selectedSubCategoryVerify.expDate = undefined;
+	  		$scope.selectedSubCategory.verifyDate= null;
+	  		$scope.selectedSubCategory.stipLocation = '';
 	  	};
 
   	init();

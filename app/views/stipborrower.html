@@ -18,9 +18,10 @@
 							</td>
 							<td class="text-left">
 								<p class="no-margin">{{parent.name}}</p>
-								<span ng-show="parent.exDate != undefined">
-									<p ng-if="!verifyBtnCheck" class="no-margin image-status pul-left" >{{parent.exDate}} : {{parent.exType}} </p>
-									<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck">(cancel)</p>
+								<span ng-if="parent.verifyDate!=null">
+									<p ng-if="!verifyBtnCheck" class="no-margin image-status pul-left" >{{parent.verifyDate|amDateFormat:'MM/DD/YY'}} : {{parent.stipStatus}} </p>			
+									<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck" style="cursor:pointer">(cancel)</p>
+									<p class="no-margin image-status pul-left" ng-if="parent.stipLocation!=''">Location: {{parent.stipLocation}}</p>
 								</span>
 							</td>
 							<td>
@@ -94,10 +95,11 @@
 							</td>
 							<td class="text-left">
 								<p class="no-margin">{{parent.name}}</p>
-								<span ng-show="parent.exDate != undefined">
-									<p ng-if="!verifyBtnCheck" class="no-margin image-status pul-left" >{{parent.exDate}} : {{parent.exType}} </p>
-									<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck">(cancel)</p>
-								</span>
+									<span ng-if="parent.verifyDate!=null">
+										<p ng-if="!verifyBtnCheck" class="no-margin image-status pul-left" >{{parent.verifyDate|amDateFormat:'MM/DD/YY'}} : {{parent.stipStatus}} </p>			
+										<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck" style="cursor:pointer">(cancel)</p>
+										<p class="no-margin image-status pul-left" ng-if="parent.stipLocation!=''">Location: {{parent.stipLocation}}</p>
+									</span>
 							</td>
 							<td>
 								<input type="button" class="widget-button-verify" value="VERIFY" ng-click="verifyPopupTrigger(parent,'CO');preivewMergedImages(parent.files)" ng-if="!parent.paperworkCheck" />
@@ -171,9 +173,10 @@
 							</td>
 							<td class="text-left">
 								<p class="no-margin">{{parent.name}}</p>						
-								<span ng-show="parent.exDate != undefined">
-									<p ng-if="!verifyBtnCheck" class="no-margin image-status pul-left" >{{parent.exDate}} : {{parent.exType}} </p>			
-									<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck">(cancel)</p>
+								<span ng-if="parent.verifyDate!=null">
+									<p ng-if="!verifyBtnCheck" class="no-margin image-status pul-left" >{{parent.verifyDate|amDateFormat:'MM/DD/YY'}} : {{parent.stipStatus}} </p>			
+									<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck" style="cursor:pointer">(cancel)</p>
+									<p class="no-margin image-status pul-left" ng-if="parent.stipLocation!=''">Location: {{parent.stipLocation}}</p>
 								</span>
 							</td>
 							<td>
