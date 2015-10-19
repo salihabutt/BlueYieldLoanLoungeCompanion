@@ -60,6 +60,10 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			if(selectedDate != ""){
 				if(selectedDate > today){
 					$scope.pastDate = false;
+					for(var i=0;i<$scope.stipStatusArray.length;i++){
+						$scope.stipStatusArray[i].checked = false;
+						$scope.stipStatusArray[i].disabled = false;
+					}
 				}else{
 					$scope.pastDate = true;
 					$scope.getData.stipStatus = 'Past Expiration Date';
