@@ -10,7 +10,6 @@
 
 angular.module('blueYieldLoanLoungeCompanionApp')
   .controller('sendCustPopupCtrl', function ($scope, $modal, $modalInstance, item, dataService) {
-
 	  $scope.file = item;
 	  $scope.applicantInfo = dataService.applicantInfo;
 	

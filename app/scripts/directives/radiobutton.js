@@ -12,7 +12,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
         template: "<button type='button' class='btn btn-success' "+
                     "ng-class='{active: option == model}'"+
                     "ng-repeat='option in options' "+
-                    "ng-click='activate(option)' style='height:40px'>{{option}} "+
+                    "ng-click='activate(option)' style='height:40px;outline:none'>{{option}} "+
                   "</button>"
     };
 });

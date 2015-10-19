@@ -1,5 +1,6 @@
 'use strict';
-app.directive('dynamicHeight', function () {
+angular.module('blueYieldLoanLoungeCompanionApp')
+.directive('dynamicHeight', function () {
     return {
       restrict: 'A',
       link: function (scope, element) {

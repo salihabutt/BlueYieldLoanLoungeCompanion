@@ -1,39 +1,46 @@
 .preview-wrapper {
-margin-right:0px;
-margin-left:0px;
+	margin-right:0px;
+	margin-left:0px;
 }
 
 .top-bar {
     height: 66px;
     background: #E7EbF4;
+    
     .icon-bar {
-    padding: 15px 0px 0px 0px;
-    .icon {
-			float: right;
-			padding-right:30px;
-			cursor:pointer;
+    	padding: 15px 0px 0px 0px;
+    	
+    	.icon {
+				float: right;
+				padding-right: 30px;
+				cursor: pointer;
+			}
 		}
-	}
-
 }
+
 .slimScrollDiv { 
 	border: 1px solid #FFFFFF; 
-	margin:30px; 
+	margin:	30px; 
 }
- .slimScrollBar{ 
+
+ .slimScrollBar { 
  	opacity: 0.2 !important; 
- } 
- .slimScrollDiv:hover .slimScrollBar{
+ }
+  
+ .slimScrollDiv:hover .slimScrollBar {
  	 opacity: 0.4 !important; 
  } 
+ 
 div#preview-file {
     width: 85%;
     height: 140px;
-    margin-left:40px;
+    margin-left: 40px;
 }
+
 div.mousescroll {
     overflow: hidden;
 }
+
 div.mousescroll:hover {
     overflow-y: scroll;
 }
@@ -42,15 +49,18 @@ div.mousescroll:hover {
 	width: 164px;
 	height: 214px;
 	margin: 20px;
+	
 	.thumbnail {
 		height: 190px;
 		padding: none;
 		margin-bottom: 0px;
+		
 		img {
 			width: 164px;
 			height: 185px;
 		}
 	}
+	
 	.page {
 		height: 24px;
 		width: 161px;
@@ -62,7 +72,7 @@ div.mousescroll:hover {
 
 div#preview-thumb {
     height: 140px;
-    margin-left:40px;
+    margin-left: 40px;
 }
 
 div#printImages {
@@ -87,28 +97,8 @@ div#printPDF {
 	display: none;
 }
 
-@media screen {
-    #printSection {
-        display: none;
-    }
-}
-
-@media print {
-    body * {
-        visibility:hidden;
-    }
-    #printSection, #printSection * {
-        visibility:visible;
-    }
-    #printSection {
-        position:absolute;
-        left:0;
-        top:0;
-    }
-}
-
 div#preview-image {
     width: 85%;
     height: 140px;
-    margin-left:40px;
+    margin-left: 40px;
 }

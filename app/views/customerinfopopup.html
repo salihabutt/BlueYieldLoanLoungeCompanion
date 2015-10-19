@@ -12,19 +12,17 @@
 			<p>GAP:</p>
 			<p>ESC:</p>
 		</div>
-		<div class="col-lg-6">
-			<p><span>{{customerInfo.name}}</span></p>
-			<p><span>{{customerInfo.lc}}</span></p>
-			<p><span>{{customerInfo.fundAssTo}}</span></p>
-			<p><span>{{customerInfo.lender}}</span></p>
-			<p><span>{{customerInfo.docAtCust}}</span></p>
-			<p><span>{{customerInfo.payExpDate}}</span></p>
-			<p><span>{{customerInfo.appExpDate}}</span></p>
-			<p><span>{{customerInfo.lienHolder}}</span></p>
-			<p><span>{{customerInfo.gap}}</span></p>
-			<p><span>{{customerInfo.esc}}</span></p>
+		<div class="col-lg-6" ng-controller="custInfoPopupCtrl as custCtrl">
+			<p><span>{{custCtrl.customerInfo.name}}</span></p>
+			<p><span>{{custCtrl.customerInfo.lc}}</span></p>
+			<p><span>{{custCtrl.customerInfo.fundAssTo}}</span></p>
+			<p><span>{{custCtrl.customerInfo.lender}}</span></p>
+			<p><span>{{custCtrl.customerInfo.docAtCust}}</span></p>
+			<p><span>{{custCtrl.customerInfo.payExpDate}}</span></p>
+			<p><span>{{custCtrl.customerInfo.appExpDate}}</span></p>
+			<p><span>{{custCtrl.customerInfo.lienHolder}}</span></p>
+			<p><span>{{custCtrl.customerInfo.gap}}</span></p>
+			<p><span>{{custCtrl.customerInfo.esc}}</span></p>
 		</div>
 	</div>
-
-
 </div>

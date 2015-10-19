@@ -9,7 +9,7 @@
  */
 angular.module('blueYieldLoanLoungeCompanionApp')
   .controller('HeaderCtrl', function () {
-	var self = this;
-    self.date = new Date();
-    self.userName = "ryan cowan";
+	  var self = this;
+	  self.date = new Date();
+	  self.userName = "ryan cowan";
   });

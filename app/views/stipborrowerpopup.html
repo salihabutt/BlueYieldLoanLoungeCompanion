@@ -7,8 +7,8 @@
             <li ng-repeat="item in borrowerStip" ng-if="$index <= 8">
                 <div class="checkbox">
                     <label> 
-                        <input name="stipCheckbox" type="checkbox" ng-model="item.check" ng-disabled="item.check"> {{item.name}}
-                        <a href="#" ng-if="item.check && $index > 3" ng-click="removeCategory($index,'Borrower')">Remove</a>
+                        <input name="stipCheckbox" type="checkbox" ng-model="item.checked" ng-disabled="item.checked"  > <span ng-class="{'disabled-text':item.checked}">{{item.name}}</span>
+                        <a href="#" ng-if="item.checked && $index > 3" ng-click="removeCategory($index,'BO')">Remove</a>
                     </label>
                 </div>
             </li>
@@ -19,8 +19,8 @@
             <li ng-repeat="item in borrowerStip" ng-if="$index > 8">
                 <div class="checkbox">
                     <label> 
-                        <input name="stipCheckbox" type="checkbox" ng-model="item.check" ng-disabled="item.check"> {{item.name}}
-                        <a href="#" ng-if="item.check" ng-click="removeCategory($index,'Borrower')">Remove</a>
+                        <input name="stipCheckbox" type="checkbox" ng-model="item.checked" ng-disabled="item.checked"><span ng-class="{'disabled-text':item.checked}">{{item.name}}</span>
+                        <a href="#" ng-if="item.checked" ng-click="removeCategory($index,'BO')">Remove</a>
                     </label>
                 </div>
             </li>
@@ -34,8 +34,8 @@
             <li ng-repeat="item in coborrowerStip" ng-if="$index <= 8">
                 <div class="checkbox">
                     <label> 
-                        <input name="stipCheckbox" type="checkbox" ng-model="item.check" ng-disabled="item.check"> {{item.name}}
-                        <a href="#" ng-if="item.check && $index > 3" ng-click="removeCategory($index,'Co-borrower')">Remove</a>
+                        <input name="stipCheckbox" type="checkbox" ng-model="item.checked" ng-disabled="item.checked"> <span ng-class="{'disabled-text':item.checked}">{{item.name}}</span>
+                        <a href="#" ng-if="item.checked && $index > 3" ng-click="removeCategory($index,'CO')">Remove</a>
                     </label>
                 </div>
             </li>
@@ -46,8 +46,8 @@
             <li ng-repeat="item in coborrowerStip" ng-if="$index > 8">
                 <div class="checkbox">
                     <label> 
-                        <input name="stipCheckbox" type="checkbox" ng-model="item.check" ng-disabled="item.check"> {{item.name}}
-                        <a href="#" ng-if="item.check" ng-click="removeCategory($index,'Co-borrower')">Remove</a>
+                        <input name="stipCheckbox" type="checkbox" ng-model="item.checked" ng-disabled="item.checked"><span ng-class="{'disabled-text':item.checked}">{{item.name}}</span>
+                        <a href="#" ng-if="item.checked" ng-click="removeCategory($index,'CO')">Remove</a>
                     </label>
                 </div>
             </li>
@@ -61,8 +61,8 @@
             <li ng-repeat="item in sellerStip" ng-if="$index <= 8">
                 <div class="checkbox">
                     <label> 
-                        <input name="stipCheckbox" type="checkbox" ng-model="item.check" ng-disabled="item.check"> {{item.name}}
-                        <a href="#" ng-if="item.check && $index > 3" ng-click="removeCategory($index,'Seller')">Remove</a>
+                        <input name="stipCheckbox" type="checkbox" ng-model="item.checked" ng-disabled="item.checked"><span ng-class="{'disabled-text':item.checked}">{{item.name}}</span>
+                        <a href="#" ng-if="item.checked && $index > 3" ng-click="removeCategory($index,'SE')">Remove</a>
                     </label>
                 </div>
             </li>
@@ -73,15 +73,15 @@
             <li ng-repeat="item in sellerStip" ng-if="$index > 8">
                 <div class="checkbox">
                     <label> 
-                        <input name="stipCheckbox" type="checkbox" ng-model="item.check" ng-disabled="item.check"> {{item.name}}
-                        <a href="#" ng-if="item.check" ng-click="removeCategory($index,'Seller')">Remove</a>
+                        <input name="stipCheckbox" type="checkbox" ng-model="item.checked" ng-disabled="item.checked"><span ng-class="{'disabled-text':item.checked}">{{item.name}}</span>
+                        <a href="#" ng-if="item.checked" ng-click="removeCategory($index,'SE')">Remove</a>
                     </label>
                 </div>
             </li>
         </ul>
     </div>
 </div>
-<div class="modal-footer ">
+<div class="modal-footer">
     <button class="popup-btn-close" type="button" ng-click="cancel()">CLOSE</button>
     <button class="popup-btn-done" type="button" ng-click="ok()">DONE</button>
 </div>

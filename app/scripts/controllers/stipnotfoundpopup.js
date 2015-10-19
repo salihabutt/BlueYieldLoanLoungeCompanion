@@ -9,7 +9,6 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   			obj.type = $scope.stipnotFoundData[outerIndex].type;
   			obj.subType = $scope.stipnotFoundData[outerIndex].subTypes[index] 
   			$modalInstance.close(obj);
-  		}
-		
+  		};	
   });
   

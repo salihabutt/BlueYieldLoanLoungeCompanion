@@ -24,30 +24,28 @@ var app=angular
 		'ui.bootstrap',
 		'ngDropzone',
 		'pdf',
-		'dndLists',
-		'AngularPrint'
+		'dndLists'
 	]);
 
 	app.config(function ($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise('main');
 
-		
-    $stateProvider
-      .state('main', {
-        url: '',
-        templateUrl: 'views/main.html',     
-		abstract: 'true'		
+	$stateProvider
+      	.state('main', {
+      		url: '',
+      		templateUrl: 'views/main.html',     
+      		abstract: 'true'		
 		})
 		.state('home', {
-          parent: 'main',
-          url:'/main',
-          views: {
-            'header' : {
-              templateUrl: 'views/header.html'
-            },
-            'content' : {
-              templateUrl: 'views/home.html'
-            }
-          }
+			parent: 'main',
+			url:'/main',
+			views: {
+				'header' : {
+					templateUrl: 'views/header.html'
+				},
+				'content' : {
+					templateUrl: 'views/home.html'
+				}
+			}
         });
 	});

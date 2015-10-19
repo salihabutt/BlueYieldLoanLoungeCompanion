@@ -2,19 +2,49 @@
 
 
 angular.module('blueYieldLoanLoungeCompanionApp')
-  .controller('verifyPopup', function ($scope, $modal, $modalInstance,title,fileSize,stipnotFoundData) {
+  .controller('verifyPopup', function ($scope, $modal, $modalInstance, title, fileSize, stipnotFoundData) {
 
-  		$scope.getData = {expirationType : "" ,getExpDate : "" };
+  		$scope.getData = {stipStatus : "" ,expDate : "" };
   		$scope.title = title;
   		$scope.fileSize = fileSize;
   		$scope.stipnotFoundData = stipnotFoundData;
   		$scope.stipLocation = '';
   		$scope.pastDate = false;
+  		$scope.stipStatusArray = [
+  		                   {
+  		                	   name: 'Paperwork OK',
+  		                	   checked: false,
+  		                	   disabled: false
+  		                   },
+  		                   {
+  		                	   name: 'Blurred Image',
+  		                	   checked: false,
+  		                	   disabled: false
+  		                   },
+  		                   {
+  		                	   name: 'Partial Image',
+  		                	   checked: false,
+  		                	   disabled: false
+  		                   },
+  		                   {
+  		                	   name: 'Past Expiration Date',
+  		                	   checked: false,
+  		                	   disabled: false
+  		                   },
+  		                   {
+  		                	   name: 'Not in (co)borrower\'s name',
+  		                	   checked: false,
+  		                	   disabled: false
+  		                   },
+  		                   {
+  		                	   name: 'Can\'t Open file',
+  		                	   checked: false,
+  		                	   disabled: false
+  		                   }
+		                 ];
 
-  		$scope.$watch('getData', function() { 
-
-  			var selectedDate = $scope.getData.getExpDate;
-
+  		$scope.setExpDate = function () {
+  			var selectedDate = $scope.getData.expDate;
   			var today = new Date();
 			var dd = today.getDate();
 			var mm = today.getMonth()+1; //January is 0!
@@ -30,18 +60,33 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			if(selectedDate != ""){
 				if(selectedDate > today){
 					$scope.pastDate = false;
+					for(var i=0;i<$scope.stipStatusArray.length;i++){
+						$scope.stipStatusArray[i].checked = false;
+						$scope.stipStatusArray[i].disabled = false;
+					}
 				}else{
 					$scope.pastDate = true;
-					$scope.getData.expirationType = "Past Expiration Date";
-					document.getElementById("pastExp").checked = true;
+					$scope.getData.stipStatus = 'Past Expiration Date';
+					for(var i=0;i<$scope.stipStatusArray.length;i++){
+						$scope.stipStatusArray[i].checked = false;
+						$scope.stipStatusArray[i].disabled = true;
+						if($scope.stipStatusArray[i].name === 'Past Expiration Date'){
+							$scope.stipStatusArray[i].checked = true;
+							$scope.stipStatusArray[i].disabled = false;
+						}
+					}
 				}
 			}
 
 			
-  		 }, true);
-
+  		 };
+  		
+  		$scope.setStipStatus = function (item) {
+  			$scope.getData.stipStatus = item;
+  		}
 
 		$scope.ok = function () {
+			$scope.getData.stipLocation = $scope.stipLocation;
 			$modalInstance.close($scope.getData);  
 		};
 
@@ -61,7 +106,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		      }
 		      });
 			modalInstance.result.then(function(obj){
-				$scope.stipLocation = obj.subType;
+				$scope.stipLocation = obj.type+ ' - ' + obj.subType;
 			});
 		   
 		  };
