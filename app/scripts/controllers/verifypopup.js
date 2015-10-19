@@ -10,6 +10,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   		$scope.stipnotFoundData = stipnotFoundData;
   		$scope.stipLocation = '';
   		$scope.pastDate = false;
+  		$scope.selected = '';
   		$scope.stipStatusArray = [
   		                   {
   		                	   name: 'Paperwork OK',
@@ -73,6 +74,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 						if($scope.stipStatusArray[i].name === 'Past Expiration Date'){
 							$scope.stipStatusArray[i].checked = true;
 							$scope.stipStatusArray[i].disabled = false;
+							$scope.selected = 'Past Expiration Date';
 						}
 					}
 				}
