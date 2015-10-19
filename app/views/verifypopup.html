@@ -1,10 +1,8 @@
 <div class="modal-header verify-popup" popup-setting>
     <h3 class="modal-title">{{title}} </h3>
 </div>
-
 <div class="modal-body clearfix">
 	<div class="form-group col-lg-12">
-	
 		<div class="col-lg-6">
 			Expiration Date:
 		</div>
@@ -12,10 +10,8 @@
 	    	<input type="text" class="widget-textbox calender-icon" style="width:100%" ng-model="getData.getExpDate" jqdatepicker>
 
 	    </div>
-
-	    <div class="margin-top30 col-lg-12">
-
-	    	<div class="radio">
+		<div class="margin-top30 col-lg-12">
+			<div class="radio">
 			  <label>
 			    <input type="radio" name="optionsRadios" ng-disabled="pastDate" ng-model="getData.expirationType" value="Paperwork OK">
 			    <span>Paperwork OK</span>
@@ -51,18 +47,14 @@
 			    <span>Can't Open file</span>
 			  </label>
 			</div>
-
-
 	    </div>
 	    <div class="col-lg-12 stip-not-found no-padding" ng-if="!(fileSize>0)">
 	    <p><span>Stip not found. </span><br/>Please specify Stip Location:</p>
 	     <input type="text" class="widget-textbox" placeholder="Select Stip Location" ng-model="stipLocation" /> 
 		<input type="button" class="widget-button" value="SELECT"  ng-click="openModal()"/>
 	    </div>
-
 	</div>
 </div>
-
 <div class="modal-footer">
     <button class="popup-btn-close" type="button" ng-click="cancel()">CLOSE</button>
     <button class="popup-btn-done" type="button" ng-click="ok()">DONE</button>

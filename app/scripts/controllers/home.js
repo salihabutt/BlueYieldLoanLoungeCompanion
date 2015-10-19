@@ -79,6 +79,29 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					verified: false
 			};
 				
+			$scope.checkTime = function (type) {
+				switch(type){
+				case 'customer':
+					if($scope.customer.time!=undefined || $scope.customer.time!=''){
+						if($scope.customer.time.substring(0,1)=='1'){
+							if(parseInt($scope.customer.time.substring(1,2))>2){
+								$scope.customer.time = '';
+							}
+						}
+					}
+				break;
+				case 'employee':
+					if($scope.employee.time!=undefined || $scope.employee.time!=''){
+						if($scope.employee.time.substring(0,1)=='1'){
+							if(parseInt($scope.employee.time.substring(1,2))>2){
+								$scope.employee.time = '';
+							}
+						}
+					}
+				break;
+				}
+				
+			};
 			self.loanPkgCheck = function () {
 				var note = "The following items are missing from your Loan Package:";
 				for (var i=0;i<$scope.loanPkgChecklist.length;i++){
@@ -93,7 +116,8 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			     var a= pdfDelegate
 			        .$getByHandle('my-pdf-container')
 			        .load(url);		
-			    };
+			}
+			;
 			$scope.openMergePopup = function () {
 					var modalInstance = $modal.open({
 			    		animation: false,
@@ -102,7 +126,8 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				    	windowClass: 'modal-mergefiles'
 			    	});
 					
-				};
+			};
+			
 			$scope.openDeletePopup = function (type) {
 				var modalInstance = $modal.open({
 		    		animation: false,
@@ -118,6 +143,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					}
 				})
 			};
+			
 			$scope.updateFileCount = function (e){
 				var checkbox = e.target;
 				checkbox.checked? $scope.selFileCount++: $scope.selFileCount--;
@@ -127,9 +153,11 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			$scope.$on('updateFileCount',function (event,data) {
 			if(data){
 				$scope.selFileCount++;
+				self.saveDocForPrinting();
 			}else{
 				if($scope.selFileCount > 0){
 					$scope.selFileCount--;
+					self.saveDocForPrinting();
 				}
 			}
 			});
@@ -168,6 +196,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			$scope.toggleThumbnail =  function (val){
 				$scope.showThumbnail = val;
 			};
+			
 			$scope.deleteFiles = function () {
 				if($scope.selFileCount>0){
 					$scope.removeSendCustData();
@@ -200,6 +229,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				}
 				$scope.recCustfiles = temp;
 			};
+			
 			self.updateFilesToProcess = function () {
 				for(var i=0;i<$scope.imagesToDisplay.length;i++){
 					switch($scope.imagesToDisplay[i].category){
@@ -315,6 +345,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					}
 				}
 			};
+			
 			$scope.downloadFiles = function () {
 				var fileToDownload = $scope.pdfToProcess;
 				for(var i=0;i<fileToDownload.length;i++){
@@ -345,6 +376,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				  xhr.open('GET', curUrl+'/images/material-design.pdf'); //url will be replaced here
 				  xhr.send();
 			};
+			
 			self.downloadImageDocs = function (item){
 				  var xhr = new XMLHttpRequest();
 				  xhr.responseType = 'blob';

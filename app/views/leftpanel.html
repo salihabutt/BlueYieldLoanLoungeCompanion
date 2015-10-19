@@ -16,16 +16,13 @@
 			</span>
         </div>
     </div>
-
     <div ng-slimscroll class="slim-scroll-div">
         <div class="col-lg-12 widget-section">
-
             <!-- loan package portion  -->
             <div class="col-lg-12 no-padding universal-widget-style">
                 <div class="col-lg-12 widget-heading">Loan Package</div>
                 <div ng-controller="FileCtrl">
-                    <div class="col-lg-12 widget-sub-heading">Sent to Customer</div>
-
+                	<div class="col-lg-12 widget-sub-heading">Sent to Customer</div>
                     <div class="col-lg-12 input-box-section">
                         <div class="col-lg-12 checkbox-box-section">
                             <div class="col-lg-12 no-padding">
@@ -35,37 +32,33 @@
                                             <div class="col-lg-10 no-padding">
                                                 <div class="no-padding col-lg-12">
                                                     <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);">
-                                             
-											<div class="col-lg-3 no-padding" id="thumbwrap">
-												<a class="thumb" href="#">
-													<img ng-src="{{item.src}}">
-													<span>
-														<img ng-src="{{item.src}}" class="thumb-span">
-													</span>
-                                                    </a>
-                                            </div>
-
-                                            <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;cursor:pointer" ng-click="previewDoc(item,'SC')">{{item.name}}</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 no-padding text-right" style="cursor:pointer">
-                                            <input type="button" class="widget-button-send"  ng-click="sendLoanPackage(item)" value="Send" ng-if="item.date==null" />
-                                            <p ng-if="!(item.date==null)" class="sent-date" ng-click="previewDoc(item,'SC')">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
-                                        </div>
-                            </div>
-                                    </li>
+                                             		<div class="col-lg-3 no-padding" id="thumbwrap">
+														<a class="thumb" href="#">
+															<img ng-src="{{item.src}}">
+															<span>
+																<img ng-src="{{item.src}}" class="thumb-span">
+															</span>
+                                                 		</a>
+                                            		</div>
+													<div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;cursor:pointer" ng-click="previewDoc(item,'SC')">{{item.name}}</div>
+                                            	</div>
+                                        	</div>
+                                        	<div class="col-lg-2 no-padding text-right" style="cursor:pointer">
+                                            	<input type="button" class="widget-button-send"  ng-click="sendLoanPackage(item)" value="Send" ng-if="item.date==null" />
+                                            	<p ng-if="!(item.date==null)" class="sent-date" ng-click="previewDoc(item,'SC')">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
+                                        	</div>
+                            			</div>
+                                   </li>
                                 </ul>
                             </div>
                         </div>
                         <input type="text" class="widget-textbox" placeholder="Select or drag & drop file to upload" />
                         <input type="button" class="widget-button" value="SELECT" />
                         <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="sendCustConfig">
-
-                        </form>
+						</form>
                     </div>
 
-                    <div class="col-lg-12 widget-sub-heading">Received to Customer
-                    </div>
+                    <div class="col-lg-12 widget-sub-heading">Received to Customer</div>
                     <div class="col-lg-12 input-box-section">
                         <div class="col-lg-12 checkbox-box-section no-padding">
                             <div class="col-lg-12">
@@ -75,7 +68,6 @@
                                             <div class="col-lg-10 no-padding">
                                                 <div class="no-padding col-lg-12">
                                                     <input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);">
-                                                   
 													<div class="col-lg-3 no-padding" id="thumbwrap">
 														<a class="thumb" href="#">
 															<img ng-src="{{item.src}}">
@@ -84,26 +76,23 @@
 															</span>
                                                     	</a>
                                            			</div>
-
-                                            	<div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;cursor:pointer" ng-click="previewDoc(item,'RC')">{{item.name}}</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 no-padding text-right" ng-click="previewDoc(item,'RC')" style="cursor:pointer">                       
-                                            <p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
-                                        </div>
-                            </div>
-
-                            </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <input type="text" class="widget-textbox" placeholder="Select or drag & drop file to upload" />
-                    <input type="button" class="widget-button" value="SELECT" />
-                    <form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="recCustConfig">
-
-                    </form>
-                </div>
-            </div>
+													<div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;cursor:pointer" ng-click="previewDoc(item,'RC')">{{item.name}}</div>
+                                            	</div>
+                                        	</div>
+                                        	<div class="col-lg-2 no-padding text-right" ng-click="previewDoc(item,'RC')" style="cursor:pointer">                       
+                                            	<p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
+                                        	</div>
+                            			</div>
+									</li>
+                            	</ul>
+                        	</div>
+                    	</div>
+                    	<input type="text" class="widget-textbox" placeholder="Select or drag & drop file to upload" />
+                    	<input type="button" class="widget-button" value="SELECT" />
+                    	<form action="/" class="dropzone fileupload" method="post" enctype="multipart/form-data" ng-dropzone dropzone-config="recCustConfig">
+                    	</form>
+                	</div>
+            	</div>
             <div class="col-lg-12 widget-sub-heading">Loan Package Verification Checklist</div>
             <div class="col-lg-12 checkbox-box-section">
                 <div class="col-lg-12">
@@ -124,36 +113,31 @@
             </div>
         </div>
 
-
 		<!-- Borrower Stips portion  -->
 		<div ng-include="'views/stipborrower.html'"></div>
 
         <!-- employment verification portion  -->
         <div class="col-lg-12 no-padding universal-widget-style margin-top20">
-
-            <div class="col-lg-10 widget-heading">
+           <div class="col-lg-10 widget-heading">
                 Employment Verification
             </div>
             <div class="col-lg-2 no-padding widget-heading">
                 <!-- <img src="../images/bt_print@2x.png" alt="plus sign" /> -->
             </div>
-
-            <div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
+			<div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
                 <div class="form-group col-lg-6">
                     <label for="exampleInputEmail1">Date</label>
                     <div class="inner-addon right-addon">
-
-                        <input type="text" placeholder="MM/DD/YY" class="widget-textbox calender-icon" style="width:100%" ng-model="employee.date" jqdatepicker>
+						<input type="text" placeholder="MM/DD/YY" class="widget-textbox calender-icon" style="width:100%" ng-model="employee.date" jqdatepicker>
                     </div>
                 </div>
                 <div class="form-group col-lg-6">
                     <label for="exampleInputEmail1">Time</label>
                     <br/>
-                    <input type="text" name="emplTime"   ui-mask="12:59" class="widget-textbox " style="width:50%" ng-model="employee.time">
+                    <input type="text" name="emplTime"   ng-model-options="{ debounce: 900 }"  ui-mask="19:59" class="widget-textbox " style="width:50%" ng-model="employee.time" ng-change="checkTime('employee')">
                     <buttons-radio class="btn-group btn-group-custom " data-toggle="buttons-radio" model='employee.selected' options='employee.options' ></buttons-radio>
                 </div>
             </div>
-
             <div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
                 <div class="form-group col-lg-12">
                     <label for="exampleInputEmail1">Contact Name</label>
@@ -170,7 +154,6 @@
                     <input type="text" class="widget-textbox" style="width:100%" ng-model="employee.number" ui-mask="(999) 999-9999">
                 </div>
             </div>
-
             <div class="col-lg-12 input-box-section  border-bottom" style="padding-top:20px !important">
                 <input type="button" ng-class="{'widget-button-long-disabled':!employee.verified,'widget-button-long':employee.verified}" value="{{employee.value}}" ng-click="verifyEmployee()">
             </div>
@@ -184,7 +167,6 @@
             <div class="col-lg-2 no-padding widget-heading">
                 <!-- <img src="../images/bt_print@2x.png" alt="plus sign" /> -->
             </div>
-
             <div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
                 <div class="form-group col-lg-6">
                     <label for="exampleInputEmail1">Date</label>
@@ -195,14 +177,10 @@
                 <div class="form-group col-lg-6">
                     <label for="exampleInputEmail1">Time</label>
                     <br/>
-
-                    <input type="text"   ui-mask="12:59" class="widget-textbox " style="width:50%" ng-model="customer.time">
-
+                    <input type="text"  name="custTime" ng-model-options="{ debounce: 900 }" ui-mask="19:59" class="widget-textbox " style="width:50%" ng-model="customer.time" ng-change="checkTime('customer')">
                     <buttons-radio class="btn-group" data-toggle="buttons-radio" model='customer.selected' options='customer.options'></buttons-radio>
                 </div>
-
             </div>
-
             <div class="col-lg-12 input-box-section no-padding border-bottom" style="padding-top:20px !important">
                 <div class="form-group col-lg-12">
                     <label for="exampleInputEmail1">Contact Name</label>
@@ -213,7 +191,6 @@
                 <input type="button" ng-class="{'widget-button-long-disabled':!customer.verified,'widget-button-long':customer.verified}" value="{{customer.value}}" ng-click="verifyCustomer()">
             </div>
         </div>
-
-    </div>
-</div>
-</div>
+		</div> <!-- END LOAN PACKAGE -->
+	</div> <!--  END NG SLIM SCROLL -->
+</div> <!-- END LEFT PANEL -->

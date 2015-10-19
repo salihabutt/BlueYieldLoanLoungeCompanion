@@ -116,6 +116,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			}
 		} 
   	 };
+  	 
   	self.addCoCategory = function () {
 	  		for(var i=0;i<$scope.coborrowerStip.length;i++){
 				if($scope.coborrowerStip[i].checked){
@@ -127,7 +128,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 						$scope.cData.push(obj);
 				}
 			} 
-	  	 };
+	 };
 		 
 	self.addSeCategory = function () {
 		  	for(var i=0;i<$scope.sellerStip.length;i++){
@@ -140,7 +141,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 						$scope.sData.push(obj);
 				}
 			} 
-		   };
+	};
  /* ***************************UPDATING CATEGORIES ************************ */
 		  	 
   	 self.updateBoCategory = function () {
@@ -210,10 +211,10 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   				}
   			}
   		} 
-    	 };
+    };
   	 /*   ********** ADDING FILE TO CATEGORY AND GENERATING THUMBNAIL ******************* */
   	   
-  	   	 $scope.addFiletoCategory = function (file,index,category) {
+  	$scope.addFiletoCategory = function (file,index,category) {
   		 var objToPersist = {};
   		 objToPersist.name = file.name;
   		 objToPersist.type= file.type;
@@ -355,7 +356,6 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		self.removeSEFiles();
 	});
 
-
 	self.removeBOFiles = function () {
 		for(var i =0;i<$scope.bData.length;i++){
 			var temp = [];
@@ -372,6 +372,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			}
 		}
 	};
+	
 	self.removeCOFiles = function () {
 		
 		for(var i =0;i<$scope.cData.length;i++){
@@ -389,6 +390,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			}
 		}
 	};
+	
 	self.removeSEFiles = function () {
 		for(var i =0;i<$scope.sData.length;i++){
 			var temp = [];
