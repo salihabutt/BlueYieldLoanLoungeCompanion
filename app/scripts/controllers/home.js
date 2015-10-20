@@ -460,7 +460,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			
 			$scope.verifyCustomer = function () {
 				$scope.customer.verified = true;
-				$scope.customer.value= 'CUSTOMER IDENTIFICATION VERFIFIED';
+				$scope.customer.value= 'CUSTOMER IDENTIFICATION VERIFIED';
 			};
 			
 			$scope.verifyEmployee =function () {
