@@ -115,6 +115,11 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					$scope.bData.push(obj);
 			}
 		} 
+  		$scope.bData.sort(function(a, b){
+  		    if(a.name < b.name) return -1;
+  		    if(a.name > b.name) return 1;
+  		    return 0;
+  		});
   	 };
   	 
   	self.addCoCategory = function () {
@@ -128,6 +133,11 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 						$scope.cData.push(obj);
 				}
 			} 
+	  		$scope.cData.sort(function(a, b){
+	  		    if(a.name < b.name) return -1;
+	  		    if(a.name > b.name) return 1;
+	  		    return 0;
+	  		});
 	 };
 		 
 	self.addSeCategory = function () {
@@ -140,7 +150,12 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 						obj.files = [];
 						$scope.sData.push(obj);
 				}
-			} 
+			}
+			$scope.sData.sort(function(a, b){
+	  		    if(a.name < b.name) return -1;
+	  		    if(a.name > b.name) return 1;
+	  		    return 0;
+	  		});
 	};
  /* ***************************UPDATING CATEGORIES ************************ */
 		  	 
@@ -164,7 +179,12 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					}
 				}
 			}
-		} 
+		}
+  		$scope.bData.sort(function(a, b){
+  		    if(a.name < b.name) return -1;
+  		    if(a.name > b.name) return 1;
+  		    return 0;
+  		});
   	 };
   	 
   	 self.updateCoCategory = function () {
@@ -188,6 +208,11 @@ angular.module('blueYieldLoanLoungeCompanionApp')
  				}
  			}
  		} 
+   		$scope.cData.sort(function(a, b){
+  		    if(a.name < b.name) return -1;
+  		    if(a.name > b.name) return 1;
+  		    return 0;
+  		});
    	 };
    	 
  	 self.updateSeCategory = function () {
@@ -210,7 +235,12 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   					}
   				}
   			}
-  		} 
+  		}
+    		$scope.sData.sort(function(a, b){
+      		    if(a.name < b.name) return -1;
+      		    if(a.name > b.name) return 1;
+      		    return 0;
+      		});
     };
   	 /*   ********** ADDING FILE TO CATEGORY AND GENERATING THUMBNAIL ******************* */
   	   

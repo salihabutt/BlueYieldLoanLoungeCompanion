@@ -5,7 +5,7 @@
 			<img src="images/bt_plus_white.png" style="margin: 14px 21px;" alt="plus sign" ng-click="stipCtrl.open('BO')" />
 		</div>
 		<ul class="list-no-style">
-			<li ng-repeat="parent in bData|orderBy:'name' track by $index" ng-init="outerIndex=$index">
+			<li ng-repeat="parent in bData track by $index" ng-init="outerIndex=$index">
 				<div class="col-lg-12 document-to-verify">
 					<table class="col-lg-12 no-padding">
 						<tr>
@@ -83,7 +83,7 @@
 			<img src="images/bt_plus_white.png" style="margin: 14px 21px;" alt="plus sign" ng-click="stipCtrl.open('CO')" />
 		</div>
 		<ul class="list-no-style">
-			<li ng-repeat="parent in cData|orderBy:'name' track by $index" ng-init="outerIndex=$index">
+			<li ng-repeat="parent in cData track by $index" ng-init="outerIndex=$index">
 				<div class="col-lg-12 document-to-verify">
 					<table class="col-lg-12 no-padding">
 						<tr>
@@ -160,7 +160,7 @@
 			<img src="images/bt_plus_white.png" style="margin: 14px 21px;" alt="plus sign" ng-click="stipCtrl.open('SE')" />
 		</div>
 		<ul class="list-no-style">
-			<li ng-repeat="parent in sData|orderBy:'name' track by $index" ng-init="outerIndex=$index">
+			<li ng-repeat="parent in sData track by $index" ng-init="outerIndex=$index">
 				<div class="col-lg-12 document-to-verify">
 					<table class="col-lg-12 no-padding">
 						<tr>
