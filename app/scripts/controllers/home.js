@@ -465,7 +465,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			
 			$scope.verifyEmployee =function () {
 				$scope.employee.verified = true;
-				$scope.employee.value='EMPLOYEMENT VERIFIED';
+				$scope.employee.value='EMPLOYMENT VERIFIED';
 			};
 			
 			$scope.sendLoanPkgEmail = function () {
