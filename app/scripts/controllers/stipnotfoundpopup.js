@@ -7,7 +7,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   		$scope.setLocation = function (outerIndex, index) {
   			var obj = {};
   			obj.type = $scope.stipnotFoundData[outerIndex].type;
-  			obj.subType = $scope.stipnotFoundData[outerIndex].subTypes[index] 
+  			obj.subType = $scope.stipnotFoundData[outerIndex].subTypes[index];
   			$modalInstance.close(obj);
   		};	
   });

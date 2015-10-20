@@ -3,7 +3,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 .directive('popupSetting', function () {
     return {
       restrict: 'A',
-      link: function (scope, element) {
+      link: function () {
     	  $('.verify-popup').ready(function(){
 	      		var popup = $(".modal");
     			$(".left-panel").append(popup);
@@ -11,7 +11,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     			$(".left-panel").append(popupback);
 
     			$(".modal").css("position","absolute");
-    			$(".modal-backdrop").css("position","absolute")
+    			$(".modal-backdrop").css("position","absolute");
       		});
       	}
     };

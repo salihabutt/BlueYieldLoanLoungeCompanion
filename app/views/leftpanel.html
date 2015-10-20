@@ -134,7 +134,7 @@
                 <div class="form-group col-lg-6">
                     <label for="exampleInputEmail1">Time</label>
                     <br/>
-                    <input type="text" name="emplTime"   ng-model-options="{ debounce: 900 }"  ui-mask="19:59" class="widget-textbox " style="width:50%" ng-model="employee.time" ng-change="checkTime('employee')">
+                    <input type="text" name="emplTime"   ng-model-options="{ debounce: 900 }" placeholder="HH:MM" ui-mask="19:59" class="widget-textbox " style="width:50%" ng-model="employee.time" ng-change="checkTime('employee')">
                     <buttons-radio class="btn-group btn-group-custom " data-toggle="buttons-radio" model='employee.selected' options='employee.options' ></buttons-radio>
                 </div>
             </div>
@@ -177,7 +177,7 @@
                 <div class="form-group col-lg-6">
                     <label for="exampleInputEmail1">Time</label>
                     <br/>
-                    <input type="text"  name="custTime" ng-model-options="{ debounce: 900 }" ui-mask="19:59" class="widget-textbox " style="width:50%" ng-model="customer.time" ng-change="checkTime('customer')">
+                    <input type="text"  name="custTime" ng-model-options="{ debounce: 900 }" ui-mask="19:59" placeholder="HH:MM" class="widget-textbox " style="width:50%" ng-model="customer.time" ng-change="checkTime('customer')">
                     <buttons-radio class="btn-group" data-toggle="buttons-radio" model='customer.selected' options='customer.options'></buttons-radio>
                 </div>
             </div>

@@ -18,6 +18,7 @@
 /* globals PDFJS */
 
 // Initializing PDFJS global object (if still undefined)
+/* jshint ignore:start */
 if (typeof PDFJS === 'undefined') {
   (typeof window !== 'undefined' ? window : this).PDFJS = {};
 }
@@ -45564,4 +45565,4 @@ if (!PDFJS.workerSrc && typeof document !== 'undefined') {
   })();
 }
 
-
+/* jshint ignore:end */
