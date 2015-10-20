@@ -3,7 +3,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 .directive('dynamicHeight', function () {
     return {
       restrict: 'A',
-      link: function (scope, element) {
+      link: function () {
         $('.left-panel').ready(function(){
         	var a =$(window).height();
 			   $('.left-panel').css('height',a-149 + 'px');

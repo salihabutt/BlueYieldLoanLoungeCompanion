@@ -26,7 +26,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     	    };
     	   
     	   // when a send button is clicked a popup is opened.
-    	   $scope.sendLoanPackage = function (item,index){
+    	   $scope.sendLoanPackage = function (item){
     		   var modalInstance = $modal.open({
    	    		animation: false,
     	    		templateUrl: 'views/sendcustomerpopup.html',
@@ -39,14 +39,15 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     	    		}
    	    		});
    	    	  modalInstance.result.then(function (obj) {
-   	    		  if(obj.date!=null){
+   	    		  if (obj.date!==null) {
    	    			$scope.sendCustfiles[$scope.sendCustfiles.indexOf(item)].date = obj.date;
    	    		  }
    	    	    });
     	   };
     	   
     	   self.openCustModal = function () {
-    		   for(var i=0;i<self.fileObjects.length;i++){
+    		   var size = self.fileObjects.length;
+    		   for (var i = 0;i < size; i++) {
     			   self.openModal(self.fileObjects[i]);
     		   }
     		   self.fileObjects = [];
@@ -72,7 +73,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     	   	};
     	   
     	   self.persistObject = function (objToPersist,file) {
-    			if(!self.isEmpty(objToPersist)){
+    			if (!self.isEmpty(objToPersist)) {
     	    		var obj = {};
     	    		obj.name = objToPersist.name;
     	    		obj.url  = objToPersist.url;
@@ -105,15 +106,16 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     	   };
     	   
     	   self.isEmpty = function (obj) {
-    		  for(var prop in obj) {
-    			  if(obj.hasOwnProperty(prop))
+    		  for (var prop in obj) {
+    			  if (obj.hasOwnProperty(prop)){
     		            return false;
+    			  }
     		  	}
     		    return true;
     		};
     	    
     		self.generateThumbnail = function (obj,file) {
-    			if((obj.url!=null || obj.url!='') && obj.type=='application/pdf'){
+    			if ((obj.url!==null || obj.url!=='') && obj.type ==='application/pdf') {
     				var pdf = {};
     				pdf.url = obj.url;									/* PDFJS is used to red pdf files and generating thumbnails*/
     				PDFJS.getDocument(pdf).then(function(doc){
@@ -121,7 +123,8 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     						var canvas = document.createElement('canvas');
     						var context = canvas.getContext('2d');
     						var doc = event.getViewport(1);
-    						canvas.height = doc.height, canvas.width = doc.width;
+    						canvas.height = doc.height;
+    						canvas.width = doc.width;
     						var pdf = {
     								canvasContext: context,
     								viewport: doc
@@ -129,9 +132,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     						// render pdf pages
     						event.render(pdf).then(function(){
     							obj.src = canvas.toDataURL('image/png');
-    							if(obj.category === 'custfile'){
+    							if (obj.category === 'custfile') {
     								$scope.sendCustfiles.push(obj);
-    							}else{
+    							}else {
     								$scope.recCustfiles.push(obj);
     							}
     							$scope.$apply();
@@ -144,13 +147,13 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     				  reader.onload = function (e) {
     				    	var src = e.target.result;
     				    	obj.src = src;
-    				    	if(obj.category === 'custfile'){
+    				    	if (obj.category === 'custfile') {
 				            	  $scope.sendCustfiles.push(obj);
-				              }else{
+				              }else {
 				            	  $scope.recCustfiles.push(obj);
 				              }
    			             	$scope.$apply();
-    	                }
+    	                };
     				    reader.readAsDataURL(file);    
     				}
 			};

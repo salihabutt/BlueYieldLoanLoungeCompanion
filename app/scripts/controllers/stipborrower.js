@@ -58,12 +58,12 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   	 $scope.fileBoUploadConfig = {
    	      init: function() {
    	      this.on('addedfile',function (file){
-   	    	  $scope.addFiletoCategory(file,self.index,'BO')
+   	    	  $scope.addFiletoCategory(file,self.index,'BO');
    	      });
    	      this.on('sending',function (file,xhr,formData){
 	    	  formData.append('data','value');
 	      });
-   	  	this.on('success',function (file){
+   	  	this.on('success',function (){
 	      });
    	
    	      }
@@ -72,12 +72,12 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   	 $scope.fileCoUploadConfig = {
   	   	      init: function() {
   	   	      this.on('addedfile',function (file){
-  	   	    	  $scope.addFiletoCategory(file,self.index,'CO')
+  	   	    	  $scope.addFiletoCategory(file,self.index,'CO');
   	   	      });
   	   	      this.on('sending',function (file,xhr,formData){
   		    	  formData.append('data','value');
   		      });
-  	   	  	this.on('success',function (file){
+  	   	  	this.on('success',function (){
   		      });
   	   	
   	   	      }
@@ -86,12 +86,12 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	 $scope.fileSeUploadConfig = {
  	   	      init: function() {
  	   	      this.on('addedfile',function (file){
- 	   	    	  $scope.addFiletoCategory(file,self.index,'SE')
+ 	   	    	  $scope.addFiletoCategory(file,self.index,'SE');
  	   	      });
  	   	      this.on('sending',function (file,xhr,formData){
  		    	  formData.append('data','value');
  		      });
- 	   	  	this.on('success',function (file){
+ 	   	  	this.on('success',function (){
  		      });
  	   	
  	   	      }
@@ -104,29 +104,34 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   	 };
  /* ************************* ADDING IN CATEGORY ****************************/	 
   	self.addBoCategory = function () {
-  		for(var i=0;i<$scope.borrowerStip.length;i++){
-			if($scope.borrowerStip[i].checked){
+  		var size =  $scope.borrowerStip.length;
+  		for (var i = 0; i < size; i++) {
+			if ($scope.borrowerStip[i].checked) {
 					var obj = {};
 					obj.id = $scope.borrowerStip[i].id;
 					obj.name = $scope.borrowerStip[i].name;
 					obj.checked = false;
 					obj.files = [];
-					
 					$scope.bData.push(obj);
 			}
 		} 
   		$scope.bData.sort(function(a, b){
-  		    if(a.name < b.name) return -1;
-  		    if(a.name > b.name) return 1;
+  		    if (a.name < b.name) {
+  		    	return -1;
+  		    }
+  		    if (a.name > b.name) { 
+  		    	return 1;
+  		    }  
   		    return 0;
   		});
   	 };
   	 
   	self.addCoCategory = function () {
-	  		for(var i=0;i<$scope.coborrowerStip.length;i++){
-				if($scope.coborrowerStip[i].checked){
+  		var size = $scope.coborrowerStip.length;
+	  		for (var i = 0; i < size; i++) {
+				if ($scope.coborrowerStip[i].checked) {
 						var obj = {};
-						obj.id = $scope.coborrowerStip[i].id
+						obj.id = $scope.coborrowerStip[i].id;
 						obj.name = $scope.coborrowerStip[i].name;
 						obj.checked = false;
 						obj.files = [];
@@ -134,15 +139,20 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				}
 			} 
 	  		$scope.cData.sort(function(a, b){
-	  		    if(a.name < b.name) return -1;
-	  		    if(a.name > b.name) return 1;
+	  		    if (a.name < b.name) {
+	  		    	return -1;
+	  		    }
+	  		    if (a.name > b.name) {
+	  		    	return 1;
+	  		    }
 	  		    return 0;
 	  		});
 	 };
 		 
 	self.addSeCategory = function () {
-		  	for(var i=0;i<$scope.sellerStip.length;i++){
-				if($scope.sellerStip[i].checked){
+		var size = $scope.sellerStip.length;
+		  	for (var i = 0; i < size; i++) {
+				if ($scope.sellerStip[i].checked) {
 						var obj = {};
 						obj.id = $scope.sellerStip[i].id;
 						obj.name = $scope.sellerStip[i].name;
@@ -152,17 +162,23 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				}
 			}
 			$scope.sData.sort(function(a, b){
-	  		    if(a.name < b.name) return -1;
-	  		    if(a.name > b.name) return 1;
+	  		    if (a.name < b.name) {
+	  		    	return -1;
+	  		    }
+	  		    if (a.name > b.name) {
+	  		    	return 1;
+	  		    }
 	  		    return 0;
 	  		});
 	};
  /* ***************************UPDATING CATEGORIES ************************ */
 		  	 
   	 self.updateBoCategory = function () {
-  		for(var i=0;i<$scope.borrowerStip.length;i++){
-			if($scope.borrowerStip[i].checked){
-				var elementPos = $scope.bData.map(function(x) {return x.name; }).indexOf($scope.borrowerStip[i].name);
+  		 var size = $scope.borrowerStip.length;
+  		 var elementPos = 0;
+  		for (var i = 0; i < size; i++)  {
+			if ($scope.borrowerStip[i].checked) {
+				elementPos = $scope.bData.map(function(x) {return x.name; }).indexOf($scope.borrowerStip[i].name);
 				if(elementPos<0){
 					var obj = {};
 					obj.name = $scope.borrowerStip[i].name;
@@ -170,28 +186,34 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					obj.files = [];
 					$scope.bData.push(obj);
 				}
-			}else{
+			}else {
 				//remove category if already present and marked removed
 				if($scope.bData.length>0){
-					var elementPos = $scope.bData.map(function(x) {return x.name; }).indexOf($scope.borrowerStip[i].name);
-					if(elementPos>-1){
+					elementPos = $scope.bData.map(function(x) {return x.name; }).indexOf($scope.borrowerStip[i].name);
+					if (elementPos>-1) {
 						$scope.bData.splice(elementPos,1);
 					}
 				}
 			}
 		}
   		$scope.bData.sort(function(a, b){
-  		    if(a.name < b.name) return -1;
-  		    if(a.name > b.name) return 1;
+  		    if (a.name < b.name) {
+  		    	return -1;
+  		    }
+  		    if (a.name > b.name) {
+  		    	return 1;
+  		    }
   		    return 0;
   		});
   	 };
   	 
   	 self.updateCoCategory = function () {
-   		for(var i=0;i<$scope.coborrowerStip.length;i++){
- 			if($scope.coborrowerStip[i].checked){
- 				var elementPos = $scope.cData.map(function(x) {return x.name; }).indexOf($scope.coborrowerStip[i].name);
- 				if(elementPos<0){
+  		 var size = $scope.coborrowerStip.length;
+  		var elementPos = 0;
+   		for (var i = 0; i < size; i++) {
+ 			if ($scope.coborrowerStip[i].checked) {
+ 				elementPos = $scope.cData.map(function(x) {return x.name; }).indexOf($scope.coborrowerStip[i].name);
+ 				if (elementPos<0) {
  					var obj = {};
  					obj.name = $scope.coborrowerStip[i].name;
  					obj.checked = false;
@@ -200,45 +222,55 @@ angular.module('blueYieldLoanLoungeCompanionApp')
  				}
  			}else{
  				//remove category if already present and marked removed
- 				if($scope.cData.length>0){
- 					var elementPos = $scope.cData.map(function(x) {return x.name; }).indexOf($scope.coborrowerStip[i].name);
- 					if(elementPos>-1){
+ 				if ($scope.cData.length>0) {
+ 					elementPos = $scope.cData.map(function(x) {return x.name; }).indexOf($scope.coborrowerStip[i].name);
+ 					if (elementPos>-1) {
  						$scope.cData.splice(elementPos,1);
  					}
  				}
  			}
  		} 
    		$scope.cData.sort(function(a, b){
-  		    if(a.name < b.name) return -1;
-  		    if(a.name > b.name) return 1;
+  		    if (a.name < b.name) {
+  		    	return -1;
+  		    }
+  		    if (a.name > b.name) {
+  		    	return 1;
+  		    }
   		    return 0;
   		});
    	 };
    	 
  	 self.updateSeCategory = function () {
-    		for(var i=0;i<$scope.sellerStip.length;i++){
-  			if($scope.sellerStip[i].checked){
-  				var elementPos = $scope.sData.map(function(x) {return x.name; }).indexOf($scope.sellerStip[i].name);
-  				if(elementPos<0){
+ 		 	var size = $scope.sellerStip.length;
+ 		 	var elementPos = 0;
+    		for (var i = 0; i < size; i++) {
+  			if ($scope.sellerStip[i].checked) {
+  				elementPos = $scope.sData.map(function(x) {return x.name; }).indexOf($scope.sellerStip[i].name);
+  				if (elementPos<0) {
   					var obj = {};
   					obj.name = $scope.sellerStip[i].name;
   					obj.checked = false;
   					obj.files = [];
   					$scope.sData.push(obj);
   				}
-  			}else{
+  			}else {
   				//remove category if already present and marked removed
-  				if($scope.sData.length>0){
-  					var elementPos = $scope.sData.map(function(x) {return x.name; }).indexOf($scope.sellerStip[i].name);
-  					if(elementPos>-1){
+  				if ($scope.sData.length>0) {
+  					elementPos = $scope.sData.map(function(x) {return x.name; }).indexOf($scope.sellerStip[i].name);
+  					if (elementPos>-1) {
   						$scope.sData.splice(elementPos,1);
   					}
   				}
   			}
   		}
     		$scope.sData.sort(function(a, b){
-      		    if(a.name < b.name) return -1;
-      		    if(a.name > b.name) return 1;
+      		    if(a.name < b.name) {
+      		    	return -1;
+      		    }
+      		    if(a.name > b.name) {
+      		    	return 1;
+      		    }
       		    return 0;
       		});
     };
@@ -255,7 +287,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   	 };
   	 
   	$scope.generateThumbnail = function (obj,index,category,file) {
-		if((obj.url!=null || obj.url!='') && obj.type=='application/pdf'){
+		if ((obj.url !== null || obj.url !== '') && obj.type === 'application/pdf') {
 			var pdf = {};
 			pdf.url = obj.url;
 			 PDFJS.getDocument(pdf).then(function(doc){
@@ -265,7 +297,8 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					
 						var context = page.getContext('2d');
 		                var doc = event.getViewport(1);
-		                page.height = doc.height, page.width = doc.width;
+		                page.height = doc.height;
+		                page.width = doc.width;
 		                var pdf = {
 		                    canvasContext: context,
 		                    viewport: doc
@@ -273,25 +306,26 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	            
 	                event.render(pdf).then(function(){
 			            obj.src = page.toDataURL('image/png');
+			            var size = 0;
 			            switch(category){
 			            case 'BO':
-			            	var size = $scope.bData[index].files.length
+			            	size = $scope.bData[index].files.length;
 			            	obj.id = size>0?$scope.bData[index].files[size-1].id+1:1;
 			            	obj.parentid = $scope.bData[index].id;
 			            	$scope.bData[index].files.push(obj);
-			            break;
+			            	break;
 			            case 'CO':
-			            	var size = $scope.cData[index].files.length
+			            	size = $scope.cData[index].files.length;
 			            	obj.id = size>0?$scope.cData[index].files[size-1].id+1:1;
 			            	obj.parentid = $scope.cData[index].id;
 			            	$scope.cData[index].files.push(obj);
-			            break;
+			            	break;
 			            case 'SE':
-			            	var size = $scope.sData[index].files.length
+			            	size = $scope.sData[index].files.length;
 			            	obj.id = size>0?$scope.sData[index].files[size-1].id+1:1;
 			            	obj.parentid = $scope.sData[index].id;
 			            	$scope.sData[index].files.push(obj);
-			            break;
+			            	break;
 			            }
 			       		
 			            $scope.$apply();	// have to apply scope to update view since it is javascript callback function
@@ -303,26 +337,27 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		else{
 			  var reader = new FileReader();
 			  reader.onload = function (e) {
+				  var size = 0;
 			    	obj.src = e.target.result;
 			    	  switch(category){
 			            case 'BO':
-			            	var size = $scope.bData[index].files.length
+			            	size = $scope.bData[index].files.length;
 			            	obj.id = size>0?$scope.bData[index].files[size-1].id+1:1;
 			            	obj.parentid = $scope.bData[index].id;
 			            	$scope.bData[index].files.push(obj);
-			            break;
+			            	break;
 			            case 'CO':
-			            	var size = $scope.cData[index].files.length
+			            	size = $scope.cData[index].files.length;
 			            	obj.id = size>0?$scope.cData[index].files[size-1].id+1:1;
 			            	obj.parentid = $scope.cData[index].id;
 			            	$scope.cData[index].files.push(obj);
-			            break;
+			            	break;
 			            case 'SE':
-			            	var size = $scope.sData[index].files.length;
+			            	size = $scope.sData[index].files.length;
 			            	obj.id = size>0?$scope.sData[index].files[size-1].id+1:1;
 			            	obj.parentid = $scope.sData[index].id;
 			            	$scope.sData[index].files.push(obj);
-			            break;
+			            	break;
 			            }
 		            $scope.$apply();
                 }
@@ -333,9 +368,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	// if any of the checkbox is checked we have to update FileSelected count
 	$scope.updateCheckboxes = function (event,index) {
 		var size = $scope.bData[index].files.length;
-		if(event.target.checked){
-			for(var i=0;i<size;i++){
-				if(!$scope.bData[index].files[i].checked){
+		if (event.target.checked) {
+			for (var i = 0;i < size; i++){
+				if (!$scope.bData[index].files[i].checked) {
 					$scope.bData[index].files[i].checked = true;
 					$scope.$emit('updateFileCount', true);
 				}/* selected file count update is happening in home 
@@ -343,9 +378,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 															being a child we need to emit an event to update file count in parent*/
 			}
 		}else{
-			for(var i=0;i<size;i++){
-				if($scope.bData[index].files[i].checked){
-					$scope.bData[index].files[i].checked = false;
+			for (var j = 0;j < size; j++){
+				if ($scope.bData[index].files[j].checked) {
+					$scope.bData[index].files[j].checked = false;
 					$scope.$emit('updateFileCount', false);
 				}
 			}
@@ -354,17 +389,17 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	
 	$scope.updateCOCheckboxes = function (event,index) {
 		var size = $scope.cData[index].files.length;
-		if(event.target.checked){
-			for(var i=0;i<size;i++){
-				if(!$scope.cData[index].files[i].checked){
+		if (event.target.checked) {
+			for(var i = 0; i < size; i++){
+				if (!$scope.cData[index].files[i].checked) {
 					$scope.cData[index].files[i].checked = true;
 					$scope.$emit('updateFileCount', true);
 				}
 			}
 		}else{
-			for(var i=0;i<size;i++){
-				if($scope.cData[index].files[i].checked){
-					$scope.cData[index].files[i].checked = false;
+			for(var j = 0; j < size; j++){
+				if ($scope.cData[index].files[j].checked) {
+					$scope.cData[index].files[j].checked = false;
 					$scope.$emit('updateFileCount', false);
 				}
 			}
@@ -373,17 +408,17 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	
 	$scope.updateSECheckboxes = function (event,index) {
 		var size = $scope.sData[index].files.length;
-		if(event.target.checked){
-			for(var i=0;i<size;i++){
-				if(!$scope.sData[index].files[i].checked){
+		if (event.target.checked) {
+			for (var i = 0; i < size; i++) {
+				if (!$scope.sData[index].files[i].checked) {
 					$scope.sData[index].files[i].checked = true;
 					$scope.$emit('updateFileCount', true);
 				}
 			}
 		}else{
-			for(var i=0;i<size;i++){
-				if($scope.sData[index].files[i].checked){
-					$scope.sData[index].files[i].checked = false;
+			for (var j = 0; j < size; j++) {
+				if ($scope.sData[index].files[j].checked) {
+					$scope.sData[index].files[j].checked = false;
 					$scope.$emit('updateFileCount', false);
 				}
 			}
@@ -399,52 +434,57 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	});
 
 	self.removeBOFiles = function () {
-		for(var i =0;i<$scope.bData.length;i++){
+		var size = $scope.bData.length;
+		for (var i = 0; i < size; i++) {
 			var temp = [];
-			for(var j=0;j<$scope.bData[i].files.length;j++){
-				if(!$scope.bData[i].files[j].checked){
+			var filesize = $scope.bData[i].files.length;
+			for (var j = 0; j < filesize; j++) {
+				if (!$scope.bData[i].files[j].checked) {
 					temp.push($scope.bData[i].files[j]);
 				}else{
 					$scope.$emit('updateFileCount', false);
 				}
 			}
 			$scope.bData[i].files = temp;
-			if($scope.bData[i].files.length<=0){
+			if ($scope.bData[i].files.length<=0) {
 				$scope.bData[i].checked=false;
 			}
 		}
 	};
 	
 	self.removeCOFiles = function () {
-		
-		for(var i =0;i<$scope.cData.length;i++){
+		var size = $scope.cData.length;
+		for (var i = 0; i < size; i++) {
 			var temp = [];
-			for(var j=0;j<$scope.cData[i].files.length;j++){
-				if(!$scope.cData[i].files[j].checked){
+			var filesize = $scope.cData[i].files.length;
+			for (var j = 0; j < filesize; j++) {
+				if (!$scope.cData[i].files[j].checked) {
 					temp.push($scope.cData[i].files[j]);
-				}else{
+				}else {
 					$scope.$emit('updateFileCount', false);
 				}
 			}
 			$scope.cData[i].files = temp;
-			if($scope.cData[i].files.length<=0){
+			if ($scope.cData[i].files.length<=0) {
 				$scope.cData[i].checked=false;
 			}
 		}
 	};
 	
 	self.removeSEFiles = function () {
-		for(var i =0;i<$scope.sData.length;i++){
+		var size = $scope.sData.length;
+		for (var i = 0; i < size; i++) {
 			var temp = [];
-			for(var j=0;j<$scope.sData[i].files.length;j++){
-				if(!$scope.sData[i].files[j].checked){
+			var filesize = $scope.sData[i].files.length;
+			for (var j = 0; j < filesize; j++) {
+				if (!$scope.sData[i].files[j].checked) {
 					temp.push($scope.sData[i].files[j]);
-				}else{
+				}else {
 					$scope.$emit('updateFileCount', false);
 				}
 			}
 			$scope.sData[i].files = temp;
-			if($scope.sData[i].files.length<=0){
+			if ($scope.sData[i].files.length<=0) {
 				$scope.sData[i].checked=false;
 			}
 		}
@@ -479,27 +519,32 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	    				},
 	        			stipnotFoundData: function () {
 	        				var stipData = [];
-	        				var obj = {};
-	    					obj.type = 'Borrower';
-	    					obj.subTypes = [];
-	        				for(var i=0;i<$scope.bData.length;i++){
-	        					obj.subTypes.push($scope.bData[i].name);
+	        				var bObj = {};
+	        				var cObj = {};
+	        				var sObj = {};
+	        				bObj.type = 'Borrower';
+	        				bObj.subTypes = [];
+	    					var size = $scope.bData.length;
+	        				for (var i = 0; i < size; i++) {
+	        					bObj.subTypes.push($scope.bData[i].name);
 	        				}
-	        				stipData.push(obj);
-	        				var obj = {};
-	    					obj.type = 'Co-Borrower';
-	    					obj.subTypes = [];
-	        				for(var j=0;j<$scope.cData.length;j++){
-	        					obj.subTypes.push($scope.cData[j].name);
+	        				stipData.push(bObj);
+	        				
+	        				cObj.type = 'Co-Borrower';
+	        				cObj.subTypes = [];
+	    					size = $scope.cData.length;
+	        				for (var j = 0; j < size; j++) {
+	        					cObj.subTypes.push($scope.cData[j].name);
 	        				}
-	        				stipData.push(obj);
-	        				var obj = {};
-	    					obj.type = 'Seller';
-	    					obj.subTypes = [];
-	        				for(var k=0;k<$scope.sData.length;k++){
-	        					obj.subTypes.push($scope.sData[k].name);
+	        				stipData.push(cObj);
+
+	        				sObj.type = 'Seller';
+	        				sObj.subTypes = [];
+	    					size = $scope.sData.length;
+	        				for (var k = 0; k < size; k++) {
+	        					sObj.subTypes.push($scope.sData[k].name);
 	        				}
-	        				stipData.push(obj);
+	        				stipData.push(sObj);
 	        				return stipData;
 	        			}
 	        		}

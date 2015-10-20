@@ -4,7 +4,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 .directive('print', function () {
     return {
         restrict: 'A',
-         link: function (scope, element,attrs, ngModel) {
+         link: function (scope, element) {
         	 element.click(function(){
         			var popupWin = window.open('', '_blank', 'width=800,height=600');
     				var printContents = document.getElementById('printImages').innerHTML;
@@ -14,7 +14,6 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     		        popupWin.document.close();
                 });
         	 function drawPdf () {	
-        		 var count = 0;
         		 var pdiv = document.createElement("div");
         		 if(document.getElementById('pc').childNodes){
         			 for(var i=0;i<document.getElementById('pc').childNodes.length;i++){
@@ -33,7 +32,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 .directive('printSingle', function () {
     return {
         restrict: 'A',
-         link: function (scope, element,attrs, ngModel) {
+         link: function (scope, element) {
         	 element.click(function(){
         			var popupWin = window.open('', '_blank', 'width=800,height=600');
     				var printContents = document.getElementById('imagesToDisplay').innerHTML;
@@ -43,7 +42,6 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     		        popupWin.document.close();
                 });
         	 function drawPdf () {	
-        		 var count = 0;
         		 var pdiv = document.createElement("div");
         		 if(document.getElementById('pc').childNodes){
         			 for(var i=0;i<document.getElementById('pc').childNodes.length;i++){

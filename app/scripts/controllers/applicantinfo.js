@@ -8,7 +8,7 @@
  * Controller of the blueYieldLoanLoungeCompanionApp
  */
 angular.module('blueYieldLoanLoungeCompanionApp')
-  .controller('AppInfoCtrl', function ($scope,dataService,$modal) {
+  .controller('AppInfoCtrl', function (dataService,$modal) {
 	
 	var self = this;
     self.account = "209005";
@@ -26,7 +26,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     };
     
   })  
-  .controller('custInfoPopupCtrl', function ($scope,$modal) {
+  .controller('custInfoPopupCtrl', function () {
 	  var self = this;
 	  self.customerInfo = {
 			  name: 'Karley Test',

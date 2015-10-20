@@ -23,17 +23,16 @@ angular.module('blueYieldLoanLoungeCompanionApp')
     };
     
     $scope.removeCategory = function (index,type) {
-    	
     	switch (type) {
  		case 'BO':
  			$scope.borrowerStip[index].checked=false;
- 		break;
+ 			break;
  		case 'CO':
  			$scope.coborrowerStip[index].checked=false;
- 		break;
+ 			break;
  		case 'SE':
  			$scope.sellerStip[index].checked=false;
- 		break;
-	}
-    }
+ 			break;
+    	}
+    };
 });
