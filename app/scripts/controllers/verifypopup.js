@@ -51,29 +51,28 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			var mm = today.getMonth()+1; //January is 0!
 			var yyyy = today.getFullYear();
 			if(dd<10) {
-			    dd='0'+dd
+			    dd='0'+dd;
 			} 
 			if(mm<10) {
-			    mm='0'+mm
+			    mm='0'+mm;
 			} 
 			today = mm+'/'+dd+'/'+yyyy;  			
 
-			if(selectedDate != ""){
-				if(selectedDate > today){
-					$scope.pastDate = false;
-					for(var i=0;i<$scope.stipStatusArray.length;i++){
+			if(selectedDate !== ""){
+				var size = $scope.stipStatusArray.length;
+				if (selectedDate > today) {
+					for (var i = 0; i < size; i++) {
 						$scope.stipStatusArray[i].checked = false;
 						$scope.stipStatusArray[i].disabled = false;
 					}
-				}else{
-					$scope.pastDate = true;
+				}else {
 					$scope.getData.stipStatus = 'Past Expiration Date';
-					for(var i=0;i<$scope.stipStatusArray.length;i++){
-						$scope.stipStatusArray[i].checked = false;
-						$scope.stipStatusArray[i].disabled = true;
-						if($scope.stipStatusArray[i].name === 'Past Expiration Date'){
-							$scope.stipStatusArray[i].checked = true;
-							$scope.stipStatusArray[i].disabled = false;
+					for (var j = 0; j < size; j++) {
+						$scope.stipStatusArray[j].checked = false;
+						$scope.stipStatusArray[j].disabled = true;
+						if ($scope.stipStatusArray[j].name === 'Past Expiration Date') {
+							$scope.stipStatusArray[j].checked = true;
+							$scope.stipStatusArray[j].disabled = false;
 							$scope.selected = 'Past Expiration Date';
 						}
 					}
@@ -85,7 +84,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   		
   		$scope.setStipStatus = function (item) {
   			$scope.getData.stipStatus = item;
-  		}
+  		};
 
 		$scope.ok = function () {
 			$scope.getData.stipLocation = $scope.stipLocation;
