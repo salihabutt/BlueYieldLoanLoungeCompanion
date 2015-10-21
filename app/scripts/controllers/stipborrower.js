@@ -527,6 +527,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	    					var size = $scope.bData.length;
 	        				for (var i = 0; i < size; i++) {
 	        					bObj.subTypes.push($scope.bData[i].name);
+	        					if(category === 'BO' && clickedParent.name === $scope.bData[i].name){
+	        						bObj.subTypes.splice(bObj.subTypes.length-1,1);
+	        					}
 	        				}
 	        				stipData.push(bObj);
 	        				
@@ -535,6 +538,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	    					size = $scope.cData.length;
 	        				for (var j = 0; j < size; j++) {
 	        					cObj.subTypes.push($scope.cData[j].name);
+	        					if(category === 'CO' && clickedParent.name === $scope.cData[j].name){
+	        						cObj.subTypes.splice(cObj.subTypes.length-1,1);
+	        					}
 	        				}
 	        				stipData.push(cObj);
 
@@ -543,6 +549,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	    					size = $scope.sData.length;
 	        				for (var k = 0; k < size; k++) {
 	        					sObj.subTypes.push($scope.sData[k].name);
+	        					if(category === 'SE' && clickedParent.name === $scope.sData[k].name){
+	        						sObj.subTypes.splice(sObj.subTypes.length-1,1);
+	        					}
 	        				}
 	        				stipData.push(sObj);
 	        				return stipData;

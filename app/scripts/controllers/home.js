@@ -30,7 +30,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				name : 'Agreement to Provide Insurance',
 				check : false
 			}, {
-				name : 'Lone Summary Statement',
+				name : 'Loan Summary Statement',
 				check : false
 			}, {
 				name : 'Title Application',
@@ -39,7 +39,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				name : 'Authorization for Payoff',
 				check : false
 			}, {
-				name : 'Gaurantee of Title (Dealer)',
+				name : 'Guarantee of Title (Dealer)',
 				check : false
 			}, {
 				name : 'Warranty Contract',
@@ -66,7 +66,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					name : '',
 					options: ['AM', 'PM'],
 					selected: 'AM',
-					value: 'VERIFY EMPLOYEMENT',
+					value: 'VERIFY EMPLOYMENT',
 					verified: false
 			};
 			
@@ -471,6 +471,13 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			$scope.sendLoanPkgEmail = function () {
 				
 			};
+			$scope.activate = function (option,type){
+				if (type === 'customer') {
+					$scope.customer.selected = option;
+				} else{
+					$scope.employee.selected = option;
+				}
+			}
 			
 			init();
 		

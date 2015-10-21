@@ -313,6 +313,16 @@
 	text-overflow: ellipsis;
 }
 
-.btn-group-custom {
-	height: 40px !important;top:-1px;left:-4px;
+.inactive-btn {
+	background-color: #cacaca;	
+	height: 40px;
+	outline: none;
+	color: #FFFFFF;
+}
+
+.active-btn {
+	background-color: #5ACE73;
+	height: 40px !important;
+	outline: none !important;
+	color: #FFFFFF !important;
 }
