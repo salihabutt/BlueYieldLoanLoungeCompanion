@@ -2,7 +2,7 @@
 
 
 angular.module('blueYieldLoanLoungeCompanionApp')
-  .controller('verifyPopup', function ($scope, $modal, $modalInstance, title, fileSize, stipnotFoundData) {
+  .controller('verifyPopup', function ($scope, $modal, $modalInstance, title, fileSize, stipnotFoundData, $timeout) {
 
   		$scope.getData = {stipStatus : "" ,expDate : "" };
   		$scope.title = title;
@@ -11,6 +11,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   		$scope.stipLocation = '';
   		$scope.pastDate = false;
   		$scope.selected = '';
+  		$scope.showError = false;
   		$scope.stipStatusArray = [
   		                   {
   		                	   name: 'Paperwork OK',
@@ -87,8 +88,16 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   		};
 
 		$scope.ok = function () {
+			var date = $scope.getData.expDate;
+			if(date === '' && $scope.getData.stipStatus === 'Paperwork OK'){
+				$scope.showError = true;
+			$timeout(function() {
+				 $scope.showError = false;
+			}, 2000);
+			}else {
 			$scope.getData.stipLocation = $scope.stipLocation;
-			$modalInstance.close($scope.getData);  
+			$modalInstance.close($scope.getData);
+			}
 		};
 
 		$scope.cancel = function () {

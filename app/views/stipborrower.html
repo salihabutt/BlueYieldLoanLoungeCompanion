@@ -19,13 +19,13 @@
 							<td class="text-left">
 								<p class="no-margin">{{parent.name}}</p>
 								<span ng-if="parent.verifyDate!=null">
-									<p ng-if="!verifyBtnCheck" class="no-margin image-status pul-left" >{{parent.verifyDate|amDateFormat:'MM/DD/YY'}} : {{parent.stipStatus}} </p>			
+									<p ng-if="parent.stipStatus!=''" class="no-margin image-status pul-left" >{{parent.verifyDate|amDateFormat:'MM/DD/YY'}} : {{parent.stipStatus}} </p>			
 									<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck" style="cursor:pointer">(cancel)</p>
 									<p class="no-margin image-status pul-left" ng-if="parent.stipLocation!=''">Location: {{parent.stipLocation}}</p>
 								</span>
 							</td>
 							<td>
-								<input type="button" class="widget-button-verify" value="VERIFY" ng-click="verifyPopupTrigger(parent,'BO');preivewMergedImages(parent.files)" ng-if="!parent.paperworkCheck" />
+								<input type="button" class="widget-button-verify" value="VERIFY" ng-click="verifyPopupTrigger(parent,'BO');preivewMergedImages(parent,'BO')" ng-if="!parent.paperworkCheck" />
 								<span ng-if="parent.paperworkCheck">Verified</span>
 								<span ng-if="parent.paperworkCheck"><img src="images/ic_verified.png" alt="verified" /></span>
 							</td>
@@ -96,13 +96,13 @@
 							<td class="text-left">
 								<p class="no-margin">{{parent.name}}</p>
 									<span ng-if="parent.verifyDate!=null">
-										<p ng-if="!verifyBtnCheck" class="no-margin image-status pul-left" >{{parent.verifyDate|amDateFormat:'MM/DD/YY'}} : {{parent.stipStatus}} </p>			
+										<p ng-if="parent.stipStatus!=''" class="no-margin image-status pul-left" >{{parent.verifyDate|amDateFormat:'MM/DD/YY'}} : {{parent.stipStatus}} </p>			
 										<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck" style="cursor:pointer">(cancel)</p>
 										<p class="no-margin image-status pul-left" ng-if="parent.stipLocation!=''">Location: {{parent.stipLocation}}</p>
 									</span>
 							</td>
 							<td>
-								<input type="button" class="widget-button-verify" value="VERIFY" ng-click="verifyPopupTrigger(parent,'CO');preivewMergedImages(parent.files)" ng-if="!parent.paperworkCheck" />
+								<input type="button" class="widget-button-verify" value="VERIFY" ng-click="verifyPopupTrigger(parent,'CO');preivewMergedImages(parent),'CO'" ng-if="!parent.paperworkCheck" />
 								<span ng-if="parent.paperworkCheck">Verified</span>
 								<span ng-if="parent.paperworkCheck"><img src="images/ic_verified.png" alt="verified" /></span>
 							</td>
@@ -174,13 +174,13 @@
 							<td class="text-left">
 								<p class="no-margin">{{parent.name}}</p>						
 								<span ng-if="parent.verifyDate!=null">
-									<p ng-if="!verifyBtnCheck" class="no-margin image-status pul-left" >{{parent.verifyDate|amDateFormat:'MM/DD/YY'}} : {{parent.stipStatus}} </p>			
+									<p ng-if="parent.stipStatus!=''" class="no-margin image-status pul-left" >{{parent.verifyDate|amDateFormat:'MM/DD/YY'}} : {{parent.stipStatus}} </p>			
 									<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck" style="cursor:pointer">(cancel)</p>
 									<p class="no-margin image-status pul-left" ng-if="parent.stipLocation!=''">Location: {{parent.stipLocation}}</p>
 								</span>
 							</td>
 							<td>
-								<input type="button" class="widget-button-verify"value="VERIFY" ng-click="verifyPopupTrigger(parent,'SE');preivewMergedImages(parent.files)" ng-if="!parent.paperworkCheck" />
+								<input type="button" class="widget-button-verify"value="VERIFY" ng-click="verifyPopupTrigger(parent,'SE');preivewMergedImages(parent,'SE')" ng-if="!parent.paperworkCheck" />
 								<span ng-if="parent.paperworkCheck">Verified</span>
 								<span ng-if="parent.paperworkCheck"><img src="images/ic_verified.png" alt="verified" /></span>
 							</td>
