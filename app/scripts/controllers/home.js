@@ -30,7 +30,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				name : 'Agreement to Provide Insurance',
 				check : false
 			}, {
-				name : 'Lone Summary Statement',
+				name : 'Loan Summary Statement',
 				check : false
 			}, {
 				name : 'Title Application',
@@ -39,7 +39,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				name : 'Authorization for Payoff',
 				check : false
 			}, {
-				name : 'Gaurantee of Title (Dealer)',
+				name : 'Guarantee of Title (Dealer)',
 				check : false
 			}, {
 				name : 'Warranty Contract',
@@ -66,7 +66,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					name : '',
 					options: ['AM', 'PM'],
 					selected: 'AM',
-					value: 'VERIFY EMPLOYEMENT',
+					value: 'VERIFY EMPLOYMENT',
 					verified: false
 			};
 			
@@ -193,10 +193,11 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				
 			};	
 			
-			$scope.preivewMergedImages = function (array) {
+			$scope.preivewMergedImages = function (parent,category) {
 				$scope.imagesToDisplay = [];
 				$scope.showFile = true;
 				$scope.isPdf = false;
+				var array = parent.files;
 				var size = array.length;
 				for (var i = 0; i < size; i++) {
 					var obj = {};
@@ -205,6 +206,20 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 						obj.src = array[i].src;
 					}
 					$scope.imagesToDisplay.push(obj);
+				}
+				switch (category) {
+				case 'BO':
+					$scope.fileToDisplay = {};
+					$scope.fileToDisplay.name = 'Borrower - '+parent.name;
+					break;
+				case 'CO':
+					$scope.fileToDisplay = {};
+					$scope.fileToDisplay.name = 'Co-borrower - '+parent.name;
+					break;
+				case 'SE':
+					$scope.fileToDisplay = {};
+					$scope.fileToDisplay.name = 'Seller - '+parent.name;
+					break;
 				}
 			}
 
@@ -312,12 +327,14 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				case 'SC':
 					index = $scope.sendCustfiles.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.id);
 					if (index>=0) {
+						$scope.sendCustfiles[index].checked?$scope.selFileCount--:$scope.selFileCount;
 						$scope.sendCustfiles.splice(index,1);
 					}
 					break;
 				case 'RC':
 					index = $scope.recCustfiles.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.id);
 					if (index>=0) {
+						$scope.recCustfiles[index].checked?$scope.selFileCount--:$scope.selFileCount;
 						$scope.recCustfiles.splice(index,1);
 					}
 					break;
@@ -325,6 +342,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					parentindex = $scope.bData.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.parentid);
 					index = $scope.bData[parentindex].files.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.id);
 					if (index>=0) {
+						$scope.bData[parentindex].files[index].checked?$scope.selFileCount--:$scope.selFileCount;
 						$scope.bData[parentindex].files.splice(index,1);
 					}
 					break;
@@ -332,6 +350,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					parentindex = $scope.cData.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.parentid);
 					index = $scope.cData[parentindex].files.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.id);
 					if (index>=0) {
+						$scope.cData[parentindex].files[index].checked?$scope.selFileCount--:$scope.selFileCount;
 						$scope.cData[parentindex].files.splice(index,1);
 					}
 					break;
@@ -339,6 +358,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					parentindex = $scope.sData.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.parentid);
 					index = $scope.sData[parentindex].files.map(function(x) {return x.id; }).indexOf($scope.fileToDisplay.id);
 					if (index>=0) {
+						$scope.sData[parentindex].files[index].checked?$scope.selFileCount--:$scope.selFileCount;
 						$scope.sData[parentindex].files.splice(index,1);
 					}
 					break;
@@ -346,6 +366,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				if ($scope.fileToDisplay.type === 'application/pdf'){
 					$scope.fileToDisplay = {};
 					$scope.showFile = false;
+					$scope.fileToDisplay.checked?$scope.selFileCount--:$scope.selFileCount;
 				}else {
 					self.updateFilesToProcess();
 				}
@@ -465,12 +486,19 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			
 			$scope.verifyEmployee =function () {
 				$scope.employee.verified = true;
-				$scope.employee.value='EMPLOYEMENT VERIFIED';
+				$scope.employee.value='EMPLOYMENT VERIFIED';
 			};
 			
 			$scope.sendLoanPkgEmail = function () {
 				
 			};
+			$scope.activate = function (option,type){
+				if (type === 'customer') {
+					$scope.customer.selected = option;
+				} else{
+					$scope.employee.selected = option;
+				}
+			}
 			
 			init();
 		
