@@ -63,6 +63,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			if(selectedDate !== ""){
 				var size = $scope.stipStatusArray.length;
 				if (selectedDate > today) {
+					$scope.selected = '' ;
 					for (var i = 0; i < size; i++) {
 						$scope.stipStatusArray[i].checked = false;
 						$scope.stipStatusArray[i].disabled = false;
