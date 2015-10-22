@@ -2,7 +2,7 @@
 
 
 angular.module('blueYieldLoanLoungeCompanionApp')
-  .controller('verifyPopup', function ($scope, $modal, $modalInstance, title, fileSize, stipnotFoundData, $timeout) {
+  .controller('verifyPopup', function ($scope, $modal, $modalInstance, title, fileSize, stipnotFoundData, showExpirayDate, $timeout) {
 
   		$scope.getData = {stipStatus : "" ,expDate : "" };
   		$scope.title = title;
@@ -12,6 +12,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
   		$scope.pastDate = false;
   		$scope.selected = '';
   		$scope.showError = false;
+  		$scope.showExpiryDate = showExpirayDate;
   		$scope.stipStatusArray = [
   		                   {
   		                	   name: 'Paperwork OK',

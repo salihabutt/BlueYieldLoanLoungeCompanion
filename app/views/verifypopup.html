@@ -6,7 +6,7 @@
 		<div class="col-lg-6">
 			Expiration Date:
 		</div>
-	    <div class="inner-addon right-addon col-lg-6">
+	    <div class="inner-addon right-addon col-lg-6" ng-if="showExpiryDate">
 	    	<input type="text" class="widget-textbox calender-icon" style="width:100%" ng-model="getData.expDate" jqdatepicker ng-change="setExpDate()">
 	    	
 	    </div>
