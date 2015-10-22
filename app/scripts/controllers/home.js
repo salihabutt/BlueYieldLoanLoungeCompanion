@@ -499,6 +499,12 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 					$scope.employee.selected = option;
 				}
 			}
+			$scope.clearRightView = function () {
+				$scope.showFile = false;
+				$scope.imagesToDisplay = [];
+				$scope.fileToDisplay = {};
+				$scope.loadNewFile('');
+			};
 			
 			init();
 		
