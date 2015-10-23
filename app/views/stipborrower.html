@@ -39,11 +39,14 @@
 								dnd-draggable="item"
         						dnd-moved="parent.files.splice($index, 1)"
         						dnd-effect-allowed="move" active-list ng-click="previewDoc(item,'BO')">
-								<div class="checkbox col-lg-12">
+								<div class="checkbox col-lg-12">							
                         			<div class="col-lg-9 no-padding">
-                            			<div class="no-padding col-lg-12">
-                                			<input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);preventEvent($event)">
+                        			<div class="col-lg-1">
+                        			<input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);preventEvent($event)">
+                        			</div>
+                            			<div class="no-padding col-lg-11" style="margin-left:15px">
  												<div class="col-lg-3 no-padding" id="thumbwrap">
+ 												
 													<a class="thumb" href="#">
 														<img ng-src="{{item.src}}">
 														<span> <!-- Enlarged image -->
@@ -51,7 +54,7 @@
 														</span>
                                         			</a>
                                  				</div>
-                                 				<div class="col-lg-9 no-padding word-truncate" style="margin-top:15px"">{{item.name}}</div>
+                                 				<div class="col-lg-9 no-padding word-truncate" style="margin-top:15px">{{item.name}}</div>
                                  			</div>
                               			</div>
                               		<div class="col-lg-3 no-padding text-right">
@@ -118,8 +121,10 @@
         						dnd-effect-allowed="move" active-list ng-click="previewDoc(item,'CO')">
 								<div class="checkbox col-lg-12">
                         		<div class="col-lg-9 no-padding">
-                             		<div class="no-padding col-lg-12">
-                               			<input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);preventEvent($event)">
+                        		<div class="col-lg-1">
+                        			<input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);preventEvent($event)">
+                        			</div>
+                             		<div class="no-padding col-lg-11" style="margin-left:15px"> 
                                 		<div class="col-lg-3 no-padding" id="thumbwrap">
 											<a class="thumb" href="#">
 											<img ng-src="{{item.src}}">
@@ -196,8 +201,11 @@
         				dnd-effect-allowed="move" active-list ng-click="previewDoc(item,'SE')">
 						<div class="checkbox col-lg-12">
                         	<div class="col-lg-9 no-padding">
-                            	<div class="no-padding col-lg-12">
-                                 	<input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);preventEvent($event)">
+                        	<div class="col-lg-1">
+                        			<input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);preventEvent($event)">
+                        			</div>
+                            	<div class="no-padding col-lg-11" style="margin-left:15px">
+                 
                                  	<div class="col-lg-3 no-padding" id="thumbwrap">
 										<a class="thumb" href="#">
 											<img ng-src="{{item.src}}">
