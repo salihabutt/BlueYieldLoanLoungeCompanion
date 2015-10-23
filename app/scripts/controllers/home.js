@@ -82,7 +82,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			
 /***************************** Methods for Home - some methods are being used in child controllers(fileupload,stipborrower etc)************************************************** */
 				
-			$scope.checkTime = function (type) {
+			self.checkTime = function (type) {
 				switch (type) {
 				case 'customer':
 					 if (!self.isEmpty($scope.customer.time)) {
@@ -505,6 +505,9 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 				$scope.fileToDisplay = {};
 				$scope.loadNewFile('');
 			};
+			$scope.preventEvent = function (event) {
+				event.stopPropagation();
+			}
 			
 			init();
 		

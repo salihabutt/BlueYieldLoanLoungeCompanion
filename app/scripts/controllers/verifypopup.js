@@ -63,6 +63,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 			if(selectedDate !== ""){
 				var size = $scope.stipStatusArray.length;
 				if (selectedDate > today) {
+					$scope.showError = false;
 					$scope.selected = '' ;
 					for (var i = 0; i < size; i++) {
 						$scope.stipStatusArray[i].checked = false;
@@ -92,10 +93,7 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 		$scope.ok = function () {
 			var date = $scope.getData.expDate;
 			if(date === '' && $scope.getData.stipStatus === 'Paperwork OK'){
-				$scope.showError = true;
-			$timeout(function() {
-				 $scope.showError = false;
-			}, 2000);
+				 $scope.showError = true;
 			}else {
 			$scope.getData.stipLocation = $scope.stipLocation;
 			$modalInstance.close($scope.getData);

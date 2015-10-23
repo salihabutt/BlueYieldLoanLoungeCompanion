@@ -20,7 +20,7 @@
 								<p class="no-margin">{{parent.name}}</p>
 								<span ng-if="parent.verifyDate!=null">
 									<p ng-if="parent.stipStatus!=''" class="no-margin image-status pul-left" >{{parent.verifyDate|amDateFormat:'MM/DD/YY'}} : {{parent.stipStatus}} </p>			
-									<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck" style="cursor:pointer">(cancel)</p>
+									<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck">(cancel)</p>
 									<p class="no-margin image-status pul-left" ng-if="parent.stipLocation!=''">Location: {{parent.stipLocation}}</p>
 								</span>
 							</td>
@@ -38,11 +38,11 @@
 							<li ng-repeat="item in parent.files track by $id(item)" 
 								dnd-draggable="item"
         						dnd-moved="parent.files.splice($index, 1)"
-        						dnd-effect-allowed="move">
+        						dnd-effect-allowed="move" active-list ng-click="previewDoc(item,'BO')">
 								<div class="checkbox col-lg-12">
                         			<div class="col-lg-9 no-padding">
                             			<div class="no-padding col-lg-12">
-                                			<input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)">
+                                			<input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);preventEvent($event)">
  												<div class="col-lg-3 no-padding" id="thumbwrap">
 													<a class="thumb" href="#">
 														<img ng-src="{{item.src}}">
@@ -51,10 +51,10 @@
 														</span>
                                         			</a>
                                  				</div>
-                                 				<div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;cursor:pointer" ng-click="previewDoc(item,'BO')">{{item.name}}</div>
+                                 				<div class="col-lg-9 no-padding word-truncate" style="margin-top:15px"">{{item.name}}</div>
                                  			</div>
                               			</div>
-                              		<div class="col-lg-3 no-padding text-right" ng-click="previewDoc(item,'BO')" style="cursor:pointer">
+                              		<div class="col-lg-3 no-padding text-right">
                               			<input type="button" class="widget-button-send" value="Send" ng-if="item.date==null" />
                                     	<p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
                               		</div>
@@ -97,7 +97,7 @@
 								<p class="no-margin">{{parent.name}}</p>
 									<span ng-if="parent.verifyDate!=null">
 										<p ng-if="parent.stipStatus!=''" class="no-margin image-status pul-left" >{{parent.verifyDate|amDateFormat:'MM/DD/YY'}} : {{parent.stipStatus}} </p>			
-										<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck" style="cursor:pointer">(cancel)</p>
+										<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck">(cancel)</p>
 										<p class="no-margin image-status pul-left" ng-if="parent.stipLocation!=''">Location: {{parent.stipLocation}}</p>
 									</span>
 							</td>
@@ -115,11 +115,11 @@
 							<li ng-repeat="item in parent.files track by $id(item)" 
 								dnd-draggable="item"
         						dnd-moved="parent.files.splice($index, 1)"
-        						dnd-effect-allowed="move">
+        						dnd-effect-allowed="move" active-list ng-click="previewDoc(item,'CO')">
 								<div class="checkbox col-lg-12">
                         		<div class="col-lg-9 no-padding">
                              		<div class="no-padding col-lg-12">
-                               			<input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)">
+                               			<input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);preventEvent($event)">
                                 		<div class="col-lg-3 no-padding" id="thumbwrap">
 											<a class="thumb" href="#">
 											<img ng-src="{{item.src}}">
@@ -128,10 +128,10 @@
 											</span>
                                     		</a>
                                 		</div>
-                                		<div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;cursor:pointer" ng-click="previewDoc(item,'CO')">{{item.name}}</div>
+                                		<div class="col-lg-9 no-padding word-truncate" style="margin-top:15px">{{item.name}}</div>
 				               		</div>
 				               	</div>
-                            	<div class="col-lg-3 no-padding text-right" ng-click="previewDoc(item,'CO')" style="cursor:pointer">
+                            	<div class="col-lg-3 no-padding text-right">
                             		<p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
                             	</div>
                     		</div>
@@ -175,7 +175,7 @@
 								<p class="no-margin">{{parent.name}}</p>						
 								<span ng-if="parent.verifyDate!=null">
 									<p ng-if="parent.stipStatus!=''" class="no-margin image-status pul-left" >{{parent.verifyDate|amDateFormat:'MM/DD/YY'}} : {{parent.stipStatus}} </p>			
-									<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck" style="cursor:pointer">(cancel)</p>
+									<p class="no-margin image-status-red pul-left" ng-click="verifyAgain(parent)" ng-if="parent.paperworkCheck">(cancel)</p>
 									<p class="no-margin image-status pul-left" ng-if="parent.stipLocation!=''">Location: {{parent.stipLocation}}</p>
 								</span>
 							</td>
@@ -193,11 +193,11 @@
 					<li ng-repeat="item in parent.files track by $id(item)" 
 						dnd-draggable="item"
         				dnd-moved="parent.files.splice($index, 1)"
-        				dnd-effect-allowed="move">
+        				dnd-effect-allowed="move" active-list ng-click="previewDoc(item,'SE')">
 						<div class="checkbox col-lg-12">
                         	<div class="col-lg-9 no-padding">
                             	<div class="no-padding col-lg-12">
-                                 	<input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event)">
+                                 	<input type="checkbox" style="margin-top:15px" ng-model="item.checked" ng-click="updateFileCount($event);preventEvent($event)">
                                  	<div class="col-lg-3 no-padding" id="thumbwrap">
 										<a class="thumb" href="#">
 											<img ng-src="{{item.src}}">
@@ -206,10 +206,10 @@
 											</span>
                                          </a>
                                     </div>
-                                    <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px;cursor:pointer" ng-click="previewDoc(item,'SE')">{{item.name}}</div>
+                                    <div class="col-lg-9 no-padding word-truncate" style="margin-top:15px">{{item.name}}</div>
                                  </div>
                             </div>
-                            <div class="col-lg-3 no-padding text-right" ng-click="previewDoc(item,'SE')">
+                            <div class="col-lg-3 no-padding text-right">
                             	<p ng-if="!(item.date==null)" class="sent-date">{{item.date|amDateFormat:'MM/DD/YY'}}</p>
                             </div>
                          </div>
