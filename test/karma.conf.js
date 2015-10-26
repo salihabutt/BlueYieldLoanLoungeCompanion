@@ -42,6 +42,9 @@ module.exports = function(config) {
       'bower_components/dropzone/downloads/dropzone.min.js',
       'bower_components/angular-dropzone/lib/angular-dropzone.js',
       'bower_components/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js',
+      'bower_components/pdfjs-dist/build/pdf.js',
+      'bower_components/pdfjs-dist/build/pdf.worker.js',
+      'bower_components/angular-pdf-viewer/dist/angular-pdf-viewer.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
