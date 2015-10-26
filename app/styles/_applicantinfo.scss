@@ -1,0 +1,82 @@
+.applicant-wrapper {
+	background: #3473A9;
+	font-family: open sans;
+	font-size: 14px;
+	height: 106px;
+	color: #FFFFFF;
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+	
+}
+.account-info {
+	width: 100%;
+	height: 25px;
+	
+	.right-style {
+		float: right
+	}
+	
+	span {
+		margin-left: 15px;
+	}
+}
+
+.personal-info {
+	font-size: 16px;
+	width: 100%;
+}
+
+.grey-writing {
+	color: #ccc;
+}
+
+.left-style {
+	display: -webkit-box;
+    margin: 0px 0px 0px 20px;
+    
+    a, a:hover, a:active, a:visited {
+    	text-decoration:none;
+        outline: none;
+	}
+}
+.ic-info {
+	margin-right: 10px;
+}
+.contact-box-wrapper {
+	display: flex;
+}
+
+.contact-box {
+ 	width: 240px;
+ 	height: 58px;
+	border: 1px #455363 solid;
+ 	margin-left: 8px;
+ 	border-radius: 2px;
+ 	font-size: 16px;
+ 	display: -webkit-box;
+ 
+ 	.sub-box {
+ 		width: 60px;
+ 		border-right: 1px #455363 solid;
+ 	}
+ 	
+ 	.sub-box img {
+    	margin-top: 15px;
+    	margin-left: 15px;
+	}
+	
+	.sub-box img.email-box {
+    	margin-top: 18px !important;
+    	margin-left: 18px;
+	}
+	
+	.sub-box-2 {
+		margin-top: 8px;
+		margin-left: 10px;
+		
+		span {
+			font-weight: bold;
+		}
+	}
+}
+

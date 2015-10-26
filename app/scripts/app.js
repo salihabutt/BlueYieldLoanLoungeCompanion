@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+var app=angular
 	.module('blueYieldLoanLoungeCompanionApp', [
 		'ngAnimate',
 		'ngCookies',
@@ -16,22 +16,36 @@ angular
 		'ngRoute',
 		'ngSanitize',
 		'ngTouch',
-		'ui.router'
-	])
-	.config(function ($stateProvider, $urlRouterProvider) {
+		'ui.router',
+		'angularMoment',
+		'ui.sortable',
+		'jkuri.slimscroll',
+		'ui.mask',
+		'ui.bootstrap',
+		'ngDropzone',
+		'pdf',
+		'dndLists'
+	]);
+
+	app.config(function ($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise('main');
 
-		$stateProvider
-			.state('main', {
-				url: '/',
-				templateUrl: 'views/main.html',
-				controller : 'MainCtrl',
-				controllerAs : 'main'
-			})
-			.state('about', {
-				url : '/about',
-				templateUrl: 'views/about.html',
-				controller: 'AboutCtrl',
-				controllerAs: 'about'
-			})
+	$stateProvider
+      	.state('main', {
+      		url: '',
+      		templateUrl: 'views/main.html',     
+      		abstract: 'true'		
+		})
+		.state('home', {
+			parent: 'main',
+			url:'/main',
+			views: {
+				'header' : {
+					templateUrl: 'views/header.html'
+				},
+				'content' : {
+					templateUrl: 'views/home.html'
+				}
+			}
+        });
 	});

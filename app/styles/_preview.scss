@@ -1,0 +1,105 @@
+.preview-wrapper {
+	margin-right:0px;
+	margin-left:0px;
+}
+
+.top-bar {
+    height: 66px;
+    background: #E7EbF4;
+    padding-left: 15px;
+    
+    .icon-bar {
+    	padding: 15px 0px 0px 0px;
+    	
+    	.icon {
+				float: right;
+				padding-right: 30px;
+				cursor: pointer;
+			}
+		}
+}
+
+.slimScrollDiv { 
+	border: 1px solid #FFFFFF; 
+	margin:	30px; 
+}
+
+ .slimScrollBar { 
+ 	opacity: 0.2 !important; 
+ }
+  
+ .slimScrollDiv:hover .slimScrollBar {
+ 	 opacity: 0.4 !important; 
+ } 
+ 
+div#preview-file {
+    width: 85%;
+    height: 140px;
+    margin-left: 40px;
+}
+
+div.mousescroll {
+    overflow: hidden;
+}
+
+div.mousescroll:hover {
+    overflow-y: scroll;
+}
+
+.thumbnail-wrapper {
+	width: 164px;
+	height: 214px;
+	margin: 20px;
+	
+	.thumbnail {
+		height: 190px;
+		padding: none;
+		margin-bottom: 0px;
+		
+		img {
+			width: 164px;
+			height: 185px;
+		}
+	}
+	
+	.page {
+		height: 24px;
+		width: 161px;
+		background-color: #ccc;
+		color: #FFFFFF;
+		text-align: center;
+	}
+}
+
+div#preview-thumb {
+    height: 140px;
+    margin-left: 40px;
+}
+
+div#printImages {
+    position: fixed;
+    top: 250px;
+    left: 550px;
+    visibility: hidden;
+    display: block;
+	width: auto;
+	height: auto;
+	overflow: visible;
+}
+
+div#printPDF {
+    position: fixed;
+    top: 250px;
+    left: 550px;
+    visibility: hidden;
+	width: auto;
+	height: auto;
+	overflow: visible;
+	display: none;
+}
+
+div#preview-image {
+    width: 85%;
+    height: 140px;
+    margin-left: 40px;
+}

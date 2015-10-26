@@ -1,0 +1,60 @@
+<div ng-include="'views/applicantinfo.html'" class="applicant-wrapper clearfix"></div>
+<div class="col-lg-12 no-padding" style="display:-webkit-box;" ng-controller="HomeCtrl as home">
+	<div ng-include="'views/leftpanel.html'"></div>
+<!--  ************************ RIGHT PANEL ********************************* -->
+	<div class="right-panel" ng-show="!showFile">	
+		<div class="logo-bg">
+            <img src="images/logo_gray_BH.png">
+   		</div>
+	</div>
+	<div class="right-panel" ng-show="showFile">
+		<div class="top-bar">
+        	<div class="col-lg-4 icon-bar">
+        		<span> 
+					<img src="../images/im_document@2x.png"alt="document-btn" />
+				</span>
+            	<span style="font-weight:bold">{{fileToDisplay.name}}</span>
+       		 </div>
+     		<div class="clearfix icon-bar">
+     		 <!--  Removed functionality  -->
+       		<!--  	<span class="icon"> <img src="../images/bt_print@2x.png" alt="delete-btn" print-single/></span> 
+       			<span class="icon"> <img src="../images/bt_donwload@2x.png"alt="download-btn" ng-click="home.downloadCurrentFile()" /></span> 
+       			<span class="icon"> <img src="../images/bt_delete@2x.png"alt="print-btn" ng-click="openDeletePopup('single')"/></span>
+       		 -->
+       		<span class="icon"> <img src="../images/bt_closeview@2x.png"alt="print-btn" ng-click="clearRightView()"/></span>
+       		</div>
+       	
+		</div>
+		<div style="display:-webkit-box;width:100%" ng-show='isPdf'>
+    		<div ng-slimscroll id="preview-file" class="mousescroll slimScrollDiv">
+         		<pdf-viewer delegate-handle="my-pdf-container" url="" scale="1" show-toolbar="true" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer>
+        	</div>
+    		<div>
+        		<div class="toggle-btn-thumbnail" ng-click="toggleThumbnail(!showThumbnail)">
+        			<img src="images/ic_toggle_button.png">
+       			</div>
+				<div ng-slimscroll id="preview-thumb" class="mousescroll slimScrollDiv" ng-show="showThumbnail">
+            		<div class="thumbnail-wrapper" id="thumbnail-wrapper" ng-show="showThumbnail"></div>
+      			</div>
+        	</div>
+		</div>
+    	<div ng-show='!isPdf' class="img-div" id="imagesToDisplay">
+        	<div ng-repeat="item in imagesToDisplay">
+            	<img ng-src='{{item.src}}' >
+         	</div>
+    	</div>
+	</div>
+    
+	<div>
+   <!-- <div id="printPDF">
+  <div ng-repeat="item in pdfForPrint">
+    <pdf-viewer delegate-handle="my-pdf-container1" url="item.url" scale="1" show-toolbar="false" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer>
+    </div>-->
+    	<div id="printImages">
+    		<div ng-repeat="item in imagesToProcess">
+    			<img src="{{item.src}}" >
+    		</div>
+    	</div>
+	</div>
+</div>
+

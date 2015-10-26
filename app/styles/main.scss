@@ -3,6 +3,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import 'header';
+@import 'applicantinfo';
+@import 'home';
+@import 'preview';
+@import 'popup';
+@import 'datepicker';
+@import 'jquery-ui';
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -15,15 +23,15 @@ body {
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
+.header1,
+.marketing1,
+.footer1 {
   padding-left: 15px;
   padding-right: 15px;
 }
 
 /* Custom page header */
-.header {
+.header1 {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
 
@@ -37,7 +45,7 @@ body {
 }
 
 /* Custom page footer */
-.footer {
+.footer1 {
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
@@ -59,7 +67,7 @@ body {
 }
 
 /* Supporting marketing content */
-.marketing {
+.marketing1 {
   margin: 40px 0;
 
   p + h4 {
@@ -74,18 +82,76 @@ body {
   }
 
   /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
+  .header1,
+  .marketing1,
+  .footer1 {
     padding-left: 0;
     padding-right: 0;
   }
   /* Space out the masthead */
-  .header {
+  .header1 {
     margin-bottom: 30px;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
+  .jumbotron1 {
     border-bottom: 0;
   }
 }
+
+/* helper classes */
+
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.no-margin {
+  margin: 0px !important;
+}
+
+.margin-top10{
+  margin-top: 10px;
+}
+
+.margin-top20{
+  margin-top: 20px;
+}
+
+.padding-top20{
+  padding-top: 20px;
+}
+
+.border-bottom{
+  border-bottom: 1px solid #D8DDE3;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align glyph */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.right-side-wrapper {
+		margin-left: 83px !important;
+	}
+
+  .btn{
+    border-radius: 0px !important;
+  }
