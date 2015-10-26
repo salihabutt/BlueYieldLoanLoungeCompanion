@@ -555,6 +555,15 @@ angular.module('blueYieldLoanLoungeCompanionApp')
 	        				}
 	        				stipData.push(sObj);
 	        				return stipData;
+	        			},
+	        			showExpirayDate: function () {
+	        				var name =clickedParent.name;
+	        				if(name === 'Social Security Card' || name === 'Marriage Certificate' || 
+	        						name === 'Death Certificate' || name === 'Paystub' || name === 'Title Back'
+	        						|| name === 'Title Front' || name === 'Income Taxes' || name === 'Bank Statement'){
+	        					return false;
+	        				}
+	        				return true;
 	        			}
 	        		}
 	    	});
