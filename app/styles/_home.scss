@@ -1,0 +1,356 @@
+.img-div {
+	width: 95%;
+    height: 90%;
+    position: relative;
+    display: inline-block;
+    overflow: auto;
+    top: 14px;
+    left: 28px;
+}
+
+.img-div > img {
+	 position: absolute;
+    top: 50%;
+    min-height: 100%;
+    display: block;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    min-width: 100%;
+}
+
+.right-panel {
+	width: 1420px;
+	background-color: #ffffff;
+	position: relative;
+}
+
+.left-panel {
+	width: 500px;
+	border-right: 1px solid #D8DDE3;
+	background-color: #edf2f8;
+	position: relative;
+
+	.icon-bar {
+		background-color: #fff;
+		padding: 20px 20px;
+		font-size: 18px; 
+		color: #262D40 ;
+		border-bottom: 1px solid #D8DDE3;
+
+		.icon {
+			float: right;
+			padding-left: 30px;
+			cursor: pointer;
+		}
+	}
+
+	.widget-section {
+		padding:20px;
+		
+		.universal-widget-style {
+			border : 1px solid #D8DDE3;
+
+			.widget-heading {
+			    font-size: 18px;
+			    background-color: #99A5B3;
+			    height: 50px;
+			    padding: 12px;
+			    color: #fff;
+			}
+			
+			.widget-sub-heading {
+			    font-size: 18px;
+			    height: 50px;
+			    padding: 12px;
+			    color: #000;
+			    text-align: center;
+			    border-bottom: 1px solid #D8DDE3;
+			    border-top : 1px solid #D8DDE3;
+			}
+			
+			.input-box-section {
+				background-color: #ffffff;
+				padding: 10px 10px 5px 10px;
+		
+				
+				ul {
+			    	list-style-type: none;
+					padding-left: 0px;
+					height: 40px;
+			    }
+			    
+			    ul li {
+			    	width: 100%;
+			    	height: 70px;
+			    	padding: 0px 0px 0px 0px;
+			    	cursor:pointer;
+			    }
+			    li:hover {
+			    	background-color: #E0E2E4;
+			    	cursor:pointer;
+			    }
+			}
+
+			.document-box-section {
+				background-color: #ffffff;
+				padding: 10px 10px 10px 10px;
+				border-bottom: 1px solid #D8DDE3;
+			    border-top : 1px solid #D8DDE3;
+			    
+			    ul {
+			    	list-style-type: none;
+					padding-left: 0px;
+					height: 40px;
+			    }
+			    
+			    ul li {
+			    	width: 100%;
+			    	height: 70px;
+			    	padding: 0px 0px 0px 0px;
+			    	cursor:pointer;
+			    }
+			    li:hover {
+			    	background-color: #E0E2E4;
+			    	cursor:pointer;
+			    }
+			}
+
+			.widget-textbox {
+			    width: 81%;
+			    height: 40px;
+			    padding: 0px 12px;
+			    border: 1px solid #D8DDE3;
+			    box-shadow: 0px 2px 5px #DCDCDC inset;
+			}
+
+			.calender-icon {
+				background-image: url("/images/im_calendar.png");
+				background-repeat: no-repeat;
+    			background-position: 95% center;
+			}
+
+			.widget-button {
+			    width: 80px;
+			    margin-left: -5px;
+			    font-size: 14px;
+			    height: 40px;
+			    background-color: #5ACE73;
+			    border: 2px solid #5ACE73;
+			    border-bottom: 2px solid #48A95D;
+			    color: #fff;
+			}
+
+			.widget-button-long {
+			    width: 100%;
+			    font-size: 14px;
+			    height: 40px;
+			    background-color: #5ACE73;
+			    color: #fff;
+			    border: none;
+    			text-align: center;
+			}
+
+			.widget-button-long-disabled {
+			    width: 100%;
+			    font-size: 14px;
+			    height: 40px;
+			    background-color: #BABFBB;
+			    color: #fff;
+			    border: none;
+    			text-align: center;
+				}
+				
+			.widget-button-verify {
+			    width: 84px;
+			    font-size: 14px;
+			    height: 40px;
+			    background-color: #B1B8C8;
+			    border: 2px solid #B1B8C8;
+			    border-bottom: 2px solid #9C9E9C;
+			    color: #fff;
+			    float: right;
+			}
+			
+			.document-to-verify {
+			    font-size: 18px;
+			    padding: 12px;
+			    color: #000;
+			    text-align: center;
+			    border-bottom: 1px solid #D8DDE3;
+			    border-top : 1px solid #D8DDE3;
+			}
+
+			.location-status {
+				font-size: 12px;
+				color: grey;
+			}
+
+			.image-status {
+				font-size: 14px;
+				color: grey;	
+				float:left;
+			}
+
+			.image-status-red {
+				font-size: 14px;
+				color: red;	
+				float:left;
+				margin-left: 5px !important;
+			}
+
+			.checkbox-box-section {
+
+				.checkbox {
+						font-size: 16px;
+						color: #000;
+						/*margin: 22px 0px 26px 0px;*/
+					}
+
+				textarea {
+				    height: 127px;
+   					width: 333px;
+					vertical-align: top;
+					margin-right: 10px;
+					resize: vertical;
+					margin-bottom: 30px;
+				}
+			}
+			
+			.list-no-style {
+				list-style-type: none;
+				padding-left: 0px
+			}
+		}
+		
+		.widget-button-send {
+			width: 80px;
+			font-size: 14px;
+			height: 40px;
+			margin-top: 5px;
+			background-color: #B1B8C8;
+			border: 2px solid #B1B8C8;
+			border-bottom: 2px solid #9C9E9C;
+			color: #fff;
+		}
+	
+		.fileupload {
+			min-height: inherit;
+			background-color: inherit;
+			padding: initial;
+		}
+		
+		.dropzone .dz-default.dz-message{
+			background-image: none !important;
+		}
+		
+		.dz-preview {
+ 	 		display: none;
+		}
+	}
+
+	.checkbox-no-padding {
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+}
+
+.pdf-preview-wrapper {
+	margin: 70px 0px 0 130px;
+	height: 500px;
+    overflow: auto;
+}
+
+.logo-bg {
+    text-align: center;
+    margin-top: 300px;
+}
+
+.sent-date {
+	font-family: open sans;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+#thumbwrap {
+	position: relative;
+
+	.thumb img { 
+		width: 50px;
+		height: 50px;
+		padding: 0px 0px 0px 0px;
+		border: 1px #ccc solid;
+	}
+	.thumb span { 
+		position: absolute;
+		visibility: hidden;
+		width: 200px;
+		height: 200px;
+	}
+	.thumb:hover, .thumb:hover span {
+		visibility: visible;
+		top: 40px;
+		z-index: 1;
+	}
+
+	.thumb-span {
+		width: 300px !important;
+		height: 300px !important;
+		border: 1px #ccc solid;
+	}
+}
+
+.toggle-btn-thumbnail {
+	height: 24px;
+	width: 30px;
+	background-color: #ccc;
+	text-align: center;
+}
+
+.calender-icon {
+	background-image: url("/images/im_calendar.png");
+	background-repeat: no-repeat;
+	background-position: 95% center;
+}
+
+
+
+/* dropzone css changes */
+
+.dropzone .dz-default.dz-message {
+    position: absolute;
+    width: 429px;
+    height: 40px;
+    margin-left: -214px;
+    margin-top: -40.5px;
+    top: 50%;
+    left: 50%;
+}
+
+
+/* truncating file names */
+
+.word-truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.inactive-btn {
+	background-color: #cacaca;	
+	height: 40px;
+	outline: none;
+	color: #FFFFFF;
+}
+
+.active-btn {
+	background-color: #5ACE73;
+	height: 40px !important;
+	outline: none !important;
+	color: #FFFFFF !important;
+}
+
+.list-active {
+background-color: #E0E2E4;
+}
+

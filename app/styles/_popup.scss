@@ -1,0 +1,270 @@
+.modal-dialog {
+	width: 600px;
+	margin: 40px auto;
+
+	.modal-header {
+		height: 50px;
+	    background-color: #E7E7E7;
+	    border-bottom: 1px solid #B5B4B4;
+	    text-align: center;
+
+	    .modal-title {
+			line-height: 1;
+			font-size: 16px;
+			font-family: Open Sans;
+			font-weight: bold;
+		}
+	}
+
+	.modal-body {
+		background-color: #f7f7f7;
+	
+		.stip-category {
+			list-style: none;
+			padding: 0px 0px 0px 29px;
+
+			.checkbox {
+				font-size: 16px;
+			}
+		}
+		
+		a {
+			color: red;
+			text-decoration: underline;
+			font-weight: none;
+			font-size: 12px;
+		}
+		
+		.disabled-text {
+			color: #B5B3B3 !important;
+		}
+	}
+	
+	.modal-footer { 
+		border: 0px;
+		background-color: #f7f7f7;
+
+		.popup-btn-done {
+			width: 120px;
+		    margin-left: -5px;
+		    font-size: 14px;
+		    height: 40px;
+		    background-color: #5ACE73;
+		    border: 2px solid #5ACE73;
+		    border-bottom: 2px solid #48A95D;
+		    color: #fff;
+		}
+
+		.popup-btn-close {
+			width: 120px;
+		    font-size: 14px;
+		    height: 40px;
+		    background-color: #B1B8C8;
+		    border: 2px solid #B1B8C8;
+		    border-bottom: 2px solid #9C9E9C;
+		    color: #fff;
+		    margin-right: 20px;
+		}
+	}
+}
+
+.modal-verify .modal-dialog {
+		width: 400px;
+    	height: 80%;
+		.margin-top { 
+    		margin-top: 30px;
+    	}
+
+    	.inner-addon .glyphicon {
+    		padding-right: 20px;
+    		padding-top: 4px;
+    	}
+
+    	.modal-footer {
+		    padding: 15px;
+		    text-align: center;
+		    border-top: 1px solid #e5e5e5;
+		}
+		
+		.widget-textbox {
+		    width: 79%;
+		    height: 40px;
+		    padding: 0px 12px;
+		    border: 1px solid #D8DDE3;
+		    box-shadow: 0px 2px 5px #DCDCDC inset;
+		}
+
+		.widget-button {
+			    margin-left: -5px;
+			    font-size: 14px;
+			    height: 40px;
+			    background-color: #5ACE73;
+			    border: 2px solid #5ACE73;
+			    border-bottom: 2px solid #48A95D;
+			    color: #fff;
+		}
+		
+		.stip-not-found {
+			top: 10px;
+			span {
+				font-weight: bold;
+			}
+		}			
+}
+
+.modal-sendcustomer .modal-dialog {
+		width: 505px;
+		height: 286px;
+		
+		.model-sendCust-body {
+			background-color: #f7f7f7;
+			font-size: 14px;
+			font-family: "Helvetica";
+			padding-top: 10px;
+			p {
+			margin: 0 0 0;
+		}
+		
+		.modal-im-doc {
+		    padding-left: 50px;
+		    margin-top: 22px;
+		}
+		
+		span {
+			font-weight: bold;
+		}
+		
+		col-lg-9{
+			padding-left: 23px;
+		}
+	}
+}
+
+.modal-mergefiles .modal-dialog {
+		width: 497px;
+		height: 300px;
+		
+	.modal-mergefiles-body {
+		background-color: #f7f7f7;
+		font-size: 14px;
+		font-family: "Helvetica";
+		padding-top: 10px;
+		text-align: center;
+		
+		p {
+			margin: 0 0 0;
+		}
+		
+		.modal-im-doc {
+		    padding-left: 50px;
+		    margin-top: 22px;
+		}
+		
+		input[type="text"]{
+			width: 300px;
+		}
+		
+		span {
+			font-weight: bold;
+		}
+	}
+	
+	.modal-footer{
+			text-align: center;
+	}
+	
+	.mergefile-error {
+		color: #FB0505;
+		font-family: open sans;
+		font-size: 15px;
+	}
+}
+
+
+.modal-deletefiles .modal-dialog {
+		width: 500px;
+		height: 233px;
+		
+	.modal-deletefiles-body {
+		background-color: #f7f7f7;
+		font-size: 14px;
+		font-family: "Helvetica";
+		padding-top: 10px;
+		text-align: center;
+		
+		p {
+			margin: 0 0 0;
+		}
+		
+		span {
+			font-weight: bold;
+		}
+	}
+	.modal-footer {
+			text-align: center;
+	}
+}
+
+.modal-custinfo .modal-dialog {
+		position: fixed;
+       	top: 7%;
+    	left: 13.5%;
+    	z-index: 1050;
+    	width: 80%;
+    	height: 30%;
+    	margin-left: -10%;
+		width: 500px;
+
+    	.margin-top {
+    		margin-top: 30px;
+    	}
+
+    	.inner-addon .glyphicon {
+    		padding-right: 20px;
+    		padding-top: 4px;
+    	}
+    	
+    	span {
+    		font-weight: bold;
+    	}
+    	
+    	p {
+    	    margin: 0 0 5px;
+    	}			
+}
+
+.modal-nostipfound .modal-dialog {
+		left: 50px;
+		
+		ul {
+			list-style-type: none;
+			padding-left: 0px;
+		}
+		
+		ul li {
+			width: 100%;
+			padding: 0px 0px 0px 0px;
+		}
+		
+		li ul li:hover {
+	 		background-color: #BDEDFF;
+		}
+		
+		a, a:hover, a:active, a:visited {
+    		text-decoration:none;
+    		color: #000000;
+		}
+		
+    	span {
+    		font-weight: bold;
+    	}
+    	
+    	p {
+    		margin-top: 10px;
+    	    color: #B6B6B4;
+    	}			
+}
+
+input[type="radio"][disabled] ~ span {
+	color: #B5B3B3 !important;
+}

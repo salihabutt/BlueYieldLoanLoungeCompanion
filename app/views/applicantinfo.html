@@ -1,0 +1,67 @@
+<div ng-controller="AppInfoCtrl as appCtrl">
+	<div class="row account-info">
+		<div class="col-lg-6">
+			<span>Account Number: {{appCtrl.account}}</span>
+		</div>
+		<div class="col-lg-6">
+			<div class="right-style">
+				<span>APPLIED: {{appCtrl.appliedBy}}</span> 
+				<span>TIME SINCE APPLIED: {{appCtrl.timeSinceApplied}}</span> 
+				<span>PRODUCT: {{appCtrl.product}}</span>
+			</div>
+		</div>
+	</div>
+	<div class="row personal-info">
+		<div class="col-lg-3">
+			<div class="left-style">
+			<div>
+			<a href="#" ng-click="appCtrl.openCustInfoModal()"><img src="images/ic_information.png" class="ic-info"></a>
+			</div>
+			<div>
+				{{appCtrl.applicantInfo.name}} <br />
+				<span class="grey-writing">{{appCtrl.applicantInfo.address}}</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div>
+				{{appCtrl.applicantInfo.name2}} <br />
+				<span class="grey-writing">{{appCtrl.applicantInfo.address2}}</span>
+			</div>
+		</div>
+		<div class="col-lg-6 contact-box-wrapper">
+			<div class="contact-box">
+				<div class="sub-box">
+					<img src="images/im_phone@2x.png">
+				</div>
+				<div class="sub-box-2">
+					<span>Cell Phone:</span> <br />{{appCtrl.applicantInfo.cellphone}}
+				</div>
+			</div>
+			<div class="contact-box">
+				<div class="sub-box">
+					<img src="images/im_phone@2x.png">
+				</div>
+				<div class="sub-box-2">
+					<span>Home:</span> <br />{{appCtrl.applicantInfo.home}}
+				</div>
+			</div>
+			<div class="contact-box">
+				<div class="sub-box">
+					<img src="images/im_phone@2x.png">
+				</div>
+				<div class="sub-box-2">
+					<span>Work:</span> <br />{{appCtrl.applicantInfo.work}}
+				</div>
+			</div>
+			<div class="contact-box">
+				<div class="sub-box ">
+					<img class="email-box" src="images/_im_mail@2x.png">
+				</div>
+				<div class="sub-box-2">
+					<span>Personal Email:</span> <br />{{appCtrl.applicantInfo.email}}
+				</div>
+			</div>			
+		</div>
+	</div>
+</div>
